@@ -40,7 +40,7 @@ const PressLogos = () => {
     },
     {
       name: "Highsnobiety",
-      imagePath: "/lovable-uploads/61135087-189d-459a-87e3-07f42ee25cc4.png",
+      imagePath: "/lovable-uploads/708cd318-d806-400c-96b9-edbf9e593cda.png",
       altText: "Highsnobiety logo",
       sizeClass: "max-h-10 md:max-h-14" // Increased size for Highsnobiety
     },
