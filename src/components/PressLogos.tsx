@@ -1,4 +1,3 @@
-
 import React from "react";
 
 interface PressLogo {
@@ -30,7 +29,7 @@ const PressLogos = () => {
       name: "Forbes",
       imagePath: "/lovable-uploads/3745bf00-e7b1-48f9-8f91-6fbf9ffe911d.png",
       altText: "Forbes logo",
-      sizeClass: "max-h-20 md:max-h-24" // Significantly increased size for Forbes
+      sizeClass: "max-h-12 md:max-h-16" // Reduced size for Forbes to match others
     },
     {
       name: "Grammy Awards",
@@ -46,9 +45,9 @@ const PressLogos = () => {
     },
     {
       name: "Hypebeast",
-      imagePath: "/lovable-uploads/2a6e2e58-db0d-4fda-974d-bde321e26f58.png",
+      imagePath: "/lovable-uploads/3e4daa5a-9573-492c-a79e-4e1e47cb0786.png",
       altText: "Hypebeast logo",
-      sizeClass: "max-h-20 md:max-h-24" // Significantly increased size for Hypebeast
+      sizeClass: "max-h-12 md:max-h-16" // Adjusted size for the new Hypebeast logo
     },
     {
       name: "MTV",
