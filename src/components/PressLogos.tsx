@@ -88,7 +88,7 @@ const PressLogos = () => {
           {[...logos, ...logos].map((logo, index) => (
             <div 
               key={`${logo.name}-${index}`} 
-              className="flex-shrink-0 w-36 md:w-48 mx-5 md:mx-6 flex items-center justify-center h-16 md:h-20"
+              className="flex-shrink-0 w-28 md:w-36 mx-3 md:mx-4 flex items-center justify-center h-14 md:h-16"
             >
               <img 
                 src={logo.imagePath} 
