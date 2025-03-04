@@ -43,11 +43,11 @@ const Navbar = () => {
             scrollToSection("hero");
           }}
         >
-          {/* Logo with white elements (no purple) - using invert when not scrolled */}
+          {/* Logo with white elements (always inverted to avoid purple) */}
           <img 
             src="/lovable-uploads/87bbcdd9-e884-489b-a257-8495edf6bfbe.png" 
             alt="TRIX STUDIOS Logo" 
-            className={`h-12 md:h-16 ${!isScrolled ? "brightness-0 invert" : ""}`}
+            className="h-12 md:h-16 brightness-0 invert" 
           />
         </a>
 
