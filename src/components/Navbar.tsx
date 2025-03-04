@@ -43,11 +43,11 @@ const Navbar = () => {
             scrollToSection("hero");
           }}
         >
-          {/* First altered version - just bigger size */}
+          {/* Smaller size with white outline */}
           <img 
             src="/lovable-uploads/916407ce-bdb9-4fb3-8b1e-ecbb868f8b02.png" 
             alt="TRIX STUDIOS Logo" 
-            className="h-16 md:h-20 grayscale invert" 
+            className="h-12 md:h-16 grayscale invert drop-shadow-[0_0_2px_#FFFFFF]" 
           />
         </a>
 
