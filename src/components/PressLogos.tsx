@@ -1,4 +1,3 @@
-
 import React from "react";
 
 interface PressLogo {
@@ -48,7 +47,7 @@ const PressLogos = () => {
       name: "Hypebeast",
       imagePath: "/lovable-uploads/3e4daa5a-9573-492c-a79e-4e1e47cb0786.png",
       altText: "Hypebeast logo",
-      sizeClass: "max-h-4 md:max-h-6"
+      sizeClass: "max-h-3 md:max-h-4" // Reduced by approximately 30%
     },
     {
       name: "MTV",
@@ -64,7 +63,7 @@ const PressLogos = () => {
       name: "VH1",
       imagePath: "/lovable-uploads/0f384f0f-db7f-4670-9979-28b8f7a21d86.png",
       altText: "VH1 logo",
-      sizeClass: "max-h-12 md:max-h-16"
+      sizeClass: "max-h-10 md:max-h-13" // Reduced by approximately 20%
     },
     {
       name: "Vice",
