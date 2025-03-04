@@ -9,9 +9,9 @@ const Footer = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            {/* Original logo with specific styling for hat stripe and Studios text */}
+            {/* New logo with white elements instead of purple, with filter for visibility on dark background */}
             <img 
-              src="/lovable-uploads/63549b7f-efc0-4911-8fa7-68f4b0886ee2.png" 
+              src="/lovable-uploads/87bbcdd9-e884-489b-a257-8495edf6bfbe.png" 
               alt="TRIX STUDIOS Logo" 
               className="h-12 md:h-16 brightness-0 invert" 
             />

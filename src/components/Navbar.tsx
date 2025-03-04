@@ -43,9 +43,9 @@ const Navbar = () => {
             scrollToSection("hero");
           }}
         >
-          {/* Original logo with specific styling for hat stripe and Studios text */}
+          {/* New logo with white elements instead of purple */}
           <img 
-            src="/lovable-uploads/63549b7f-efc0-4911-8fa7-68f4b0886ee2.png" 
+            src="/lovable-uploads/87bbcdd9-e884-489b-a257-8495edf6bfbe.png" 
             alt="TRIX STUDIOS Logo" 
             className="h-12 md:h-16" 
           />
