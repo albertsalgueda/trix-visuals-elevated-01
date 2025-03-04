@@ -97,7 +97,7 @@ const PressLogos = () => {
   ];
 
   return (
-    <div className="w-screen bg-black py-10 overflow-hidden relative left-[50%] right-[50%] mx-[-50vw]">
+    <div className="w-screen overflow-hidden relative left-[50%] right-[50%] mx-[-50vw]">
       <div className="relative">
         <div className="text-center mb-6">
           <span className="text-white text-sm uppercase tracking-widest font-medium">Featured In</span>
