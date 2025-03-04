@@ -43,11 +43,11 @@ const Navbar = () => {
             scrollToSection("hero");
           }}
         >
-          {/* Enhanced filter with white text-shadow for better outline effect */}
+          {/* Original black and white logo styling */}
           <img 
             src="/lovable-uploads/916407ce-bdb9-4fb3-8b1e-ecbb868f8b02.png" 
             alt="TRIX STUDIOS Logo" 
-            className="h-12 md:h-16 brightness-[1.5] contrast-[1.2] grayscale invert drop-shadow-[0_0_3px_rgba(255,255,255,0.7)]" 
+            className="h-12 md:h-16 grayscale invert" 
           />
         </a>
 
