@@ -27,6 +27,12 @@ const PressLogos = () => {
       altText: "Complex logo"
     },
     {
+      name: "Fader",
+      imagePath: "/lovable-uploads/a2f16ef9-a4b8-45ab-9f5d-49baf7fdaabf.png",
+      altText: "Fader logo",
+      sizeClass: "max-h-8 md:max-h-10"
+    },
+    {
       name: "Forbes",
       imagePath: "/lovable-uploads/3745bf00-e7b1-48f9-8f91-6fbf9ffe911d.png",
       altText: "Forbes logo",
@@ -48,7 +54,7 @@ const PressLogos = () => {
       name: "Hypebeast",
       imagePath: "/lovable-uploads/3e4daa5a-9573-492c-a79e-4e1e47cb0786.png",
       altText: "Hypebeast logo",
-      sizeClass: "max-h-3 md:max-h-4" // Reduced by approximately 30%
+      sizeClass: "max-h-3 md:max-h-4"
     },
     {
       name: "MTV",
@@ -64,7 +70,7 @@ const PressLogos = () => {
       name: "VH1",
       imagePath: "/lovable-uploads/0f384f0f-db7f-4670-9979-28b8f7a21d86.png",
       altText: "VH1 logo",
-      sizeClass: "max-h-10 md:max-h-13" // Reduced by approximately 20%
+      sizeClass: "max-h-10 md:max-h-13"
     },
     {
       name: "Vice",
