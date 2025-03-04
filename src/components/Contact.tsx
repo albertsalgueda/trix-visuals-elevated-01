@@ -1,12 +1,50 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Mail, ArrowRight } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
-    console.log("Form submitted");
+    setIsSubmitting(true);
+    
+    try {
+      // Create a mailto URL with the form data
+      const subject = `TRIX Studio Contact: ${name}`;
+      const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+      const mailtoURL = `mailto:yasha@trix.studio?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open the mailto link
+      window.open(mailtoURL, "_blank");
+      
+      // Show success toast
+      toast({
+        title: "Message prepared",
+        description: "Your email client has been opened with your message. Please send the email to complete your request.",
+        duration: 5000,
+      });
+      
+      // Reset form
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or contact us directly at yasha@trix.studio",
+        variant: "destructive",
+        duration: 5000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -25,8 +63,8 @@ const Contact = () => {
             
             <div className="flex items-center space-x-4 mb-12">
               <Mail size={24} />
-              <a href="mailto:contact@trixstudio.com" className="text-lg link-hover">
-                contact@trixstudio.com
+              <a href="mailto:yasha@trix.studio" className="text-lg link-hover">
+                yasha@trix.studio
               </a>
             </div>
             
@@ -54,6 +92,8 @@ const Contact = () => {
               <input
                 id="name"
                 type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full px-4 py-3 bg-transparent border border-black/20 focus:border-black focus:outline-none transition-colors"
                 required
               />
@@ -66,6 +106,8 @@ const Contact = () => {
               <input
                 id="email"
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-3 bg-transparent border border-black/20 focus:border-black focus:outline-none transition-colors"
                 required
               />
@@ -78,6 +120,8 @@ const Contact = () => {
               <textarea
                 id="project"
                 rows={5}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 className="w-full px-4 py-3 bg-transparent border border-black/20 focus:border-black focus:outline-none transition-colors"
                 required
               />
@@ -85,9 +129,12 @@ const Contact = () => {
             
             <button
               type="submit"
-              className="inline-flex items-center space-x-2 bg-black text-white px-6 py-3 transition-transform duration-300 ease-out hover:translate-x-1"
+              disabled={isSubmitting}
+              className="inline-flex items-center space-x-2 bg-black text-white px-6 py-3 transition-transform duration-300 ease-out hover:translate-x-1 disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              <span className="text-sm font-medium uppercase tracking-wider">Send Message</span>
+              <span className="text-sm font-medium uppercase tracking-wider">
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </span>
               <ArrowRight size={16} />
             </button>
           </form>
