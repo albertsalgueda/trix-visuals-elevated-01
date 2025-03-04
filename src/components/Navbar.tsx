@@ -43,7 +43,7 @@ const Navbar = () => {
             scrollToSection("hero");
           }}
         >
-          {/* Original logo without filters that would make it all black */}
+          {/* Original logo with specific styling for hat stripe and Studios text */}
           <img 
             src="/lovable-uploads/63549b7f-efc0-4911-8fa7-68f4b0886ee2.png" 
             alt="TRIX STUDIOS Logo" 
