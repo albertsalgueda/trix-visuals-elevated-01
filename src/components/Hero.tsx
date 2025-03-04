@@ -33,8 +33,8 @@ const Hero = () => {
         className={`absolute inset-0 bottom-auto z-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{
           backgroundImage: `url('/lovable-uploads/1d57b82a-bb4b-4eac-a824-5be92a63cc06.png')`,
-          backgroundSize: "100% auto",
-          backgroundPosition: "center bottom", // Changed from "center 60%" to "center bottom" to show rocks at the bottom
+          backgroundSize: "cover",
+          backgroundPosition: "center bottom",
           height: "calc(100% - 160px)"
         }}
       />
