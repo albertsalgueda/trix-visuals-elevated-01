@@ -30,14 +30,15 @@ const Hero = () => {
       className="relative min-h-screen flex flex-col justify-between pt-24 pb-0 bg-amber-100"
     >
       <div 
-        className={`absolute inset-0 z-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute inset-0 bottom-auto z-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{
           backgroundImage: `url('/lovable-uploads/1d57b82a-bb4b-4eac-a824-5be92a63cc06.png')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center"
+          backgroundSize: "100% auto",
+          backgroundPosition: "center 30%",
+          height: "calc(100% - 160px)"
         }}
       />
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm z-0"></div>
+      <div className="absolute inset-0 bottom-auto bg-black/30 backdrop-blur-[2px] z-0" style={{ height: "calc(100% - 160px)" }}></div>
       <div className="container mx-auto max-w-6xl animate-fade-in px-6 md:px-12 relative z-10">
         <h1 className="font-display text-3xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight mb-4 text-white">
           CINEMATIC INNOVATION. <br />
