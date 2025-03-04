@@ -7,10 +7,14 @@ const Hero = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   
   useEffect(() => {
-    // Use a reliable Unsplash image instead
+    // Load the cactus image
     const img = new Image();
     img.onload = () => setImageLoaded(true);
-    img.src = "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=2000&q=80";
+    img.onerror = (e) => {
+      console.error("Background image failed to load:", e);
+      // If there's an error, we'll still show the section with its base background color
+    };
+    img.src = "/lovable-uploads/1d57b82a-bb4b-4eac-a824-5be92a63cc06.png";
   }, []);
 
   const scrollToWorks = () => {
@@ -23,17 +27,17 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between pt-24 pb-0 bg-gray-800"
+      className="relative min-h-screen flex flex-col justify-between pt-24 pb-0 bg-amber-100"
     >
       <div 
         className={`absolute inset-0 z-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=2000&q=80')`,
+          backgroundImage: `url('/lovable-uploads/1d57b82a-bb4b-4eac-a824-5be92a63cc06.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}
       />
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm z-0"></div>
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm z-0"></div>
       <div className="container mx-auto max-w-6xl animate-fade-in px-6 md:px-12 relative z-10">
         <h1 className="font-display text-3xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight mb-4 text-white">
           CINEMATIC INNOVATION. <br />
