@@ -1,3 +1,4 @@
+
 import React from "react";
 
 interface PressLogo {
@@ -83,9 +84,12 @@ const PressLogos = () => {
         <div className="text-center mb-6">
           <span className="text-white text-sm uppercase tracking-widest font-medium">Featured In</span>
         </div>
-        <div className="flex space-x-12 animate-scroll">
+        <div className="flex animate-scroll">
           {[...logos, ...logos].map((logo, index) => (
-            <div key={`${logo.name}-${index}`} className="flex-shrink-0 h-12 md:h-16 flex items-center">
+            <div 
+              key={`${logo.name}-${index}`} 
+              className="flex-shrink-0 w-36 md:w-48 mx-5 md:mx-6 flex items-center justify-center h-16 md:h-20"
+            >
               <img 
                 src={logo.imagePath} 
                 alt={logo.altText} 
