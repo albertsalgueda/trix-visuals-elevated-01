@@ -9,12 +9,11 @@ const Footer = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            {/* Enhanced logo with much stronger drop shadow and black elements */}
+            {/* Original logo without filters that would make it all black */}
             <img 
-              src="/lovable-uploads/916407ce-bdb9-4fb3-8b1e-ecbb868f8b02.png" 
+              src="/lovable-uploads/63549b7f-efc0-4911-8fa7-68f4b0886ee2.png" 
               alt="TRIX STUDIOS Logo" 
-              className="h-12 md:h-16 grayscale invert drop-shadow-[0_0_15px_rgba(255,255,255,1)] filter contrast-200 brightness-100" 
-              style={{ filter: "invert(1) drop-shadow(0 0 15px white) brightness(0) contrast(1)" }}
+              className="h-12 md:h-16 brightness-0 invert" 
             />
           </div>
           
