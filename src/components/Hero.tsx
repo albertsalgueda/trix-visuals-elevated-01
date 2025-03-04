@@ -27,19 +27,19 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between pt-24 pb-0 bg-amber-100"
+      className="relative min-h-screen flex flex-col justify-between pt-24 pb-0"
     >
       <div 
         className={`absolute inset-0 bottom-auto z-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{
           backgroundImage: `url('/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png')`,
           backgroundSize: "contain",
-          backgroundPosition: "center bottom",
+          backgroundPosition: "center 35%", // Adjusted to move the image up and show water
           backgroundRepeat: "no-repeat",
-          height: "calc(100% - 160px)"
+          height: "100%" // Changed to full height to show the entire image
         }}
       />
-      <div className="absolute inset-0 bottom-auto bg-black/20 backdrop-blur-[0px] z-0" style={{ height: "calc(100% - 160px)" }}></div>
+      <div className="absolute inset-0 bg-black/20 z-0"></div>
       <div className="container mx-auto max-w-6xl animate-fade-in px-6 md:px-12 relative z-10">
         <h1 className="font-display text-3xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight mb-4 text-white">
           CINEMATIC INNOVATION. <br />
