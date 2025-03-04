@@ -30,22 +30,17 @@ const Hero = () => {
             and cinematic narratives into unforgettable visual experiences.
           </p>
         </div>
-        
-        <button 
-          onClick={scrollToWorks}
-          className="inline-flex items-center space-x-2 bg-black text-white px-6 py-3 transition-transform duration-300 ease-out hover:translate-y-1"
-        >
-          <span className="text-sm font-medium uppercase tracking-wider">Explore Our Work</span>
-          <ArrowDown size={16} />
-        </button>
       </div>
       
-      <div className="w-full mt-auto">
+      <div className="w-full">
         <PressLogos />
-      </div>
-      
-      <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ArrowDown size={24} onClick={scrollToWorks} className="cursor-pointer" />
+        <div className="flex justify-center mt-8 mb-12">
+          <ArrowDown 
+            size={32} 
+            onClick={scrollToWorks} 
+            className="cursor-pointer animate-bounce text-white"
+          />
+        </div>
       </div>
     </section>
   );

@@ -1,10 +1,11 @@
+
 import React from "react";
 
 interface PressLogo {
   name: string;
   imagePath: string;
   altText: string;
-  sizeClass?: string; // Add optional size class property
+  sizeClass?: string;
 }
 
 const PressLogos = () => {
@@ -78,9 +79,9 @@ const PressLogos = () => {
   ];
 
   return (
-    <div className="w-full bg-black py-8 overflow-hidden">
+    <div className="w-full bg-black py-10 overflow-hidden">
       <div className="relative">
-        <div className="text-center mb-4">
+        <div className="text-center mb-6">
           <span className="text-white text-sm uppercase tracking-widest font-medium">Featured In</span>
         </div>
         <div className="flex space-x-12 animate-scroll">
