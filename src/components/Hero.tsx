@@ -16,7 +16,7 @@ const Hero = () => {
       id="hero"
       className="relative min-h-screen flex flex-col justify-between pt-24 pb-0 bg-cover bg-center"
       style={{ 
-        backgroundImage: "url('/lovable-uploads/b90ef5e4-c7fe-47ca-b88a-8d794dbd4b04.png')",
+        backgroundImage: "url('/lovable-uploads/a2175dc9-e85f-401b-8ca3-47c8a53d8dba.png')",
         backgroundSize: "cover",
         backgroundPosition: "center"
       }}
