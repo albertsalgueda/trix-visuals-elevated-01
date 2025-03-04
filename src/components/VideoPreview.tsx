@@ -61,6 +61,20 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
   const handleThumbnailError = () => {
     console.log(`Error loading thumbnail for ${title}`);
     setThumbnailError(true);
+    
+    // If YouTube video ID exists, try using YouTube thumbnail as fallback
+    if (videoId && !thumbnailUrl.includes('i.ytimg.com')) {
+      const img = new Image();
+      img.onload = () => {
+        setThumbnailError(false);
+        setLoadingThumbnail(false);
+      };
+      img.onerror = () => {
+        setThumbnailError(true);
+        setLoadingThumbnail(false);
+      };
+      img.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+    }
   };
 
   const handleThumbnailLoaded = () => {
@@ -96,14 +110,14 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
             )}
             
             <img 
-              src={thumbnailUrl} 
+              src={thumbnailError && videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : thumbnailUrl} 
               alt={`${artist} - ${title}`}
               className={`w-full h-full object-cover transition-opacity duration-300 ${loadingThumbnail ? 'opacity-0' : 'opacity-100'}`}
               onError={handleThumbnailError}
               onLoad={handleThumbnailLoaded}
             />
             
-            {thumbnailError && (
+            {thumbnailError && !videoId && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
                 <span className="text-white text-lg">{artist} - {title}</span>
               </div>
