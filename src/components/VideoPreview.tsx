@@ -29,6 +29,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [thumbnailError, setThumbnailError] = useState(false);
+  const [loadingThumbnail, setLoadingThumbnail] = useState(true);
 
   // Intersection observer for animation
   useEffect(() => {
@@ -58,7 +59,12 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
 
   // Function to handle thumbnail load errors
   const handleThumbnailError = () => {
+    console.log(`Error loading thumbnail for ${title}`);
     setThumbnailError(true);
+  };
+
+  const handleThumbnailLoaded = () => {
+    setLoadingThumbnail(false);
   };
 
   return (
@@ -82,42 +88,31 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
             allowFullScreen
           ></iframe>
         ) : (
-          <>
-            {videoId ? (
-              // Use videoId for thumbnail but have fallback
-              <div className="relative w-full h-full cursor-pointer" onClick={handleVideoClick}>
-                {!thumbnailError ? (
-                  <img 
-                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-                    alt={`${artist} - ${title} (YouTube thumbnail)`}
-                    className="w-full h-full object-cover"
-                    onError={handleThumbnailError}
-                  />
-                ) : (
-                  <img 
-                    src={thumbnailUrl || `https://img.youtube.com/vi/${videoId}/0.jpg`} 
-                    alt={`${artist} - ${title}`}
-                    className="w-full h-full object-cover"
-                  />
-                )}
-                <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                  <Play size={80} className="text-white hover:text-white/90 transition-colors" />
-                </div>
-              </div>
-            ) : (
-              // Fallback to the provided thumbnailUrl when no videoId exists
-              <div className="relative w-full h-full cursor-pointer" onClick={handleVideoClick}>
-                <img 
-                  src={thumbnailUrl} 
-                  alt={`${artist} - ${title}`}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                  <Play size={80} className="text-white hover:text-white/90 transition-colors" />
-                </div>
+          <div className="relative w-full h-full cursor-pointer" onClick={handleVideoClick}>
+            {loadingThumbnail && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+                <div className="animate-pulse w-12 h-12 rounded-full bg-gray-700"></div>
               </div>
             )}
-          </>
+            
+            <img 
+              src={thumbnailUrl} 
+              alt={`${artist} - ${title}`}
+              className={`w-full h-full object-cover transition-opacity duration-300 ${loadingThumbnail ? 'opacity-0' : 'opacity-100'}`}
+              onError={handleThumbnailError}
+              onLoad={handleThumbnailLoaded}
+            />
+            
+            {thumbnailError && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+                <span className="text-white text-lg">{artist} - {title}</span>
+              </div>
+            )}
+            
+            <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+              <Play size={80} className="text-white hover:text-white/90 transition-colors" />
+            </div>
+          </div>
         )}
       </div>
       

@@ -1,4 +1,3 @@
-
 import React from "react";
 import VideoPreview from "./VideoPreview";
 
@@ -26,7 +25,7 @@ const portfolioItems = [
     title: "WAP",
     artist: "Cardi B & Megan Thee Stallion",
     description: "A hyper-stylized, controversial lyric video that turns everyday objects into symbols of power and desire.",
-    thumbnailUrl: "/lovable-uploads/60b0f076-e796-451c-979e-b4f77b473dc9.png",
+    thumbnailUrl: "/lovable-uploads/68406592-21b0-4f7a-b468-eefaef5ff126.png",
     videoId: "ohD6cyB8RI4",
     watchUrl: "https://www.youtube.com/watch?v=ohD6cyB8RI4",
   },
