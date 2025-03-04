@@ -30,13 +30,13 @@ const Hero = () => {
       className="relative min-h-screen flex flex-col justify-between pt-24 pb-0"
     >
       <div 
-        className={`absolute inset-0 bottom-auto z-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute inset-0 z-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{
           backgroundImage: `url('/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png')`,
           backgroundSize: "contain",
-          backgroundPosition: "center 35%", // Adjusted to move the image up and show water
+          backgroundPosition: "center 15%", // Moved image up significantly to show more of the bottom
           backgroundRepeat: "no-repeat",
-          height: "100%" // Changed to full height to show the entire image
+          height: "100vh" // Using viewport height to ensure full visibility
         }}
       />
       <div className="absolute inset-0 bg-black/20 z-0"></div>
