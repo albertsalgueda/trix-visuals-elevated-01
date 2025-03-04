@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import { Play, Link } from "lucide-react";
 
@@ -31,7 +30,6 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
   const [thumbnailError, setThumbnailError] = useState(false);
   const [loadingThumbnail, setLoadingThumbnail] = useState(true);
 
-  // Intersection observer for animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -57,13 +55,12 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
     setIsPlaying(true);
   };
 
-  // Function to handle thumbnail load errors
   const handleThumbnailError = () => {
     console.log(`Error loading thumbnail for ${title}`);
     setThumbnailError(true);
+    setLoadingThumbnail(false);
     
-    // If YouTube video ID exists, try using YouTube thumbnail as fallback
-    if (videoId && !thumbnailUrl.includes('i.ytimg.com')) {
+    if (videoId) {
       const img = new Image();
       img.onload = () => {
         setThumbnailError(false);
@@ -73,7 +70,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
         setThumbnailError(true);
         setLoadingThumbnail(false);
       };
-      img.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+      img.src = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
     }
   };
 
