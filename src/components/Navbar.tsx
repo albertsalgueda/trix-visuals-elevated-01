@@ -43,11 +43,11 @@ const Navbar = () => {
             scrollToSection("hero");
           }}
         >
-          {/* Enhanced logo with stronger drop shadow for better visibility */}
+          {/* Enhanced logo with much stronger drop shadow for better visibility */}
           <img 
             src="/lovable-uploads/916407ce-bdb9-4fb3-8b1e-ecbb868f8b02.png" 
             alt="TRIX STUDIOS Logo" 
-            className="h-12 md:h-16 grayscale invert drop-shadow-[0_0_8px_rgba(255,255,255,1)]" 
+            className="h-12 md:h-16 grayscale invert drop-shadow-[0_0_15px_rgba(255,255,255,1)] filter contrast-150" 
           />
         </a>
 
