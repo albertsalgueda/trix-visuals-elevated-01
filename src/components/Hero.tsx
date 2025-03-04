@@ -1,9 +1,19 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowDown } from "lucide-react";
 import PressLogos from "./PressLogos";
 
 const Hero = () => {
+  const [backgroundLoaded, setBackgroundLoaded] = useState(false);
+  
+  useEffect(() => {
+    // Preload the image to make sure it exists
+    const img = new Image();
+    img.onload = () => setBackgroundLoaded(true);
+    img.onerror = (e) => console.error("Background image failed to load:", e);
+    img.src = '/lovable-uploads/898da996-a340-4f0e-a037-f0b51abc22d5.png';
+  }, []);
+
   const scrollToWorks = () => {
     const worksSection = document.getElementById("works");
     if (worksSection) {
@@ -14,12 +24,12 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between pt-24 pb-0 bg-cover bg-center"
-      style={{ 
+      className={`relative min-h-screen flex flex-col justify-between pt-24 pb-0 ${backgroundLoaded ? 'bg-cover bg-center' : 'bg-gray-800'}`}
+      style={backgroundLoaded ? { 
         backgroundImage: `url('/lovable-uploads/898da996-a340-4f0e-a037-f0b51abc22d5.png')`,
         backgroundSize: "cover",
         backgroundPosition: "center"
-      }}
+      } : {}}
     >
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm z-0"></div>
       <div className="container mx-auto max-w-6xl animate-fade-in px-6 md:px-12 relative z-10">
