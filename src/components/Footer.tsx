@@ -9,11 +9,11 @@ const Footer = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            {/* Custom filter for the logo to make it mostly white with light gray accents */}
+            {/* Enhanced filter for better white/grey contrast */}
             <img 
               src="/lovable-uploads/916407ce-bdb9-4fb3-8b1e-ecbb868f8b02.png" 
               alt="TRIX STUDIOS Logo" 
-              className="h-10 md:h-12 brightness-[1.3] contrast-[0.85] grayscale invert" 
+              className="h-10 md:h-12 brightness-[1.5] contrast-[1.2] grayscale invert" 
             />
           </div>
           
