@@ -5,6 +5,7 @@ interface PressLogo {
   name: string;
   imagePath: string;
   altText: string;
+  sizeClass?: string; // Add optional size class property
 }
 
 const PressLogos = () => {
@@ -17,7 +18,8 @@ const PressLogos = () => {
     {
       name: "Billboard",
       imagePath: "/lovable-uploads/d45f9b5d-16a2-480a-8628-9c8e2960240b.png",
-      altText: "Billboard logo"
+      altText: "Billboard logo",
+      sizeClass: "max-h-10 md:max-h-14" // Larger size for Billboard
     },
     {
       name: "Complex",
@@ -27,7 +29,8 @@ const PressLogos = () => {
     {
       name: "Forbes",
       imagePath: "/lovable-uploads/2e304b1d-64f5-4e3c-a1ae-f28ecb728fa7.png",
-      altText: "Forbes logo"
+      altText: "Forbes logo",
+      sizeClass: "max-h-10 md:max-h-14" // Larger size for Forbes
     },
     {
       name: "Grammy Awards",
@@ -37,12 +40,14 @@ const PressLogos = () => {
     {
       name: "Highsnobiety",
       imagePath: "/lovable-uploads/61135087-189d-459a-87e3-07f42ee25cc4.png",
-      altText: "Highsnobiety logo"
+      altText: "Highsnobiety logo",
+      sizeClass: "max-h-10 md:max-h-14" // Larger size for Highsnobiety
     },
     {
       name: "Hypebeast",
       imagePath: "/lovable-uploads/2a6e2e58-db0d-4fda-974d-bde321e26f58.png",
-      altText: "Hypebeast logo"
+      altText: "Hypebeast logo",
+      sizeClass: "max-h-10 md:max-h-14" // Larger size for Hypebeast
     },
     {
       name: "MTV",
@@ -83,7 +88,7 @@ const PressLogos = () => {
               <img 
                 src={logo.imagePath} 
                 alt={logo.altText} 
-                className="h-auto w-auto max-h-8 md:max-h-10 object-contain"
+                className={`h-auto w-auto ${logo.sizeClass || 'max-h-8 md:max-h-10'} object-contain`}
               />
             </div>
           ))}
