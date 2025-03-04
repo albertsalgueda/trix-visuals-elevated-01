@@ -83,7 +83,7 @@ const PressLogos = () => {
               <img 
                 src={logo.imagePath} 
                 alt={logo.altText} 
-                className="h-auto w-auto max-h-8 md:max-h-10 object-contain filter brightness-0 invert"
+                className="h-auto w-auto max-h-8 md:max-h-10 object-contain"
               />
             </div>
           ))}
