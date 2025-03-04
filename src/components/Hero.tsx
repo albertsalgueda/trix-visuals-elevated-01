@@ -34,7 +34,7 @@ const Hero = () => {
         style={{
           backgroundImage: `url('/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png')`,
           backgroundSize: "contain",
-          backgroundPosition: "center 15%", // Moved image up significantly to show more of the bottom
+          backgroundPosition: "center 5%", // Moved image up more to eliminate the gray bar
           backgroundRepeat: "no-repeat",
           height: "100vh" // Using viewport height to ensure full visibility
         }}
