@@ -39,7 +39,7 @@ const Hero = () => {
         }}
       />
       <div className="absolute inset-0 bg-black/20 z-0"></div>
-      <div className="container mx-auto max-w-6xl animate-fade-in px-6 md:px-12 relative z-10">
+      <div className="container mx-auto max-w-6xl animate-fade-in px-6 md:px-12 relative z-10 mt-16 md:mt-24 lg:mt-32">
         <h1 className="font-display text-3xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight mb-4 text-white">
           CINEMATIC INNOVATION. <br />
           ELEVATED STORYTELLING.
