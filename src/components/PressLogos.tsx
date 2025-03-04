@@ -1,3 +1,4 @@
+
 import React from "react";
 
 interface PressLogo {
@@ -13,6 +14,12 @@ const PressLogos = () => {
       name: "Adult Swim",
       imagePath: "/lovable-uploads/1ea2e416-3969-49f2-86e5-774d6a07fdae.png",
       altText: "Adult Swim logo"
+    },
+    {
+      name: "BET",
+      imagePath: "/lovable-uploads/2b3dd0f9-296e-4cbb-8bf6-54329cc6f952.png",
+      altText: "BET logo",
+      sizeClass: "max-h-10 md:max-h-14"
     },
     {
       name: "Billboard",
@@ -59,6 +66,12 @@ const PressLogos = () => {
       name: "MTV",
       imagePath: "/lovable-uploads/abe8f313-db03-4bd6-a61e-b6bad352a6ac.png",
       altText: "MTV logo"
+    },
+    {
+      name: "Revolt",
+      imagePath: "/lovable-uploads/baad3a1c-2540-46e2-ad5c-a8d8cf999c44.png",
+      altText: "Revolt logo",
+      sizeClass: "max-h-9 md:max-h-12"
     },
     {
       name: "Rolling Stone",

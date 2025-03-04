@@ -104,6 +104,10 @@
   .link-hover {
     @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full focus:after:w-full;
   }
+
+  .animate-scroll {
+    animation: scroll 60s linear infinite;
+  }
 }
 
 @keyframes appear {
@@ -114,5 +118,14 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
