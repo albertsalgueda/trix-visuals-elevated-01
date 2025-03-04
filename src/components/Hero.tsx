@@ -34,7 +34,7 @@ const Hero = () => {
         style={{
           backgroundImage: `url('/lovable-uploads/1d57b82a-bb4b-4eac-a824-5be92a63cc06.png')`,
           backgroundSize: "100% auto",
-          backgroundPosition: "center 60%", // Changed from 30% to 60% to move the image up
+          backgroundPosition: "center bottom", // Changed from "center 60%" to "center bottom" to show rocks at the bottom
           height: "calc(100% - 160px)"
         }}
       />
