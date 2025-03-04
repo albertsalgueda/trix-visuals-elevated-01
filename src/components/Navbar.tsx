@@ -43,11 +43,11 @@ const Navbar = () => {
             scrollToSection("hero");
           }}
         >
-          {/* Apply a filter to make the logo light gray */}
+          {/* Custom filter for the logo to make it mostly white with light gray accents */}
           <img 
             src="/lovable-uploads/916407ce-bdb9-4fb3-8b1e-ecbb868f8b02.png" 
             alt="TRIX STUDIOS Logo" 
-            className="h-10 md:h-12 filter grayscale opacity-80" 
+            className="h-10 md:h-12 brightness-[1.15] contrast-[0.9] grayscale opacity-90" 
           />
         </a>
 
