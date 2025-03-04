@@ -27,16 +27,15 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between pt-24 pb-0"
+      className="relative min-h-screen flex flex-col justify-between pt-24 pb-0 overflow-hidden"
     >
       <div 
         className={`absolute inset-0 z-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{
           backgroundImage: `url('/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png')`,
-          backgroundSize: "contain",
-          backgroundPosition: "center 0%", // Moved image completely to the top to eliminate the gray sliver
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
-          height: "100vh" // Using viewport height to ensure full visibility
         }}
       />
       <div className="absolute inset-0 bg-black/20 z-0"></div>
