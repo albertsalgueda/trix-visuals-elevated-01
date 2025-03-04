@@ -7,6 +7,7 @@ interface VideoPreviewProps {
   artist: string;
   description: string;
   thumbnailUrl: string;
+  videoId?: string;
   watchUrl: string;
   pressUrl?: string;
   btsUrl?: string;
@@ -18,30 +19,16 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
   artist,
   description,
   thumbnailUrl,
+  videoId,
   watchUrl,
   pressUrl,
   btsUrl,
   index,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-
-  // Play/pause video on hover
-  useEffect(() => {
-    const videoElement = videoRef.current;
-    if (videoElement) {
-      if (isHovered) {
-        videoElement.play().catch((err) => {
-          console.error("Error playing video:", err);
-        });
-      } else {
-        videoElement.pause();
-        videoElement.currentTime = 0;
-      }
-    }
-  }, [isHovered]);
 
   // Intersection observer for animation
   useEffect(() => {
@@ -65,6 +52,10 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
     };
   }, []);
 
+  const handleVideoClick = () => {
+    setIsPlaying(true);
+  };
+
   return (
     <div 
       ref={containerRef}
@@ -78,24 +69,52 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className={`absolute inset-0 bg-black/30 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'}`}>
-          <Play size={64} className="text-white/80" />
-        </div>
-        
-        <img 
-          src={thumbnailUrl} 
-          alt={`${artist} - ${title}`}
-          className={`w-full h-full object-cover transition-opacity duration-500 ${isHovered ? 'opacity-0' : 'opacity-100'}`}
-        />
-        
-        <video 
-          ref={videoRef}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
-          src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
-          muted
-          playsInline
-          loop
-        />
+        {isPlaying && videoId ? (
+          <iframe
+            className="w-full h-full absolute inset-0"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`}
+            title={`${artist} - ${title}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        ) : (
+          <>
+            <div 
+              className={`absolute inset-0 bg-black/30 flex items-center justify-center transition-opacity duration-300 z-10 cursor-pointer ${
+                isHovered ? 'opacity-0' : 'opacity-100'
+              }`}
+              onClick={handleVideoClick}
+            >
+              <Play size={64} className="text-white/80" />
+            </div>
+            
+            <img 
+              src={thumbnailUrl} 
+              alt={`${artist} - ${title}`}
+              className="w-full h-full object-cover"
+              onClick={handleVideoClick}
+            />
+            
+            {videoId && !isPlaying && (
+              <div 
+                className={`absolute inset-0 cursor-pointer transition-opacity duration-500 ${
+                  isHovered ? 'opacity-100' : 'opacity-0'
+                }`}
+                onClick={handleVideoClick}
+              >
+                <img 
+                  src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                  alt={`${artist} - ${title} (YouTube thumbnail)`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                  <Play size={80} className="text-white hover:text-white/90 transition-colors" />
+                </div>
+              </div>
+            )}
+          </>
+        )}
       </div>
       
       <div className="mt-4 md:mt-6">

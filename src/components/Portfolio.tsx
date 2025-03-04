@@ -1,4 +1,3 @@
-
 import React from "react";
 import VideoPreview from "./VideoPreview";
 
@@ -8,63 +7,80 @@ const portfolioItems = [
     artist: "Lil Uzi Vert",
     description: "An anime-inspired music video that transforms hip-hop into high-energy storytelling.",
     thumbnailUrl: "https://placehold.co/1920x1080/000000/FFFFFF?text=Lil+Uzi+Vert",
-    watchUrl: "#",
-    pressUrl: "#",
+    videoId: "x0fFzqX_Xgo",
+    watchUrl: "https://www.youtube.com/watch?v=x0fFzqX_Xgo",
+    pressUrl: "https://hypebeast.com/2018/1/lil-uzi-vert-ps-and-qs-video",
   },
   {
     title: "Wassup",
     artist: "Lil Uzi Vert",
     description: "A deepfake-fueled, reality-bending experience in collaboration with Future.",
     thumbnailUrl: "https://placehold.co/1920x1080/000000/FFFFFF?text=Wassup",
-    watchUrl: "#",
-    btsUrl: "#",
-    pressUrl: "#",
+    videoId: "Ac6kDNMQK3c",
+    watchUrl: "https://www.youtube.com/watch?v=Ac6kDNMQK3c",
+    btsUrl: "https://www.youtube.com/watch?v=zG-wc4q5KeA",
+    pressUrl: "https://www.highsnobiety.com/p/lil-uzi-vert-future-wassup-video/",
   },
   {
     title: "WAP",
     artist: "Cardi B & Megan Thee Stallion",
     description: "A hyper-stylized, controversial lyric video that turns everyday objects into symbols of power and desire.",
     thumbnailUrl: "https://placehold.co/1920x1080/000000/FFFFFF?text=WAP",
-    watchUrl: "#",
+    videoId: "ohD6cyB8RI4",
+    watchUrl: "https://www.youtube.com/watch?v=ohD6cyB8RI4",
   },
   {
     title: "Distraction",
     artist: "Kehlani",
     description: "A sleek, Grammy-nominated visual masterpiece blending intimacy with minimalist elegance.",
     thumbnailUrl: "https://placehold.co/1920x1080/000000/FFFFFF?text=Kehlani",
-    watchUrl: "#",
+    videoId: "HPHbeSGVKJo",
+    watchUrl: "https://www.youtube.com/watch?v=HPHbeSGVKJo",
+    pressUrl: "https://hypebeast.com",
   },
   {
     title: "Black Bonnie",
     artist: "Wale",
     description: "A time-traveling cinematic love story celebrating Black excellence across generations.",
     thumbnailUrl: "https://placehold.co/1920x1080/000000/FFFFFF?text=Black+Bonnie",
-    watchUrl: "#",
-    pressUrl: "#",
+    videoId: "KmR47_vyD2w",
+    watchUrl: "https://www.youtube.com/watch?v=KmR47_vyD2w",
+    pressUrl: "https://www.billboard.com/music/rb-hip-hop/wale-black-bonnie-music-video-8467980/",
   },
   {
     title: "We Set the Trends",
     artist: "Jim Jones & Migos",
     description: "A trailblazing NFT-driven music video at the intersection of hip-hop and the metaverse.",
     thumbnailUrl: "https://placehold.co/1920x1080/000000/FFFFFF?text=We+Set+the+Trends",
-    watchUrl: "#",
-    pressUrl: "#",
+    videoId: "nfYscgHX29E",
+    watchUrl: "https://www.youtube.com/watch?v=nfYscgHX29E",
+    pressUrl: "https://www.revolt.tv/article/2022-06-02/172102/jim-jones-migos-announce-we-set-the-trends-metaverse-nft-video",
   },
   {
     title: "All My Children",
     artist: "Gucci Mane",
     description: "A bold, animated journey that cements Gucci Mane's legacy as a mentor to a generation of artists.",
     thumbnailUrl: "https://placehold.co/1920x1080/000000/FFFFFF?text=All+My+Children",
-    watchUrl: "#",
-    pressUrl: "#",
+    videoId: "pOmsxhn6F90",
+    watchUrl: "https://www.youtube.com/watch?v=pOmsxhn6F90",
+    pressUrl: "https://www.vice.com/en/article/watch-gucci-manes-animated-video-for-all-my-children/",
   },
   {
     title: "LIMEWIRE",
     artist: "Soulja Boy",
     description: "A nostalgic, lo-fi glitch aesthetic pays homage to the internet that launched a rap revolution.",
     thumbnailUrl: "https://placehold.co/1920x1080/000000/FFFFFF?text=LIMEWIRE",
-    watchUrl: "#",
-    pressUrl: "#",
+    videoId: "STml8BkoGvk",
+    watchUrl: "https://www.youtube.com/watch?v=STml8BkoGvk",
+    pressUrl: "https://www.vibe.com/music/videos/soulja-boy-discovers-america-paints-mona-lisa-limewire-video-1234764965/",
+  },
+  {
+    title: "Getting Loose",
+    artist: "Wiz Khalifa & Curren$y",
+    description: "A vibrant celebration of lifestyle and culture with dynamic visuals.",
+    thumbnailUrl: "https://placehold.co/1920x1080/000000/FFFFFF?text=Getting+Loose",
+    videoId: "fT2fxC48fX0",
+    watchUrl: "https://www.youtube.com/watch?v=fT2fxC48fX0",
   }
 ];
 
@@ -94,6 +110,7 @@ const Portfolio = () => {
               artist={item.artist}
               description={item.description}
               thumbnailUrl={item.thumbnailUrl}
+              videoId={item.videoId}
               watchUrl={item.watchUrl}
               pressUrl={item.pressUrl}
               btsUrl={item.btsUrl}
