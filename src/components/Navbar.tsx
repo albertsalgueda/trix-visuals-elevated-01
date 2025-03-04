@@ -37,13 +37,17 @@ const Navbar = () => {
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         <a 
           href="#hero" 
-          className="font-display font-bold text-lg tracking-tight"
+          className="flex items-center"
           onClick={(e) => {
             e.preventDefault();
             scrollToSection("hero");
           }}
         >
-          TRIX STUDIO
+          <img 
+            src="/lovable-uploads/916407ce-bdb9-4fb3-8b1e-ecbb868f8b02.png" 
+            alt="TRIX STUDIOS Logo" 
+            className="h-10 md:h-12" 
+          />
         </a>
 
         {/* Desktop Menu */}

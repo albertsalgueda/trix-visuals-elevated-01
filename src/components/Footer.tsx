@@ -9,14 +9,16 @@ const Footer = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <span className="font-display font-bold text-lg tracking-tight">
-              TRIX STUDIO
-            </span>
+            <img 
+              src="/lovable-uploads/916407ce-bdb9-4fb3-8b1e-ecbb868f8b02.png" 
+              alt="TRIX STUDIOS Logo" 
+              className="h-10 md:h-12" 
+            />
           </div>
           
           <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
             <span className="text-sm text-white/60">
-              © {currentYear} TRIX STUDIO. All Rights Reserved.
+              © {currentYear} TRIX STUDIOS. All Rights Reserved.
             </span>
             
             <div className="flex space-x-6">
