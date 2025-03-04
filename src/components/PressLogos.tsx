@@ -40,7 +40,7 @@ const PressLogos = () => {
     },
     {
       name: "Grammy Awards",
-      imagePath: "/lovable-uploads/0a98f6e5-359d-4735-bead-0a5e843f85a6.png",
+      imagePath: "/lovable-uploads/4e545bf1-0c7e-4ff3-a523-667be1e84fb4.png",
       altText: "Grammy Awards logo",
       sizeClass: "max-h-12 md:max-h-16"
     },
