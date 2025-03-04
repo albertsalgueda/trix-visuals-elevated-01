@@ -34,7 +34,7 @@ const Hero = () => {
         style={{
           backgroundImage: `url('/lovable-uploads/1d57b82a-bb4b-4eac-a824-5be92a63cc06.png')`,
           backgroundSize: "cover",
-          backgroundPosition: "center bottom",
+          backgroundPosition: "center 85%", // Adjusted to show the bottom part with rocks and water
           height: "calc(100% - 160px)"
         }}
       />
