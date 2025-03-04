@@ -47,7 +47,7 @@ const Navbar = () => {
           <img 
             src="/lovable-uploads/916407ce-bdb9-4fb3-8b1e-ecbb868f8b02.png" 
             alt="TRIX STUDIOS Logo" 
-            className="h-10 md:h-12 brightness-[1.15] contrast-[0.9] grayscale opacity-90" 
+            className="h-10 md:h-12 brightness-[1.3] contrast-[0.85] grayscale invert" 
           />
         </a>
 
