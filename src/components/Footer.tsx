@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            {/* New logo with white elements instead of purple, with filter for visibility on dark background */}
+            {/* Logo with white elements (no purple), with filter for visibility on dark background */}
             <img 
               src="/lovable-uploads/87bbcdd9-e884-489b-a257-8495edf6bfbe.png" 
               alt="TRIX STUDIOS Logo" 

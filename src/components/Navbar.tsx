@@ -43,11 +43,11 @@ const Navbar = () => {
             scrollToSection("hero");
           }}
         >
-          {/* New logo with white elements instead of purple */}
+          {/* Logo with white elements (no purple) */}
           <img 
             src="/lovable-uploads/87bbcdd9-e884-489b-a257-8495edf6bfbe.png" 
             alt="TRIX STUDIOS Logo" 
-            className="h-12 md:h-16" 
+            className="h-12 md:h-16 filter" 
           />
         </a>
 
