@@ -43,10 +43,11 @@ const Navbar = () => {
             scrollToSection("hero");
           }}
         >
+          {/* Apply a filter to make the logo black and white */}
           <img 
             src="/lovable-uploads/916407ce-bdb9-4fb3-8b1e-ecbb868f8b02.png" 
             alt="TRIX STUDIOS Logo" 
-            className="h-10 md:h-12" 
+            className="h-10 md:h-12 brightness-0 invert" 
           />
         </a>
 
