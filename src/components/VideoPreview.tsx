@@ -25,7 +25,6 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
   btsUrl,
   index,
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -66,8 +65,6 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
     >
       <div 
         className="relative aspect-video overflow-hidden bg-black"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
         {isPlaying && videoId ? (
           <iframe
@@ -80,32 +77,24 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
           ></iframe>
         ) : (
           <>
-            <div 
-              className={`absolute inset-0 bg-black/30 flex items-center justify-center transition-opacity duration-300 z-10 cursor-pointer ${
-                isHovered ? 'opacity-0' : 'opacity-100'
-              }`}
-              onClick={handleVideoClick}
-            >
-              <Play size={64} className="text-white/80" />
-            </div>
-            
-            <img 
-              src={thumbnailUrl} 
-              alt={`${artist} - ${title}`}
-              className="w-full h-full object-cover"
-              onClick={handleVideoClick}
-            />
-            
-            {videoId && !isPlaying && (
-              <div 
-                className={`absolute inset-0 cursor-pointer transition-opacity duration-500 ${
-                  isHovered ? 'opacity-100' : 'opacity-0'
-                }`}
-                onClick={handleVideoClick}
-              >
+            {videoId ? (
+              // Always show the YouTube thumbnail when videoId exists
+              <div className="relative w-full h-full cursor-pointer" onClick={handleVideoClick}>
                 <img 
                   src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
                   alt={`${artist} - ${title} (YouTube thumbnail)`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                  <Play size={80} className="text-white hover:text-white/90 transition-colors" />
+                </div>
+              </div>
+            ) : (
+              // Fallback to the provided thumbnailUrl when no videoId exists
+              <div className="relative w-full h-full cursor-pointer" onClick={handleVideoClick}>
+                <img 
+                  src={thumbnailUrl} 
+                  alt={`${artist} - ${title}`}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
