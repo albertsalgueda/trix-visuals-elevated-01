@@ -14,9 +14,9 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between pt-24 px-6 md:px-12"
+      className="relative min-h-screen flex flex-col justify-between pt-24 pb-0"
     >
-      <div className="container mx-auto max-w-6xl animate-fade-in">
+      <div className="container mx-auto max-w-6xl animate-fade-in px-6 md:px-12">
         <h1 className="font-display text-3xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight mb-4">
           CINEMATIC INNOVATION. <br />
           ELEVATED VISUAL STORYTELLING.
