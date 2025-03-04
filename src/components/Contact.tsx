@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Mail, ArrowRight } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
@@ -72,15 +71,14 @@ const Contact = () => {
             <div className="border-t border-black/10 pt-8 mt-12">
               <h3 className="font-display text-xl font-semibold mb-4">Follow Us</h3>
               <div className="flex space-x-6">
-                {["Instagram", "Vimeo", "YouTube"].map((platform) => (
-                  <a 
-                    key={platform} 
-                    href="#" 
-                    className="text-sm uppercase tracking-wide link-hover"
-                  >
-                    {platform}
-                  </a>
-                ))}
+                <a 
+                  href="https://www.instagram.com/trixanimation" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-sm uppercase tracking-wide link-hover"
+                >
+                  Instagram
+                </a>
               </div>
             </div>
           </div>
