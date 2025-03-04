@@ -14,7 +14,7 @@ const Hero = () => {
       console.error("Background image failed to load:", e);
       // If there's an error, we'll still show the section with its base background color
     };
-    img.src = "/lovable-uploads/1d57b82a-bb4b-4eac-a824-5be92a63cc06.png";
+    img.src = "/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png";
   }, []);
 
   const scrollToWorks = () => {
@@ -32,13 +32,14 @@ const Hero = () => {
       <div 
         className={`absolute inset-0 bottom-auto z-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{
-          backgroundImage: `url('/lovable-uploads/1d57b82a-bb4b-4eac-a824-5be92a63cc06.png')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center 85%", // Adjusted to show the bottom part with rocks and water
+          backgroundImage: `url('/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png')`,
+          backgroundSize: "contain",
+          backgroundPosition: "center bottom",
+          backgroundRepeat: "no-repeat",
           height: "calc(100% - 160px)"
         }}
       />
-      <div className="absolute inset-0 bottom-auto bg-black/30 backdrop-blur-[1px] z-0" style={{ height: "calc(100% - 160px)" }}></div>
+      <div className="absolute inset-0 bottom-auto bg-black/20 backdrop-blur-[0px] z-0" style={{ height: "calc(100% - 160px)" }}></div>
       <div className="container mx-auto max-w-6xl animate-fade-in px-6 md:px-12 relative z-10">
         <h1 className="font-display text-3xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight mb-4 text-white">
           CINEMATIC INNOVATION. <br />
