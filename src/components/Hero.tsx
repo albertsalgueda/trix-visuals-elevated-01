@@ -4,20 +4,13 @@ import { ArrowDown } from "lucide-react";
 import PressLogos from "./PressLogos";
 
 const Hero = () => {
-  const [backgroundLoaded, setBackgroundLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
   
   useEffect(() => {
-    // Preload the image to make sure it exists
+    // Use a reliable Unsplash image instead
     const img = new Image();
-    img.onload = () => setBackgroundLoaded(true);
-    img.onerror = (e) => {
-      console.error("Background image failed to load:", e);
-      // Try with a direct path as fallback
-      const fallbackImg = new Image();
-      fallbackImg.onload = () => setBackgroundLoaded(true);
-      fallbackImg.src = '/cactus-background.jpg';
-    };
-    img.src = '/lovable-uploads/898da996-a340-4f0e-a037-f0b51abc22d5.png';
+    img.onload = () => setImageLoaded(true);
+    img.src = "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=2000&q=80";
   }, []);
 
   const scrollToWorks = () => {
@@ -32,16 +25,14 @@ const Hero = () => {
       id="hero"
       className="relative min-h-screen flex flex-col justify-between pt-24 pb-0 bg-gray-800"
     >
-      {backgroundLoaded && (
-        <div 
-          className="absolute inset-0 z-0 opacity-100 transition-opacity duration-500"
-          style={{
-            backgroundImage: `url('/lovable-uploads/898da996-a340-4f0e-a037-f0b51abc22d5.png')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center"
-          }}
-        />
-      )}
+      <div 
+        className={`absolute inset-0 z-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=2000&q=80')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center"
+        }}
+      />
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm z-0"></div>
       <div className="container mx-auto max-w-6xl animate-fade-in px-6 md:px-12 relative z-10">
         <h1 className="font-display text-3xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight mb-4 text-white">
