@@ -53,6 +53,9 @@ const Hero = () => {
             and cinematic narratives into unforgettable visual experiences.
           </p>
         </div>
+        
+        {/* Added extra space here with mt-40 to push PressLogos lower */}
+        <div className="mt-40"></div>
       </div>
       
       <div className="w-full relative z-10">
