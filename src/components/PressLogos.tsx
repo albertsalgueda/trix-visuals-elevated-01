@@ -1,3 +1,4 @@
+
 import React from "react";
 
 interface PressLogo {
@@ -61,8 +62,9 @@ const PressLogos = () => {
     },
     {
       name: "VH1",
-      imagePath: "/lovable-uploads/5663b540-0fa7-4e55-a2b1-80bf13fe51e6.png",
-      altText: "VH1 logo"
+      imagePath: "/lovable-uploads/0f384f0f-db7f-4670-9979-28b8f7a21d86.png",
+      altText: "VH1 logo",
+      sizeClass: "max-h-12 md:max-h-16" // Added size class for the new VH1 logo
     },
     {
       name: "Vice",
