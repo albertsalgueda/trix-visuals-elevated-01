@@ -38,7 +38,7 @@ const Hero = () => {
           height: "calc(100% - 160px)"
         }}
       />
-      <div className="absolute inset-0 bottom-auto bg-black/30 backdrop-blur-[2px] z-0" style={{ height: "calc(100% - 160px)" }}></div>
+      <div className="absolute inset-0 bottom-auto bg-black/30 backdrop-blur-[1px] z-0" style={{ height: "calc(100% - 160px)" }}></div>
       <div className="container mx-auto max-w-6xl animate-fade-in px-6 md:px-12 relative z-10">
         <h1 className="font-display text-3xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight mb-4 text-white">
           CINEMATIC INNOVATION. <br />
