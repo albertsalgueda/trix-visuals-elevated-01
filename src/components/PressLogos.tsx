@@ -79,11 +79,11 @@ const PressLogos = () => {
         </div>
         <div className="flex space-x-12 animate-scroll">
           {[...logos, ...logos].map((logo, index) => (
-            <div key={`${logo.name}-${index}`} className="flex-shrink-0">
+            <div key={`${logo.name}-${index}`} className="flex-shrink-0 h-12 md:h-16 flex items-center">
               <img 
                 src={logo.imagePath} 
                 alt={logo.altText} 
-                className="h-12 md:h-16 object-contain"
+                className="h-auto w-auto max-h-8 md:max-h-10 object-contain filter brightness-0 invert"
               />
             </div>
           ))}
