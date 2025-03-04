@@ -28,7 +28,7 @@ const PressLogos = () => {
     },
     {
       name: "Forbes",
-      imagePath: "/lovable-uploads/2e304b1d-64f5-4e3c-a1ae-f28ecb728fa7.png",
+      imagePath: "/lovable-uploads/3745bf00-e7b1-48f9-8f91-6fbf9ffe911d.png",
       altText: "Forbes logo",
       sizeClass: "max-h-20 md:max-h-24" // Significantly increased size for Forbes
     },
