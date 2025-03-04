@@ -1,4 +1,3 @@
-
 import React from "react";
 
 interface PressLogo {
@@ -30,7 +29,7 @@ const PressLogos = () => {
       name: "Fader",
       imagePath: "/lovable-uploads/a2f16ef9-a4b8-45ab-9f5d-49baf7fdaabf.png",
       altText: "Fader logo",
-      sizeClass: "max-h-8 md:max-h-10"
+      sizeClass: "max-h-6 md:max-h-8"
     },
     {
       name: "Forbes",
