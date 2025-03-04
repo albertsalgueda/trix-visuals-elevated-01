@@ -1,4 +1,3 @@
-
 import React from "react";
 
 interface PressLogo {
@@ -17,9 +16,9 @@ const PressLogos = () => {
     },
     {
       name: "Billboard",
-      imagePath: "/lovable-uploads/d45f9b5d-16a2-480a-8628-9c8e2960240b.png",
+      imagePath: "/lovable-uploads/f7cf118a-578e-43c8-bc78-5371148688a3.png",
       altText: "Billboard logo",
-      sizeClass: "max-h-10 md:max-h-14" // Larger size for Billboard
+      sizeClass: "max-h-10 md:max-h-14"
     },
     {
       name: "Complex",
@@ -30,25 +29,25 @@ const PressLogos = () => {
       name: "Forbes",
       imagePath: "/lovable-uploads/3745bf00-e7b1-48f9-8f91-6fbf9ffe911d.png",
       altText: "Forbes logo",
-      sizeClass: "max-h-6 md:max-h-8" // Further reduced size for Forbes
+      sizeClass: "max-h-6 md:max-h-8"
     },
     {
       name: "Grammy Awards",
       imagePath: "/lovable-uploads/0a98f6e5-359d-4735-bead-0a5e843f85a6.png",
       altText: "Grammy Awards logo",
-      sizeClass: "max-h-12 md:max-h-16" // Increased size for Grammy Awards
+      sizeClass: "max-h-12 md:max-h-16"
     },
     {
       name: "Highsnobiety",
-      imagePath: "/lovable-uploads/f9ea430f-77b5-4164-b999-3a9c9b6b40bb.png", // Updated to use the new Highsnobiety logo
+      imagePath: "/lovable-uploads/f9ea430f-77b5-4164-b999-3a9c9b6b40bb.png",
       altText: "Highsnobiety logo",
-      sizeClass: "max-h-10 md:max-h-14" // Maintained the same size class
+      sizeClass: "max-h-10 md:max-h-14"
     },
     {
       name: "Hypebeast",
       imagePath: "/lovable-uploads/3e4daa5a-9573-492c-a79e-4e1e47cb0786.png",
       altText: "Hypebeast logo",
-      sizeClass: "max-h-6 md:max-h-8" // Further reduced size for Hypebeast
+      sizeClass: "max-h-6 md:max-h-8"
     },
     {
       name: "MTV",
@@ -64,7 +63,7 @@ const PressLogos = () => {
       name: "VH1",
       imagePath: "/lovable-uploads/0f384f0f-db7f-4670-9979-28b8f7a21d86.png",
       altText: "VH1 logo",
-      sizeClass: "max-h-12 md:max-h-16" // Added size class for the new VH1 logo
+      sizeClass: "max-h-12 md:max-h-16"
     },
     {
       name: "Vice",
