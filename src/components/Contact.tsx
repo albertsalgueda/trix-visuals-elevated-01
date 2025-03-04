@@ -15,18 +15,19 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Create a mailto URL with the form data
-      const subject = `TRIX Studio Contact: ${name}`;
-      const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-      const mailtoURL = `mailto:yasha@trix.studio?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      // Instead of using mailto, we'll create a new tab with Gmail compose
+      // or a general email compose URL that works in the browser
       
-      // Open the mailto link
-      window.open(mailtoURL, "_blank");
+      // Gmail compose URL format
+      const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=yasha@trix.studio&su=${encodeURIComponent(`TRIX Studio Contact: ${name}`)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+      
+      // Open in a new tab
+      window.open(gmailComposeUrl, "_blank");
       
       // Show success toast
       toast({
-        title: "Message prepared",
-        description: "Your email client has been opened with your message. Please send the email to complete your request.",
+        title: "Message ready",
+        description: "Your message has been prepared. Please complete sending it in the browser tab that opened.",
         duration: 5000,
       });
       
@@ -35,7 +36,7 @@ const Contact = () => {
       setEmail("");
       setMessage("");
     } catch (error) {
-      console.error("Error sending message:", error);
+      console.error("Error preparing message:", error);
       toast({
         title: "Something went wrong",
         description: "Please try again or contact us directly at yasha@trix.studio",

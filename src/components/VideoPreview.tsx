@@ -28,6 +28,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [thumbnailError, setThumbnailError] = useState(false);
 
   // Intersection observer for animation
   useEffect(() => {
@@ -55,6 +56,11 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
     setIsPlaying(true);
   };
 
+  // Function to handle thumbnail load errors
+  const handleThumbnailError = () => {
+    setThumbnailError(true);
+  };
+
   return (
     <div 
       ref={containerRef}
@@ -78,13 +84,22 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
         ) : (
           <>
             {videoId ? (
-              // Always show the YouTube thumbnail when videoId exists
+              // Use videoId for thumbnail but have fallback
               <div className="relative w-full h-full cursor-pointer" onClick={handleVideoClick}>
-                <img 
-                  src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-                  alt={`${artist} - ${title} (YouTube thumbnail)`}
-                  className="w-full h-full object-cover"
-                />
+                {!thumbnailError ? (
+                  <img 
+                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                    alt={`${artist} - ${title} (YouTube thumbnail)`}
+                    className="w-full h-full object-cover"
+                    onError={handleThumbnailError}
+                  />
+                ) : (
+                  <img 
+                    src={thumbnailUrl || `https://img.youtube.com/vi/${videoId}/0.jpg`} 
+                    alt={`${artist} - ${title}`}
+                    className="w-full h-full object-cover"
+                  />
+                )}
                 <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
                   <Play size={80} className="text-white hover:text-white/90 transition-colors" />
                 </div>
