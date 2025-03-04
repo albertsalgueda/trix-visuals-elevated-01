@@ -1,6 +1,7 @@
 
 import React from "react";
 import { ArrowDown } from "lucide-react";
+import PressLogos from "./PressLogos";
 
 const Hero = () => {
   const scrollToWorks = () => {
@@ -13,7 +14,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center pt-24 px-6 md:px-12"
+      className="relative min-h-screen flex flex-col justify-between pt-24 px-6 md:px-12"
     >
       <div className="container mx-auto max-w-6xl animate-fade-in">
         <h1 className="font-display text-3xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight mb-4">
@@ -39,7 +40,11 @@ const Hero = () => {
         </button>
       </div>
       
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="w-full mt-auto">
+        <PressLogos />
+      </div>
+      
+      <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 animate-bounce">
         <ArrowDown size={24} onClick={scrollToWorks} className="cursor-pointer" />
       </div>
     </section>
