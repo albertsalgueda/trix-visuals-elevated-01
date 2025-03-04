@@ -30,7 +30,7 @@ const PressLogos = () => {
       name: "Forbes",
       imagePath: "/lovable-uploads/2e304b1d-64f5-4e3c-a1ae-f28ecb728fa7.png",
       altText: "Forbes logo",
-      sizeClass: "max-h-12 md:max-h-16" // Increased size for Forbes
+      sizeClass: "max-h-16 md:max-h-20" // Further increased size for Forbes
     },
     {
       name: "Grammy Awards",
@@ -42,13 +42,13 @@ const PressLogos = () => {
       name: "Highsnobiety",
       imagePath: "/lovable-uploads/61135087-189d-459a-87e3-07f42ee25cc4.png",
       altText: "Highsnobiety logo",
-      sizeClass: "max-h-12 md:max-h-16" // Increased size for Highsnobiety
+      sizeClass: "max-h-16 md:max-h-20" // Further increased size for Highsnobiety
     },
     {
       name: "Hypebeast",
       imagePath: "/lovable-uploads/2a6e2e58-db0d-4fda-974d-bde321e26f58.png",
       altText: "Hypebeast logo",
-      sizeClass: "max-h-12 md:max-h-16" // Increased size for Hypebeast
+      sizeClass: "max-h-16 md:max-h-20" // Further increased size for Hypebeast
     },
     {
       name: "MTV",
