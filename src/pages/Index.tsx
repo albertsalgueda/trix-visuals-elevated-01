@@ -6,6 +6,7 @@ import Portfolio from "../components/Portfolio";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import PressLogos from "../components/PressLogos";
 
 const Index = () => {
   // Implement a staggered animation effect for page load
@@ -41,6 +42,7 @@ const Index = () => {
       <Navbar />
       <main className="w-full">
         <Hero />
+        <PressLogos />
         <Portfolio />
         <About />
         <Contact />
