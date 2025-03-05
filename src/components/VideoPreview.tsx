@@ -82,7 +82,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
   return (
     <div 
       ref={containerRef}
-      className={`w-full mb-24 transition-opacity duration-700 ${
+      className={`w-full mb-16 transition-opacity duration-700 px-0 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
       style={{ transitionDelay: `${index * 150}ms` }}
@@ -128,7 +128,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
         )}
       </div>
       
-      <div className="mt-4 md:mt-6">
+      <div className="mt-4 md:mt-6 px-6 md:px-12">
         <div className="flex items-center mb-2">
           <span className="text-xs uppercase tracking-widest text-black/60">🎥 Music Video</span>
         </div>
