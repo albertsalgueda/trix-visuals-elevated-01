@@ -85,7 +85,7 @@ const Hero = () => {
       {/* Press logos and scroll indicator */}
       <div className="w-full relative z-10">
         <Suspense fallback={
-          <div className="h-14 md:h-16 flex items-center justify-center">
+          <div className="h-16 bg-black flex items-center justify-center">
             <span className="text-white/50 text-xs uppercase tracking-widest">Loading...</span>
           </div>
         }>

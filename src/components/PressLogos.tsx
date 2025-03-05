@@ -1,4 +1,3 @@
-
 import React from "react";
 
 interface PressLogo {
@@ -54,22 +53,20 @@ const PressLogos = () => {
   return (
     <div className="bg-black py-6 md:py-8 overflow-hidden w-full">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-wrap items-center justify-around gap-4 md:gap-6">
+        <div className="flex flex-wrap items-center justify-around gap-6 md:gap-8">
           {pressLogos.map((logo) => (
             <a
               key={logo.name}
               href={logo.linkUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="block h-12 md:h-14"
+              className="block h-12 md:h-16 w-auto"
             >
               <img 
                 src={logo.imageUrl} 
                 alt={logo.name} 
-                className="h-full w-auto max-h-10 object-contain mix-blend-luminosity hover:mix-blend-normal transition-all duration-300 filter grayscale hover:grayscale-0"
+                className="h-full w-auto object-contain mix-blend-luminosity hover:mix-blend-normal transition-all duration-300 filter grayscale hover:grayscale-0"
                 loading="lazy"
-                decoding="async"
-                fetchPriority="low"
                 width="150"
                 height="40"
               />
