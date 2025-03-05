@@ -172,7 +172,7 @@ const Portfolio = () => {
       <div className="w-full mx-auto">
         <div className="mb-16 px-6 md:px-12">
           <span className="text-sm uppercase tracking-widest text-white/60 mb-2 inline-block">Portfolio</span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold">SELECTED WORKS</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white">SELECTED WORKS</h2>
           <p className="mt-4 text-lg max-w-3xl text-white/80">
             Our portfolio spans culturally defining projects, from anime-inspired epics to futuristic 
             deepfake-driven worlds. Each video is an immersive visual statement, designed to elevate 
