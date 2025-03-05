@@ -2,8 +2,8 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import { ArrowDown } from "lucide-react";
 
-// Lazy load the PressLogos component
-const PressLogos = lazy(() => import("./PressLogos"));
+// Import PressLogos directly instead of lazy loading to ensure it renders
+import PressLogos from "./PressLogos";
 
 const Hero = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -84,13 +84,8 @@ const Hero = () => {
       
       {/* Press logos and scroll indicator */}
       <div className="w-full relative z-10">
-        <Suspense fallback={
-          <div className="h-16 bg-black flex items-center justify-center">
-            <span className="text-white/50 text-xs uppercase tracking-widest">Loading...</span>
-          </div>
-        }>
-          <PressLogos />
-        </Suspense>
+        {/* Render PressLogos directly without Suspense to ensure it's always visible */}
+        <PressLogos />
         <div className="flex justify-center mt-8 mb-12">
           <ArrowDown 
             size={32} 
