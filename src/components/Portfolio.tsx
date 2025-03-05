@@ -120,8 +120,8 @@ const getUniqueArtists = () => {
     if (item.artist.includes("&")) {
       const artists = item.artist.split("&").map(a => a.trim());
       artists.forEach(artist => {
-        // Exclude Curren$y and Jim Jones from the artist list
-        if (artist !== "Curren$y" && artist !== "Jim Jones") {
+        // Exclude Curren$y, Jim Jones, and Behani from the artist list
+        if (artist !== "Curren$y" && artist !== "Jim Jones" && artist !== "Behani") {
           artistSet.add(artist);
         }
       });
