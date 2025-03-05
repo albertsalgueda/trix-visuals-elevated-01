@@ -69,7 +69,7 @@ const portfolioItems = [
   {
     title: "We Set the Trends",
     artist: "Jim Jones & Migos",
-    description: "A trailblazing NFT-driven music video at the intersection of hip-hop and the metaverse.",
+    description: "A trailblazing NFT-driven music video at the intersection of hip-hop and the metaverse. Premiered in Decentraland.",
     thumbnailUrl: "/lovable-uploads/7ab2c68d-9b07-4195-ae88-bad4b158da67.png",
     videoId: "nfYscgHX29E",
     watchUrl: "https://www.youtube.com/watch?v=nfYscgHX29E",
