@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section 
       id="about" 
-      className="py-12 px-6 md:px-12 animate-on-scroll bg-black text-white"
+      className="py-4 px-6 md:px-12 animate-on-scroll bg-black text-white"
     >
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
