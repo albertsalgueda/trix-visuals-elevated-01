@@ -94,17 +94,17 @@ const allLogos = [...pressLogos, ...pressLogos, ...pressLogos];
 
 const PressLogos = () => {
   return (
-    <div className="py-8 w-full overflow-hidden bg-black">
+    <div className="py-8 w-full overflow-hidden">
       <div className="relative w-full">
         {/* Static marquee title */}
         <div className="mb-4 text-center">
-          <p className="text-white text-xs uppercase tracking-widest">Featured In</p>
+          <p className="text-black text-xs uppercase tracking-widest">Featured In</p>
         </div>
         
         {/* Scrolling container with improved animation for mobile */}
         <div className="relative overflow-hidden w-full">
           {/* Add gradient fade on left edge */}
-          <div className="absolute left-0 top-0 h-full w-12 z-10 bg-gradient-to-r from-black to-transparent pointer-events-none"></div>
+          <div className="absolute left-0 top-0 h-full w-12 z-10 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
           
           <div className="flex py-4 items-center infinite-scroll-track">
             {allLogos.map((logo, index) => (
@@ -137,7 +137,7 @@ const PressLogos = () => {
           </div>
           
           {/* Add gradient fade on right edge */}
-          <div className="absolute right-0 top-0 h-full w-12 z-10 bg-gradient-to-l from-black to-transparent pointer-events-none"></div>
+          <div className="absolute right-0 top-0 h-full w-12 z-10 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
         </div>
       </div>
     </div>
