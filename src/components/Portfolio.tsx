@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import VideoPreview from "./VideoPreview";
 
@@ -45,7 +44,7 @@ const portfolioItems = [
     thumbnailUrl: "/lovable-uploads/6ee7776f-9730-4eee-ba00-244c7f8c5d91.png",
     videoId: "HPHbeSGVKJo",
     watchUrl: "https://www.youtube.com/watch?v=HPHbeSGVKJo",
-    pressUrl: "https://hypebeast.com",
+    pressUrl: "https://www.thefader.com/2016/11/22/kehlani-distraction-music-video",
   },
   {
     title: "Black Bonnie",
@@ -152,13 +151,11 @@ const Portfolio = () => {
   const uniqueArtists = getUniqueArtists();
   const videoRefs = useRef<(HTMLDivElement | null)[]>([]);
   
-  // Initialize refs array with the correct length
   useEffect(() => {
     videoRefs.current = videoRefs.current.slice(0, portfolioItems.length);
   }, []);
   
   const scrollToArtist = (artistName: string) => {
-    // Find all indexes where this artist appears
     const indexes = portfolioItems.reduce((acc: number[], item, index) => {
       if (item.artist.includes(artistName)) {
         acc.push(index);
@@ -166,14 +163,11 @@ const Portfolio = () => {
       return acc;
     }, []);
     
-    // If we found any matches
     if (indexes.length > 0) {
-      // Get the first item where this artist appears
       const firstIndex = indexes[0];
       const element = videoRefs.current[firstIndex];
       
       if (element) {
-        // Scroll the element into view with smooth behavior
         element.scrollIntoView({ 
           behavior: 'smooth', 
           block: 'center' 
