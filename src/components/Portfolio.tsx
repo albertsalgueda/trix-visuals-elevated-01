@@ -88,7 +88,7 @@ const portfolioItems = [
   {
     title: "Limewire",
     artist: "Soulja Boy",
-    description: "A nostalgic, lo-fi glitch aesthetic pays homage to the internet that launched a rap revolution.",
+    description: "A nostalgic, lo-fi glitch aesthetic pays homage to the internet icon that launched a digital revolution. Draco did it first.",
     thumbnailUrl: "/lovable-uploads/369abeb6-d460-4500-903f-011e6eb63dd3.png",
     videoId: "STml8BkoGvk",
     watchUrl: "https://www.youtube.com/watch?v=STml8BkoGvk",
