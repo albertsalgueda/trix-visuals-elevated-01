@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -84,14 +85,11 @@ const Navbar = () => {
           ))}
         </nav>
 
+        {/* Mobile menu button - fixed position relative to header */}
         <button
-          className="md:hidden z-50 flex items-center relative"
+          className="md:hidden z-[60] flex items-center"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
-          style={{ 
-            marginRight: '12px', 
-            marginTop: '18px'
-          }}
         >
           {isOpen ? (
             <X size={24} color="black" /> 
@@ -100,9 +98,18 @@ const Navbar = () => {
           )}
         </button>
 
+        {/* Mobile Menu Overlay - fixed to viewport */}
         {isOpen && (
           <div 
-            className="fixed top-0 left-0 right-0 bottom-0 w-full h-full bg-white z-40 flex flex-col items-center justify-center"
+            className="fixed inset-0 bg-white z-[55] flex flex-col items-center justify-center"
+            style={{
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: '100vw',
+              height: '100vh'
+            }}
           >
             <nav className="flex flex-col items-center space-y-8">
               {[
