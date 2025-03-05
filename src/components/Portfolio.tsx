@@ -82,6 +82,32 @@ const portfolioItems = [
     thumbnailUrl: "/lovable-uploads/89ec84d1-8dc1-4c61-acb9-20c9105c29ac.png",
     videoId: "fT2fxC48fX0",
     watchUrl: "https://www.youtube.com/watch?v=fT2fxC48fX0",
+  },
+  {
+    title: "Tremaine",
+    artist: "Trey Songz",
+    description: "A cinematic and deeply personal visual album exploring themes of love, relationships, and emotional vulnerability. The video album blends storytelling with R&B sensuality, creating a cohesive, immersive experience that reflects Trey Songz's evolution as an artist.",
+    thumbnailUrl: "https://i.ytimg.com/vi/6G2fyO5ibEE/maxresdefault.jpg",
+    videoId: "6G2fyO5ibEE",
+    watchUrl: "https://www.youtube.com/watch?v=6G2fyO5ibEE",
+    pressUrl: "https://www.vh1.com/news/wrb5zv/trey-songz-tremaine-the-playboy",
+  },
+  {
+    title: "Made in USA",
+    artist: "Lupe Fiasco",
+    description: "An intense and politically charged visual pairing razor-sharp lyricism with stark imagery reflecting American identity, globalization, and cultural influence. The video's raw and fast-paced edits mirror the urgency of the track's message.",
+    thumbnailUrl: "https://i.ytimg.com/vi/9fFT2PvztMk/maxresdefault.jpg",
+    videoId: "9fFT2PvztMk",
+    watchUrl: "https://www.youtube.com/watch?v=9fFT2PvztMk",
+    pressUrl: "https://pitchfork.com/news/69880-lupe-fiasco-shares-new-song-made-in-the-usa-listen/",
+  },
+  {
+    title: "Real Man",
+    artist: "Ne-Yo & Behani",
+    description: "A sultry, visually polished collaboration that fuses Behani's pop sensibilities with Ne-Yo's signature R&B charm. Features sleek cinematography, intimate lighting, and choreographed elegance, delivering a smooth and stylish visual experience.",
+    thumbnailUrl: "https://i.ytimg.com/vi/B24X3M2j-Oo/maxresdefault.jpg",
+    videoId: "B24X3M2j-Oo",
+    watchUrl: "https://www.youtube.com/watch?v=B24X3M2j-Oo",
   }
 ];
 
