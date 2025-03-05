@@ -99,7 +99,7 @@ const portfolioItems = [
     watchUrl: "https://www.youtube.com/watch?v=fT2fxC48fX0",
   },
   {
-    title: "Tremaine",
+    title: "Tremaine (Video Album)",
     artist: "Trey Songz",
     description: "A cinematic and deeply personal visual album exploring themes of love, lust, relationships, and emotional vulnerability.",
     thumbnailUrl: "/lovable-uploads/504d7f7b-8e77-41fb-94e8-88053c27dd9a.png",
