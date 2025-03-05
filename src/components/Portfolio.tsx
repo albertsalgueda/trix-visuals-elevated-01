@@ -51,7 +51,7 @@ const portfolioItems = [
     title: "Black Bonnie",
     artist: "Wale",
     description: "A time-traveling cinematic love story celebrating Black excellence across generations.",
-    thumbnailUrl: "https://i.ytimg.com/vi/KmR47_vyD2w/maxresdefault.jpg",
+    thumbnailUrl: "/lovable-uploads/6f1dad7b-393f-42bc-ae32-abe34d8e93b0.png",
     videoId: "KmR47_vyD2w",
     watchUrl: "https://www.youtube.com/watch?v=KmR47_vyD2w",
     pressUrl: "https://www.billboard.com/music/rb-hip-hop/wale-black-bonnie-music-video-8467980/",
