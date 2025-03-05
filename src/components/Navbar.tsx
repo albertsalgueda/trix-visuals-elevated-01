@@ -34,20 +34,20 @@ const Navbar = () => {
         isScrolled ? "bg-white/90 backdrop-blur-md border-b border-black/5 py-3" : "py-6"
       }`}
     >
-      <div className="container mx-auto px-0 md:px-4 flex items-center justify-between">
+      <div className="container mx-auto px-4 flex items-center justify-between">
         <a 
           href="#hero" 
-          className="flex items-center pl-2 md:pl-0"
+          className="flex items-center"
           onClick={(e) => {
             e.preventDefault();
             scrollToSection("hero");
           }}
         >
-          {/* Logo with white elements (always inverted to avoid purple) - 25% bigger and moved left */}
+          {/* Logo with consistent sizing across mobile and desktop */}
           <img 
             src="/lovable-uploads/87bbcdd9-e884-489b-a257-8495edf6bfbe.png" 
             alt="TRIX STUDIOS Logo" 
-            className="h-15 md:h-20 brightness-0 invert" 
+            className="h-12 md:h-20 brightness-0 invert" 
           />
         </a>
 
