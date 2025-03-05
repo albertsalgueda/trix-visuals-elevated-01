@@ -74,9 +74,9 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button - adjusted for alignment with logo */}
         <button
-          className="md:hidden z-50"
+          className="md:hidden z-50 h-16 flex items-center"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
