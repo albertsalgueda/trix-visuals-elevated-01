@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import VideoPreview from "./VideoPreview";
 
@@ -101,7 +100,6 @@ const portfolioItems = [
     thumbnailUrl: "/lovable-uploads/7149ca39-55a6-4381-8408-c85d448402ce.png",
     videoId: "9fFT2PvztMk",
     watchUrl: "https://www.youtube.com/watch?v=9fFT2PvztMk",
-    pressUrl: "https://pitchfork.com/news/69880-lupe-fiasco-shares-new-song-made-in-the-usa-listen/",
     startTime: 4,
   },
   {
