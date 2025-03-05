@@ -1,3 +1,4 @@
+
 import React, { useEffect, lazy, Suspense } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
@@ -11,14 +12,26 @@ const Portfolio = lazy(() => import("../components/Portfolio"));
 const Contact = lazy(() => import("../components/Contact"));
 const Footer = lazy(() => import("../components/Footer"));
 
-// Simple loading component
+// Optimized loading component with reduced animation
 const SectionLoader = () => (
-  <div className="w-full h-64 flex items-center justify-center">
-    <div className="w-6 h-6 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+  <div className="w-full h-32 flex items-center justify-center">
+    <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
 const Index = () => {
+  // Add preload detection to prevent animations during page load
+  useEffect(() => {
+    document.body.classList.add('preload');
+    
+    // Remove preload class after components have loaded
+    const timer = setTimeout(() => {
+      document.body.classList.remove('preload');
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
   // Implement a staggered animation effect for page load
   useEffect(() => {
     // Use a more efficient selector
@@ -36,7 +49,7 @@ const Index = () => {
       },
       { 
         threshold: 0.1,
-        rootMargin: "50px 0px" // Start animation slightly before element comes into view
+        rootMargin: "100px 0px" // Start animation earlier before element comes into view
       }
     );
 

@@ -7,24 +7,40 @@ const Hero = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   
   useEffect(() => {
-    // Simplified image loading strategy
+    // Optimized image loading strategy
     const cactusBgUrl = "/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png";
     
-    // Preload the image with a priority hint
+    // Check if image is already in browser cache
     const img = new Image();
+    
+    // Set as high priority since this is the hero image
+    img.fetchPriority = 'high';
+    img.loading = 'eager';
+    
     img.onload = () => setImageLoaded(true);
     img.onerror = () => {
       console.error("Background image failed to load");
       setImageLoaded(true); // Still mark as loaded to show content
     };
     
-    // Set loading priority to low to prioritize critical resources
-    if ('loading' in HTMLImageElement.prototype) {
-      img.loading = 'eager'; // Modern browsers
-    }
-    
     // Start loading
     img.src = cactusBgUrl;
+    
+    // Add preload class to body to prevent animations during initial load
+    document.body.classList.add('preload');
+    
+    // Remove preload class after page has loaded
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.body.classList.remove('preload');
+      }, 100);
+    });
+    
+    return () => {
+      window.removeEventListener('load', () => {
+        document.body.classList.remove('preload');
+      });
+    };
   }, []);
 
   const scrollToWorks = () => {
@@ -41,7 +57,7 @@ const Hero = () => {
     >
       {/* Background image with optimized loading strategy */}
       <div 
-        className={`absolute inset-0 z-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute inset-0 z-0 transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{
           backgroundImage: imageLoaded ? `url('/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png')` : 'none',
           backgroundSize: "cover",
