@@ -113,10 +113,6 @@ const portfolioItems = [
       },
       {
         title: "Watch",
-        url: "https://www.youtube.com/watch?v=6G2fyO5ibEE"
-      },
-      {
-        title: "Watch",
         url: "https://www.youtube.com/watch?v=JvlYjy9AYek"
       },
       {
