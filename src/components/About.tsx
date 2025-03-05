@@ -1,4 +1,3 @@
-
 import React from "react";
 
 const About = () => {
@@ -51,23 +50,15 @@ const About = () => {
           
           <div className="md:col-span-7">
             <p className="text-lg leading-relaxed mb-6">
-              Yasha Gruben is a New York native and visionary director with a foundation in Brooklyn's vibrant music scene. 
-              He launched his career collaborating with local talent such as The Underachievers, Phony PPL, and Harry Fraud, 
-              honing his craft both as a solo director and as one-half of the directing duo YASHXANA.
-            </p>
-            
-            <p className="text-lg leading-relaxed mb-6">
-              After years of grinding independently, Yasha's relentless drive propelled him into higher-budget productions, 
-              securing work with major record labels and some of the most influential artists in the industry. 
-              His move to Los Angeles was a pivotal step in pursuing his creative ambitions, allowing him to expand his 
-              scope while staying deeply connected to the artistry that first inspired him.
+              Yasha Gruben is a New York native and visionary director with roots in Brooklyn's vibrant music scene. 
+              He launched his career collaborating with local talent before his relentless drive propelled him into 
+              higher-budget productions with major record labels and influential artists.
             </p>
             
             <p className="text-lg leading-relaxed">
-              Now based between NYC and LA, Yasha continues to craft visually striking, culturally resonant music videos, 
-              collaborating with the artists who push the boundaries of sound and style. His work fuses authentic storytelling, 
-              cutting-edge visuals, and an unwavering passion for music, solidifying his place as a director shaping the future 
-              of music video cinema.
+              Now based between NYC and LA, Yasha continues to craft visually striking, culturally resonant music videos. 
+              His work fuses authentic storytelling, cutting-edge visuals, and an unwavering passion for music, 
+              solidifying his place as a director shaping the future of music video cinema.
             </p>
           </div>
         </div>
