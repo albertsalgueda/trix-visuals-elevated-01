@@ -1,4 +1,3 @@
-
 import React from "react";
 
 interface PressLogo {
@@ -49,12 +48,6 @@ const pressLogos: PressLogo[] = [
     name: "Highsnobiety",
     imageUrl: "/lovable-uploads/03ce3b6f-8ae5-498e-ab5e-ccf3cee6e5b4.png",
     linkUrl: "https://www.highsnobiety.com/",
-  },
-  {
-    name: "Hypebeast",
-    imageUrl: "/lovable-uploads/aee5fc50-d17f-4907-857b-c2e83bb7d83f.png",
-    linkUrl: "https://hypebeast.com/",
-    size: "extra-small",
   },
   {
     name: "MTV",
