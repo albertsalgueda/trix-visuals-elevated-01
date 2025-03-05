@@ -37,17 +37,17 @@ const Navbar = () => {
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         <a 
           href="#hero" 
-          className="flex items-center"
+          className="flex items-center pl-0 md:pl-0"
           onClick={(e) => {
             e.preventDefault();
             scrollToSection("hero");
           }}
         >
-          {/* Logo with white elements (always inverted to avoid purple) */}
+          {/* Logo with white elements (always inverted to avoid purple) - 25% bigger and moved left */}
           <img 
             src="/lovable-uploads/87bbcdd9-e884-489b-a257-8495edf6bfbe.png" 
             alt="TRIX STUDIOS Logo" 
-            className="h-12 md:h-16 brightness-0 invert" 
+            className="h-15 md:h-20 brightness-0 invert" 
           />
         </a>
 
