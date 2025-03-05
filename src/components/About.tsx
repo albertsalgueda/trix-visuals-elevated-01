@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const About = () => {
@@ -14,13 +15,6 @@ const About = () => {
           </div>
           
           <div className="md:col-span-7">
-            <p className="text-lg md:text-xl leading-relaxed mb-6">
-              We are directors, visionaries, and visual architects creating impactful, 
-              boundary-pushing music videos. Our work blends cutting-edge technology, 
-              cinematic precision, and cultural relevance to craft visuals that don't 
-              just accompany music—they elevate it.
-            </p>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
               <div>
                 <h3 className="text-xl font-display font-semibold mb-3">Our Approach</h3>
