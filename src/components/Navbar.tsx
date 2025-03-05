@@ -74,11 +74,12 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Mobile Menu Button - adjusted for alignment with logo */}
+        {/* Mobile Menu Button - adjusted for alignment with TRIX STUDIOS text */}
         <button
-          className="md:hidden z-50 h-16 flex items-center"
+          className="md:hidden z-50 flex items-center"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
+          style={{ paddingTop: '4px' }}
         >
           {isOpen ? (
             <X size={24} color="black" /> 
