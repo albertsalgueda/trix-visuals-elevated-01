@@ -153,7 +153,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
                 onLoad={handleThumbnailLoaded}
                 loading="lazy"
                 decoding="async"
-                fetchPriority="low"
+                fetchpriority="low"
               />
             )}
             
