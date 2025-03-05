@@ -121,7 +121,7 @@ const portfolioItems = [
     title: "Real Man",
     artist: "Ne-Yo & Behani",
     description: "A sultry, visually polished collaboration that fuses Behani's pop sensibilities with Ne-Yo's signature R&B charm. Features sleek cinematography, intimate lighting, and choreographed elegance, delivering a smooth and stylish visual experience.",
-    thumbnailUrl: "https://i.ytimg.com/vi/B24X3M2j-Oo/maxresdefault.jpg",
+    thumbnailUrl: "/lovable-uploads/dd7199a6-8b7d-4b00-a002-0302dfb60ba5.png",
     videoId: "B24X3M2j-Oo",
     watchUrl: "https://www.youtube.com/watch?v=B24X3M2j-Oo",
   }
