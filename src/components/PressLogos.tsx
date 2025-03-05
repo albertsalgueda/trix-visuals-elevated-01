@@ -116,7 +116,9 @@ const PressLogos = () => {
                 href={logo.linkUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-shrink-0 h-8 md:h-10 mx-8 first:ml-8 last:mr-8"
+                className={`flex-shrink-0 h-8 md:h-10 mx-8 first:ml-8 last:mr-8 ${
+                  logo.name === "Hypebeast" ? "mx-5" : "" // Reduced margin specifically for Hypebeast
+                }`}
               >
                 <img 
                   src={logo.imageUrl} 
@@ -125,13 +127,13 @@ const PressLogos = () => {
                     logo.name === "Grammy" 
                       ? 'scale-[1.5]' 
                       : logo.name === "Rolling Stone"
-                        ? 'scale-[1.3]' // Updated from 1.2 to 1.3 (10% bigger)
+                        ? 'scale-[1.3]' 
                         : logo.size === 'large' 
                           ? 'scale-125' 
                           : logo.size === 'small'
                             ? 'scale-70'
                             : logo.size === 'extra-small'
-                              ? 'scale-50' // 30% smaller than 'scale-70'
+                              ? 'scale-50' 
                               : ''
                   }`}
                 />
