@@ -86,7 +86,7 @@ const portfolioItems = [
     title: "LIMEWIRE",
     artist: "Soulja Boy",
     description: "A nostalgic, lo-fi glitch aesthetic pays homage to the internet that launched a rap revolution.",
-    thumbnailUrl: "https://i.ytimg.com/vi/STml8BkoGvk/maxresdefault.jpg",
+    thumbnailUrl: "/lovable-uploads/369abeb6-d460-4500-903f-011e6eb63dd3.png",
     videoId: "STml8BkoGvk",
     watchUrl: "https://www.youtube.com/watch?v=STml8BkoGvk",
     pressUrl: "https://www.vibe.com/music/videos/soulja-boy-discovers-america-paints-mona-lisa-limewire-video-1234764965/",
