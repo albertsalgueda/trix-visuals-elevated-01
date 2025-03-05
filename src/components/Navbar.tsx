@@ -53,19 +53,23 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center space-x-8">
-          {["works", "about", "contact"].map((item) => (
+          {[
+            { id: "works", label: "work" }, 
+            { id: "about", label: "about" }, 
+            { id: "contact", label: "contact" }
+          ].map((item) => (
             <a
-              key={item}
-              href={`#${item}`}
+              key={item.id}
+              href={`#${item.id}`}
               className={`text-sm uppercase tracking-wide link-hover ${
                 isScrolled ? "text-black" : "text-white"
               }`}
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection(item);
+                scrollToSection(item.id);
               }}
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </nav>
@@ -86,17 +90,21 @@ const Navbar = () => {
           }`}
         >
           <nav className="flex flex-col items-center space-y-8">
-            {["works", "about", "contact"].map((item) => (
+            {[
+              { id: "works", label: "work" },
+              { id: "about", label: "about" },
+              { id: "contact", label: "contact" }
+            ].map((item) => (
               <a
-                key={item}
-                href={`#${item}`}
+                key={item.id}
+                href={`#${item.id}`}
                 className="text-xl uppercase font-medium tracking-wide link-hover"
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToSection(item);
+                  scrollToSection(item.id);
                 }}
               >
-                {item}
+                {item.label}
               </a>
             ))}
           </nav>
