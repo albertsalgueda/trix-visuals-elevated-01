@@ -112,7 +112,7 @@ const portfolioItems = [
     title: "Made in USA",
     artist: "Lupe Fiasco",
     description: "An intense and politically charged visual pairing razor-sharp lyricism with stark imagery reflecting American identity, globalization, and cultural influence. The video's raw and fast-paced edits mirror the urgency of the track's message.",
-    thumbnailUrl: "https://i.ytimg.com/vi/9fFT2PvztMk/maxresdefault.jpg",
+    thumbnailUrl: "/lovable-uploads/7149ca39-55a6-4381-8408-c85d448402ce.png",
     videoId: "9fFT2PvztMk",
     watchUrl: "https://www.youtube.com/watch?v=9fFT2PvztMk",
     pressUrl: "https://pitchfork.com/news/69880-lupe-fiasco-shares-new-song-made-in-the-usa-listen/",
