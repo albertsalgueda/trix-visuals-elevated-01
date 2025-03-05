@@ -103,8 +103,7 @@ const PressLogos = () => {
         
         {/* Scrolling container with improved animation for mobile */}
         <div className="relative overflow-hidden w-full">
-          {/* Add gradient fade on left edge */}
-          <div className="absolute left-0 top-0 h-full w-12 z-10 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
+          {/* Removed the gradient fade on left edge */}
           
           <div className="flex py-4 items-center infinite-scroll-track">
             {allLogos.map((logo, index) => (
@@ -136,8 +135,7 @@ const PressLogos = () => {
             ))}
           </div>
           
-          {/* Add gradient fade on right edge */}
-          <div className="absolute right-0 top-0 h-full w-12 z-10 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+          {/* Removed the gradient fade on right edge */}
         </div>
       </div>
     </div>
