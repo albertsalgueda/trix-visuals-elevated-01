@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect, memo } from "react";
 import { Play } from "lucide-react";
 
@@ -130,7 +129,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
                 onLoad={handleThumbnailLoaded}
                 loading="lazy"
                 decoding="async"
-                fetchpriority="low"
+                fetchPriority="low"
               />
             )}
             

@@ -94,7 +94,7 @@ const portfolioItems = [
   {
     title: "Getting Loose",
     artist: "Wiz Khalifa",
-    description: "A vibrant celebration of lifestyle and culture with dynamic visuals.",
+    description: "A vibrant celebration of late 2000's lifestyle and culture with dynamic visuals.",
     thumbnailUrl: "/lovable-uploads/89ec84d1-8dc1-4c61-acb9-20c9105c29ac.png",
     videoId: "fT2fxC48fX0",
     watchUrl: "https://www.youtube.com/watch?v=fT2fxC48fX0",
