@@ -22,22 +22,6 @@ const portfolioItems = [
     pressUrl: "https://www.highsnobiety.com/p/lil-uzi-vert-future-wassup-video/",
   },
   {
-    title: "WAP (Animated)",
-    artist: "Cardi B",
-    description: "A hyper-stylized, controversial lyric video that turns everyday objects into symbols of power and desire.",
-    thumbnailUrl: "/lovable-uploads/ef0cf4c2-3808-4caf-a75b-367cd0ab51ab.png",
-    videoId: "ohD6cyB8RI4",
-    watchUrl: "https://www.youtube.com/watch?v=ohD6cyB8RI4",
-  },
-  {
-    title: "Super Freaky Girl (Animated)",
-    artist: "Nicki Minaj",
-    description: "An animated lyric video that complements Nicki Minaj's chart-topping single, \"Super Freaky Girl.\"",
-    thumbnailUrl: "/lovable-uploads/c9ac84de-ef4d-4bc1-89b5-24372e9b08a5.png",
-    videoId: "HInFfnzyqR4",
-    watchUrl: "https://www.youtube.com/watch?v=HInFfnzyqR4",
-  },
-  {
     title: "Distraction",
     artist: "Kehlani",
     description: "A sleek, Grammy-nominated visual masterpiece blending intimacy with minimalist elegance.",
@@ -54,6 +38,22 @@ const portfolioItems = [
     videoId: "KmR47_vyD2w",
     watchUrl: "https://www.youtube.com/watch?v=KmR47_vyD2w",
     pressUrl: "https://www.billboard.com/music/rb-hip-hop/wale-black-bonnie-music-video-8467980/",
+  },
+  {
+    title: "WAP (Animated)",
+    artist: "Cardi B",
+    description: "A hyper-stylized, controversial lyric video that turns everyday objects into symbols of power and desire.",
+    thumbnailUrl: "/lovable-uploads/ef0cf4c2-3808-4caf-a75b-367cd0ab51ab.png",
+    videoId: "ohD6cyB8RI4",
+    watchUrl: "https://www.youtube.com/watch?v=ohD6cyB8RI4",
+  },
+  {
+    title: "Super Freaky Girl (Animated)",
+    artist: "Nicki Minaj",
+    description: "An animated lyric video that complements Nicki Minaj's chart-topping single, \"Super Freaky Girl.\"",
+    thumbnailUrl: "/lovable-uploads/c9ac84de-ef4d-4bc1-89b5-24372e9b08a5.png",
+    videoId: "HInFfnzyqR4",
+    watchUrl: "https://www.youtube.com/watch?v=HInFfnzyqR4",
   },
   {
     title: "Don't Save Me",
@@ -115,10 +115,6 @@ const portfolioItems = [
         title: "Watch",
         url: "https://www.youtube.com/watch?v=JvlYjy9AYek"
       },
-      {
-        title: "Watch",
-        url: "https://www.youtube.com/watch?v=itaXFz2S4NI"
-      }
     ]
   },
   {
