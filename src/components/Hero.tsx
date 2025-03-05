@@ -1,20 +1,40 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import { ArrowDown } from "lucide-react";
-import PressLogos from "./PressLogos";
+
+// Lazy load the PressLogos component
+const PressLogos = lazy(() => import("./PressLogos"));
 
 const Hero = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   
   useEffect(() => {
-    // Load the cactus image
+    // Immediately start loading the background image
+    const cactusBgUrl = "/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png";
+    
+    // Check if the image is already in the browser cache
     const img = new Image();
-    img.onload = () => setImageLoaded(true);
-    img.onerror = (e) => {
-      console.error("Background image failed to load:", e);
-      // If there's an error, we'll still show the section with its base background color
-    };
-    img.src = "/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png";
+    
+    // Use requestIdleCallback to load in the background when the browser is idle
+    if ('requestIdleCallback' in window) {
+      // @ts-ignore - TypeScript doesn't recognize requestIdleCallback
+      window.requestIdleCallback(() => {
+        img.onload = () => setImageLoaded(true);
+        img.onerror = (e) => {
+          console.error("Background image failed to load:", e);
+          // If there's an error, we'll still show the section with its base background color
+          setImageLoaded(true);
+        };
+        img.src = cactusBgUrl;
+      });
+    } else {
+      // Fallback for browsers that don't support requestIdleCallback
+      setTimeout(() => {
+        img.onload = () => setImageLoaded(true);
+        img.onerror = () => setImageLoaded(true);
+        img.src = cactusBgUrl;
+      }, 200); // Small delay to prioritize other resources
+    }
   }, []);
 
   const scrollToWorks = () => {
@@ -29,16 +49,20 @@ const Hero = () => {
       id="hero"
       className="relative min-h-screen flex flex-col justify-between pt-24 pb-0 overflow-hidden"
     >
+      {/* Background image with optimized loading strategy */}
       <div 
         className={`absolute inset-0 z-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{
-          backgroundImage: `url('/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png')`,
+          backgroundImage: imageLoaded ? `url('/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png')` : 'none',
           backgroundSize: "cover",
           backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
         }}
+        aria-hidden="true"
       />
       <div className="absolute inset-0 bg-black/20 z-0"></div>
+      
+      {/* Hero content */}
       <div className="container mx-auto max-w-6xl animate-fade-in px-6 md:px-12 relative z-10 mt-16 md:mt-24 lg:mt-32">
         <h1 className="font-display text-3xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight mb-4 text-white">
           CINEMATIC INNOVATION. <br />
@@ -55,13 +79,21 @@ const Hero = () => {
         </div>
       </div>
       
+      {/* Press logos and scroll indicator */}
       <div className="w-full relative z-10">
-        <PressLogos />
+        <Suspense fallback={
+          <div className="h-14 md:h-16 flex items-center justify-center">
+            <span className="text-white/50 text-xs uppercase tracking-widest">Loading...</span>
+          </div>
+        }>
+          <PressLogos />
+        </Suspense>
         <div className="flex justify-center mt-8 mb-12">
           <ArrowDown 
             size={32} 
             onClick={scrollToWorks} 
             className="cursor-pointer animate-bounce text-white"
+            aria-label="Scroll to works section"
           />
         </div>
       </div>

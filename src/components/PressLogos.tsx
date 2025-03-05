@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { memo, useEffect, useState } from "react";
 
 interface PressLogo {
   name: string;
@@ -8,7 +9,9 @@ interface PressLogo {
   marginClass?: string;
 }
 
-const PressLogos = () => {
+const PressLogos = memo(() => {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  
   const logos: PressLogo[] = [
     {
       name: "Adult Swim",
@@ -103,13 +106,41 @@ const PressLogos = () => {
     }
   ];
 
+  useEffect(() => {
+    // Preload all logo images in a separate thread
+    const preloadImages = async () => {
+      const imagePromises = logos.map((logo) => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.onload = resolve;
+          img.onerror = reject;
+          img.src = logo.imagePath;
+        });
+      });
+      
+      try {
+        await Promise.all(imagePromises);
+        setImagesLoaded(true);
+      } catch (error) {
+        console.error("Error preloading logos:", error);
+        // Still show logos even if some fail to load
+        setImagesLoaded(true);
+      }
+    };
+
+    preloadImages();
+  }, []);
+
   return (
     <div className="w-screen overflow-hidden relative left-[50%] right-[50%] mx-[-50vw]">
       <div className="relative">
         <div className="text-center mb-6">
           <span className="text-white text-sm uppercase tracking-widest font-medium">Featured In</span>
         </div>
-        <div className="flex animate-scroll" style={{ width: "max-content" }}>
+        <div 
+          className={`flex animate-scroll transition-opacity duration-500 ${imagesLoaded ? 'opacity-100' : 'opacity-0'}`} 
+          style={{ width: "max-content" }}
+        >
           {[...logos, ...logos].map((logo, index) => (
             <div 
               key={`${logo.name}-${index}`} 
@@ -119,6 +150,8 @@ const PressLogos = () => {
                 src={logo.imagePath} 
                 alt={logo.altText} 
                 className={`h-auto w-auto ${logo.sizeClass || 'max-h-8 md:max-h-10'} object-contain`}
+                loading="lazy"
+                decoding="async"
               />
             </div>
           ))}
@@ -126,6 +159,6 @@ const PressLogos = () => {
       </div>
     </div>
   );
-};
+});
 
 export default PressLogos;
