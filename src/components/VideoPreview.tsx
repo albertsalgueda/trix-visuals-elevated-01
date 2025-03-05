@@ -1,6 +1,6 @@
 
-import React, { useState, useRef, useEffect } from "react";
-import { Play, Link } from "lucide-react";
+import React, { useState, useRef, useEffect, memo } from "react";
+import { Play } from "lucide-react";
 
 interface VideoPreviewProps {
   title: string;
@@ -14,7 +14,7 @@ interface VideoPreviewProps {
   index: number;
 }
 
-const VideoPreview: React.FC<VideoPreviewProps> = ({
+const VideoPreview: React.FC<VideoPreviewProps> = memo(({
   title,
   artist,
   description,
@@ -36,9 +36,10 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
       (entries) => {
         if (entries[0].isIntersecting) {
           setIsVisible(true);
+          observer.unobserve(entries[0].target); // Disconnect after becoming visible
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: "200px" } // Load images 200px before they enter viewport
     );
 
     if (containerRef.current) {
@@ -71,7 +72,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
         setThumbnailError(true);
         setLoadingThumbnail(false);
       };
-      img.src = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+      img.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
     }
   };
 
@@ -79,13 +80,24 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
     setLoadingThumbnail(false);
   };
 
+  // Don't render any content until intersection observer has detected visibility
+  if (!isVisible) {
+    return (
+      <div 
+        ref={containerRef}
+        className="w-full mb-16 opacity-0"
+        style={{ height: "400px" }} // Reserve space to prevent layout shifts
+      />
+    );
+  }
+
   return (
     <div 
       ref={containerRef}
       className={`w-full mb-16 transition-opacity duration-700 px-0 video-preview-item ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
-      style={{ transitionDelay: `${index * 150}ms` }}
+      style={{ transitionDelay: `${Math.min(index * 100, 800)}ms` }} // Cap delay at 800ms
       data-artist={artist}
     >
       <div 
@@ -96,6 +108,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
             className="w-full h-full absolute inset-0"
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`}
             title={`${artist} - ${title}`}
+            loading="lazy"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -104,17 +117,21 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
           <div className="relative w-full h-full cursor-pointer" onClick={handleVideoClick}>
             {loadingThumbnail && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
-                <div className="animate-pulse w-12 h-12 rounded-full bg-gray-700"></div>
+                <div className="w-12 h-12 rounded-full bg-gray-700"></div>
               </div>
             )}
             
-            <img 
-              src={thumbnailError && videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : thumbnailUrl} 
-              alt={`${artist} - ${title}`}
-              className={`w-full h-full object-cover transition-opacity duration-300 ${loadingThumbnail ? 'opacity-0' : 'opacity-100'}`}
-              onError={handleThumbnailError}
-              onLoad={handleThumbnailLoaded}
-            />
+            {isVisible && (
+              <img 
+                src={thumbnailError && videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : thumbnailUrl} 
+                alt={`${artist} - ${title}`}
+                className={`w-full h-full object-cover transition-opacity duration-300 ${loadingThumbnail ? 'opacity-0' : 'opacity-100'}`}
+                onError={handleThumbnailError}
+                onLoad={handleThumbnailLoaded}
+                loading="lazy"
+                decoding="async"
+              />
+            )}
             
             {thumbnailError && !videoId && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
@@ -171,6 +188,6 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
       </div>
     </div>
   );
-};
+});
 
 export default VideoPreview;
