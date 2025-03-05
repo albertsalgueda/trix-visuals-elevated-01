@@ -59,7 +59,7 @@ const portfolioItems = [
   {
     title: "Don't Save Me",
     artist: "Marshmello",
-    description: "Collaborative music video blending Marshmello's electronic style with rap vocals.",
+    description: "Collaborative music video blending Marshmello's electronic style with SOB x RBE's gritty rap vocals.",
     thumbnailUrl: "/lovable-uploads/5b6ec8cf-8868-45b2-8d24-6c58bfebfd37.png",
     videoId: "t8eiTPi3OqI",
     watchUrl: "https://www.youtube.com/watch?v=t8eiTPi3OqI",
