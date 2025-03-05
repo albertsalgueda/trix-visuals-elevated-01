@@ -22,6 +22,7 @@ const PressLogos = () => {
               alt={logo.alt}
               className="h-8 md:h-10 object-contain brightness-0 invert"
               loading="lazy"
+              fetchPriority="low"
               width="120"
               height="40"
             />
@@ -34,6 +35,7 @@ const PressLogos = () => {
               alt={`${logo.alt} Copy`}
               className="h-8 md:h-10 object-contain brightness-0 invert"
               loading="lazy"
+              fetchPriority="low"
               width="120"
               height="40"
             />

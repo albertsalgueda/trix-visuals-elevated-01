@@ -2,8 +2,10 @@
 import React, { useEffect, lazy, Suspense } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+
+// Only lazy load components that are not needed for initial rendering
+// Keep About loaded eagerly since it's important content
 import About from "../components/About";
-import PressLogos from "../components/PressLogos";
 
 // Lazy load less critical components
 const Portfolio = lazy(() => import("../components/Portfolio"));
@@ -72,8 +74,6 @@ const Index = () => {
         
         {/* About is important and loaded eagerly */}
         <About />
-        
-        <PressLogos />
         
         {/* Lazy load other sections with suspense fallbacks */}
         <Suspense fallback={<SectionLoader />}>
