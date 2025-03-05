@@ -90,7 +90,7 @@ const allLogos = [...pressLogos, ...pressLogos];
 
 const PressLogos = () => {
   return (
-    <div className="bg-black py-8 w-full overflow-hidden">
+    <div className="py-8 w-full overflow-hidden">
       <div className="relative w-full">
         {/* Static marquee title */}
         <div className="mb-4 text-center">
