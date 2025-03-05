@@ -77,7 +77,7 @@ const portfolioItems = [
   },
   {
     title: "Getting Loose",
-    artist: "Wiz Khalifa & Curren$y",
+    artist: "Wiz Khalifa",
     description: "A vibrant celebration of lifestyle and culture with dynamic visuals.",
     thumbnailUrl: "/lovable-uploads/89ec84d1-8dc1-4c61-acb9-20c9105c29ac.png",
     videoId: "fT2fxC48fX0",
@@ -93,7 +93,12 @@ const getUniqueArtists = () => {
     // Handle cases where artists are listed together (e.g., "Artist A & Artist B")
     if (item.artist.includes("&")) {
       const artists = item.artist.split("&").map(a => a.trim());
-      artists.forEach(artist => artistSet.add(artist));
+      artists.forEach(artist => {
+        // Exclude Curren$y from the artist list
+        if (artist !== "Curren$y") {
+          artistSet.add(artist);
+        }
+      });
     } else {
       artistSet.add(item.artist);
     }
