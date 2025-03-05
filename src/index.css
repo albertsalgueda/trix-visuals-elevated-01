@@ -52,10 +52,13 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-y: auto !important;
   }
 
   body {
-    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    @apply bg-background text-foreground antialiased;
+    overflow-x: hidden;
+    overflow-y: auto !important;
   }
 }
 
