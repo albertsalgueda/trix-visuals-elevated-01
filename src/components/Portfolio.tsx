@@ -82,7 +82,7 @@ const portfolioItems = [
     pressUrl: "https://www.vice.com/en/article/watch-gucci-manes-animated-video-for-all-my-children/",
   },
   {
-    title: "LIMEWIRE",
+    title: "Limewire",
     artist: "Soulja Boy",
     description: "A nostalgic, lo-fi glitch aesthetic pays homage to the internet that launched a rap revolution.",
     thumbnailUrl: "/lovable-uploads/369abeb6-d460-4500-903f-011e6eb63dd3.png",

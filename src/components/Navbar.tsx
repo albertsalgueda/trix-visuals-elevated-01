@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -6,7 +5,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Memoize scroll handler for better performance
   const handleScroll = useCallback(() => {
     if (window.scrollY > 50) {
       setIsScrolled(true);
@@ -15,13 +13,11 @@ const Navbar = () => {
     }
   }, []);
 
-  // Use passive event listener to improve scrolling performance
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -56,7 +52,6 @@ const Navbar = () => {
             scrollToSection("hero");
           }}
         >
-          {/* Logo with fixed aspect ratio to prevent distortion */}
           <img 
             src="/lovable-uploads/87bbcdd9-e884-489b-a257-8495edf6bfbe.png" 
             alt="TRIX STUDIOS Logo" 
@@ -67,7 +62,6 @@ const Navbar = () => {
           />
         </a>
 
-        {/* Desktop Menu */}
         <nav className="hidden md:flex items-center space-x-8">
           {[
             { id: "works", label: "work" }, 
@@ -90,14 +84,13 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Mobile Menu Button - repositioned */}
         <button
           className="md:hidden z-50 flex items-center relative"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
           style={{ 
-            marginRight: '12px',  // Moved more to the left
-            marginTop: '18px'     // Moved even more down
+            marginRight: '12px', 
+            marginTop: '18px'
           }}
         >
           {isOpen ? (
@@ -107,43 +100,31 @@ const Navbar = () => {
           )}
         </button>
 
-        {/* Mobile Menu - Enhanced fixed positioning with proper stacking */}
-        <div 
-          className={`fixed inset-0 bg-white z-40 transition-opacity duration-300 ease-in-out ${
-            isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
-          }`}
-          style={{ 
-            position: 'fixed', 
-            top: 0, 
-            left: 0, 
-            right: 0, 
-            bottom: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        >
-          <nav className="flex flex-col items-center space-y-8">
-            {[
-              { id: "works", label: "work" },
-              { id: "about", label: "about" },
-              { id: "contact", label: "contact" }
-            ].map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className="text-xl uppercase font-medium tracking-wide link-hover"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(item.id);
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </div>
+        {isOpen && (
+          <div 
+            className="fixed top-0 left-0 right-0 bottom-0 w-full h-full bg-white z-40 flex flex-col items-center justify-center"
+          >
+            <nav className="flex flex-col items-center space-y-8">
+              {[
+                { id: "works", label: "work" },
+                { id: "about", label: "about" },
+                { id: "contact", label: "contact" }
+              ].map((item) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="text-xl uppercase font-medium tracking-wide link-hover"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.id);
+                  }}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
