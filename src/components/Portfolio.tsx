@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import VideoPreview from "./VideoPreview";
 
@@ -11,6 +10,7 @@ const portfolioItems = [
     videoId: "x0fFzqX_Xgo",
     watchUrl: "https://www.youtube.com/watch?v=x0fFzqX_Xgo",
     pressUrl: "https://hypebeast.com/2018/1/lil-uzi-vert-ps-and-qs-video",
+    startTime: 8,
   },
   {
     title: "Wassup",
@@ -82,6 +82,7 @@ const portfolioItems = [
     videoId: "pOmsxhn6F90",
     watchUrl: "https://www.youtube.com/watch?v=pOmsxhn6F90",
     pressUrl: "https://www.vice.com/en/article/watch-gucci-manes-animated-video-for-all-my-children/",
+    startTime: 15,
   },
   {
     title: "Limewire",
@@ -127,6 +128,7 @@ const portfolioItems = [
     videoId: "9fFT2PvztMk",
     watchUrl: "https://www.youtube.com/watch?v=9fFT2PvztMk",
     pressUrl: "https://pitchfork.com/news/69880-lupe-fiasco-shares-new-song-made-in-the-usa-listen/",
+    startTime: 12,
   },
   {
     title: "Real Man",

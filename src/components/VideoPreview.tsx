@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect, memo } from "react";
 import { Play } from "lucide-react";
 
@@ -41,14 +40,11 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
   const [loadingThumbnail, setLoadingThumbnail] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
 
-  // Create the YouTube embed URL with proper start time parameter
   const getYoutubeEmbedUrl = () => {
     let embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&rel=0`;
     
-    // Explicitly convert startTime to number and ensure it exists
     const timeValue = Number(startTime);
     if (timeValue && !isNaN(timeValue) && timeValue > 0) {
-      // Make sure to use the correct parameter format that YouTube expects
       embedUrl += `&start=${Math.floor(timeValue)}`;
     }
     
@@ -64,7 +60,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
           observer.unobserve(entries[0].target);
         }
       },
-      { threshold: 0.1, rootMargin: "300px" } // Increased rootMargin for earlier loading
+      { threshold: 0.1, rootMargin: "300px" }
     );
 
     if (containerRef.current) {
@@ -113,13 +109,12 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
     setIsHovering(false);
   };
 
-  // Early exit for non-visible components - reserve less space to reduce layout shifts
   if (!isVisible) {
     return (
       <div 
         ref={containerRef}
         className="w-full mb-12 opacity-0"
-        style={{ height: "200px" }} // Reduced height reservation
+        style={{ height: "200px" }}
       />
     );
   }
@@ -130,7 +125,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
       className={`w-full mb-16 transition-opacity duration-700 px-0 video-preview-item ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
-      style={{ transitionDelay: `${Math.min(index * 75, 500)}ms` }} // Reduced delay cap to 500ms
+      style={{ transitionDelay: `${Math.min(index * 75, 500)}ms` }}
       data-artist={artist}
     >
       <div 
@@ -168,8 +163,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
                 onLoad={handleThumbnailLoaded}
                 loading="lazy"
                 decoding="async"
-                // Fixed case issue - using lowercase for HTML attributes
-                fetchpriority="low"
+                fetchPriority="low"
               />
             )}
             
