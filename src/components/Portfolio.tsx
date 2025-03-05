@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from "react";
 import VideoPreview from "./VideoPreview";
 
@@ -234,6 +235,7 @@ const Portfolio = () => {
                 pressUrl={item.pressUrl}
                 btsUrl={item.btsUrl}
                 additionalWatchLinks={item.additionalWatchLinks}
+                startTime={item.startTime}
               />
             </div>
           ))}

@@ -41,6 +41,21 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
   const [loadingThumbnail, setLoadingThumbnail] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
 
+  // Create the YouTube embed URL with proper start time parameter
+  const getYoutubeEmbedUrl = () => {
+    let embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&rel=0`;
+    
+    // Explicitly convert startTime to number and ensure it exists
+    const timeValue = Number(startTime);
+    if (timeValue && !isNaN(timeValue) && timeValue > 0) {
+      // Make sure to use the correct parameter format that YouTube expects
+      embedUrl += `&start=${Math.floor(timeValue)}`;
+    }
+    
+    console.log(`Creating embed URL with startTime: ${startTime}, resulting URL: ${embedUrl}`);
+    return embedUrl;
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -98,18 +113,6 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
     setIsHovering(false);
   };
 
-  // Create the YouTube embed URL with proper start time parameter
-  const getYoutubeEmbedUrl = () => {
-    let embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&rel=0`;
-    
-    // Ensure startTime is a number and greater than 0 before adding it to the URL
-    if (startTime && !isNaN(startTime) && startTime > 0) {
-      embedUrl += `&start=${Math.floor(startTime)}`;
-    }
-    
-    return embedUrl;
-  };
-
   // Early exit for non-visible components - reserve less space to reduce layout shifts
   if (!isVisible) {
     return (
@@ -165,7 +168,8 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
                 onLoad={handleThumbnailLoaded}
                 loading="lazy"
                 decoding="async"
-                fetchPriority="low"
+                // Fixed case issue - using lowercase for HTML attributes
+                fetchpriority="low"
               />
             )}
             
