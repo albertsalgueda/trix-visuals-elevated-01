@@ -42,7 +42,7 @@ const portfolioItems = [
     title: "Distraction",
     artist: "Kehlani",
     description: "A sleek, Grammy-nominated visual masterpiece blending intimacy with minimalist elegance.",
-    thumbnailUrl: "https://i.ytimg.com/vi/HPHbeSGVKJo/maxresdefault.jpg",
+    thumbnailUrl: "/lovable-uploads/6ee7776f-9730-4eee-ba00-244c7f8c5d91.png",
     videoId: "HPHbeSGVKJo",
     watchUrl: "https://www.youtube.com/watch?v=HPHbeSGVKJo",
     pressUrl: "https://hypebeast.com",
