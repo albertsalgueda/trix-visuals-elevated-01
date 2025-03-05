@@ -24,7 +24,7 @@ const portfolioItems = [
   },
   {
     title: "WAP (Animated)",
-    artist: "Cardi B & Megan Thee Stallion",
+    artist: "Cardi B",
     description: "A hyper-stylized, controversial lyric video that turns everyday objects into symbols of power and desire.",
     thumbnailUrl: "/lovable-uploads/ef0cf4c2-3808-4caf-a75b-367cd0ab51ab.png",
     videoId: "ohD6cyB8RI4",
@@ -58,8 +58,8 @@ const portfolioItems = [
   },
   {
     title: "Don't Save Me",
-    artist: "Marshmello & SOB X RBE",
-    description: "Collaborative music video blending Marshmello's electronic style with SOB X RBE's rap vocals.",
+    artist: "Marshmello",
+    description: "Collaborative music video blending Marshmello's electronic style with rap vocals.",
     thumbnailUrl: "/lovable-uploads/5b6ec8cf-8868-45b2-8d24-6c58bfebfd37.png",
     videoId: "t8eiTPi3OqI",
     watchUrl: "https://www.youtube.com/watch?v=t8eiTPi3OqI",
