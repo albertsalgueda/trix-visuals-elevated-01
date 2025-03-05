@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import VideoPreview from "./VideoPreview";
 
 const portfolioItems = [
@@ -150,16 +150,34 @@ const getUniqueArtists = () => {
 
 const Portfolio = () => {
   const uniqueArtists = getUniqueArtists();
+  const videoRefs = useRef<(HTMLDivElement | null)[]>([]);
+  
+  // Initialize refs array with the correct length
+  useEffect(() => {
+    videoRefs.current = videoRefs.current.slice(0, portfolioItems.length);
+  }, []);
   
   const scrollToArtist = (artistName: string) => {
-    const index = portfolioItems.findIndex(item => 
-      item.artist.includes(artistName)
-    );
+    // Find all indexes where this artist appears
+    const indexes = portfolioItems.reduce((acc: number[], item, index) => {
+      if (item.artist.includes(artistName)) {
+        acc.push(index);
+      }
+      return acc;
+    }, []);
     
-    if (index !== -1) {
-      const videoElements = document.querySelectorAll('.video-preview-item');
-      if (videoElements[index]) {
-        videoElements[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // If we found any matches
+    if (indexes.length > 0) {
+      // Get the first item where this artist appears
+      const firstIndex = indexes[0];
+      const element = videoRefs.current[firstIndex];
+      
+      if (element) {
+        // Scroll the element into view with smooth behavior
+        element.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center' 
+        });
       }
     }
   };
@@ -195,18 +213,23 @@ const Portfolio = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 bg-black">
           {portfolioItems.map((item, index) => (
-            <VideoPreview 
+            <div 
               key={index}
-              index={index}
-              title={item.title}
-              artist={item.artist}
-              description={item.description}
-              thumbnailUrl={item.thumbnailUrl}
-              videoId={item.videoId}
-              watchUrl={item.watchUrl}
-              pressUrl={item.pressUrl}
-              btsUrl={item.btsUrl}
-            />
+              ref={el => videoRefs.current[index] = el}
+              className="video-preview-item"
+            >
+              <VideoPreview 
+                index={index}
+                title={item.title}
+                artist={item.artist}
+                description={item.description}
+                thumbnailUrl={item.thumbnailUrl}
+                videoId={item.videoId}
+                watchUrl={item.watchUrl}
+                pressUrl={item.pressUrl}
+                btsUrl={item.btsUrl}
+              />
+            </div>
           ))}
         </div>
       </div>
