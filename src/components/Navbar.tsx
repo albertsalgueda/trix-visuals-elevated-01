@@ -57,7 +57,9 @@ const Navbar = () => {
             <a
               key={item}
               href={`#${item}`}
-              className="text-sm uppercase tracking-wide link-hover"
+              className={`text-sm uppercase tracking-wide link-hover ${
+                isScrolled ? "text-black" : "text-white"
+              }`}
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection(item);
