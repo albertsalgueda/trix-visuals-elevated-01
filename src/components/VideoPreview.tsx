@@ -98,6 +98,18 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
     setIsHovering(false);
   };
 
+  // Create the YouTube embed URL with proper start time parameter
+  const getYoutubeEmbedUrl = () => {
+    let embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&rel=0`;
+    
+    // Ensure startTime is a number and greater than 0 before adding it to the URL
+    if (startTime && !isNaN(startTime) && startTime > 0) {
+      embedUrl += `&start=${Math.floor(startTime)}`;
+    }
+    
+    return embedUrl;
+  };
+
   // Early exit for non-visible components - reserve less space to reduce layout shifts
   if (!isVisible) {
     return (
@@ -124,7 +136,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
         {isPlaying && videoId ? (
           <iframe
             className="w-full h-full absolute inset-0"
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&rel=0${startTime ? `&start=${startTime}` : ''}`}
+            src={getYoutubeEmbedUrl()}
             title={`${artist} - ${title}`}
             loading="lazy"
             frameBorder="0"
@@ -153,7 +165,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
                 onLoad={handleThumbnailLoaded}
                 loading="lazy"
                 decoding="async"
-                fetchpriority="low"
+                fetchPriority="low"
               />
             )}
             
