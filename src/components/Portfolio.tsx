@@ -82,7 +82,7 @@ const portfolioItems = [
     videoId: "pOmsxhn6F90",
     watchUrl: "https://www.youtube.com/watch?v=pOmsxhn6F90",
     pressUrl: "https://www.vice.com/en/article/watch-gucci-manes-animated-video-for-all-my-children/",
-    startTime: 4,
+    startTime: 5,
   },
   {
     title: "Limewire",
