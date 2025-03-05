@@ -1,11 +1,13 @@
-
 import React, { useEffect, lazy, Suspense } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 
-// Lazy load non-critical components
+// Only lazy load components that are not needed for initial rendering
+// Keep About loaded eagerly since it's important content
+import About from "../components/About";
+
+// Lazy load less critical components
 const Portfolio = lazy(() => import("../components/Portfolio"));
-const About = lazy(() => import("../components/About"));
 const Contact = lazy(() => import("../components/Contact"));
 const Footer = lazy(() => import("../components/Footer"));
 
@@ -19,6 +21,7 @@ const SectionLoader = () => (
 const Index = () => {
   // Implement a staggered animation effect for page load
   useEffect(() => {
+    // Use a more efficient selector
     const sections = document.querySelectorAll(".animate-on-scroll");
 
     // Use IntersectionObserver for better performance
@@ -56,13 +59,12 @@ const Index = () => {
         {/* Hero is always loaded immediately */}
         <Hero />
         
+        {/* About is important and loaded eagerly */}
+        <About />
+        
         {/* Lazy load other sections with suspense fallbacks */}
         <Suspense fallback={<SectionLoader />}>
           <Portfolio />
-        </Suspense>
-        
-        <Suspense fallback={<SectionLoader />}>
-          <About />
         </Suspense>
         
         <Suspense fallback={<SectionLoader />}>

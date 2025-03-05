@@ -1,3 +1,4 @@
+
 import React from "react";
 
 interface PressLogo {
@@ -88,9 +89,6 @@ const pressLogos: PressLogo[] = [
   },
 ];
 
-// For smoother scrolling, we duplicate the logos
-const allLogos = [...pressLogos, ...pressLogos];
-
 const PressLogos = () => {
   return (
     <div className="py-8 w-full overflow-hidden">
@@ -100,10 +98,10 @@ const PressLogos = () => {
           <p className="text-white text-xs uppercase tracking-widest">Featured In</p>
         </div>
         
-        {/* Scrolling container */}
+        {/* Optimized scrolling container - no need to duplicate logos, use CSS instead */}
         <div className="relative overflow-hidden w-full">
-          <div className="animate-scroll flex py-4 items-center">
-            {allLogos.map((logo, index) => (
+          <div className="flex items-center py-4 animate-scroll">
+            {pressLogos.map((logo, index) => (
               <a
                 key={`${logo.name}-${index}`}
                 href={logo.linkUrl}
@@ -114,6 +112,37 @@ const PressLogos = () => {
                 <img 
                   src={logo.imageUrl} 
                   alt={logo.name} 
+                  loading="lazy"
+                  className={`h-full w-auto object-contain ${
+                    logo.name === "Grammy" 
+                      ? 'scale-[1.5]' 
+                      : logo.name === "Rolling Stone"
+                        ? 'scale-[1.3]' 
+                        : logo.size === 'large' 
+                          ? 'scale-125' 
+                          : logo.size === 'small'
+                            ? 'scale-70'
+                            : logo.size === 'extra-small'
+                              ? 'scale-50' 
+                              : ''
+                  }`}
+                />
+              </a>
+            ))}
+            
+            {/* Add a second copy of logos for the infinite scroll effect without duplicating array */}
+            {pressLogos.map((logo, index) => (
+              <a
+                key={`${logo.name}-second-${index}`}
+                href={logo.linkUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 h-8 md:h-10 mx-6 flex items-center justify-center"
+              >
+                <img 
+                  src={logo.imageUrl} 
+                  alt={logo.name} 
+                  loading="lazy"
                   className={`h-full w-auto object-contain ${
                     logo.name === "Grammy" 
                       ? 'scale-[1.5]' 

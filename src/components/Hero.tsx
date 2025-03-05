@@ -7,35 +7,24 @@ const Hero = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   
   useEffect(() => {
-    // Immediately start loading the background image
+    // Simplified image loading strategy
     const cactusBgUrl = "/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png";
     
-    // Add a slight delay to prioritize initial paint
-    setTimeout(() => {
-      // Check if the image is already in the browser cache
-      const img = new Image();
-      
-      // Use requestIdleCallback to load in the background when the browser is idle
-      if ('requestIdleCallback' in window) {
-        // @ts-ignore - TypeScript doesn't recognize requestIdleCallback
-        window.requestIdleCallback(() => {
-          img.onload = () => setImageLoaded(true);
-          img.onerror = (e) => {
-            console.error("Background image failed to load:", e);
-            // If there's an error, we'll still show the section with its base background color
-            setImageLoaded(true);
-          };
-          img.src = cactusBgUrl;
-        }, { timeout: 2000 }); // Set a timeout to ensure it loads within 2 seconds
-      } else {
-        // Fallback for browsers that don't support requestIdleCallback
-        setTimeout(() => {
-          img.onload = () => setImageLoaded(true);
-          img.onerror = () => setImageLoaded(true);
-          img.src = cactusBgUrl;
-        }, 200); // Small delay to prioritize other resources
-      }
-    }, 100);
+    // Preload the image with a priority hint
+    const img = new Image();
+    img.onload = () => setImageLoaded(true);
+    img.onerror = () => {
+      console.error("Background image failed to load");
+      setImageLoaded(true); // Still mark as loaded to show content
+    };
+    
+    // Set loading priority to low to prioritize critical resources
+    if ('loading' in HTMLImageElement.prototype) {
+      img.loading = 'eager'; // Modern browsers
+    }
+    
+    // Start loading
+    img.src = cactusBgUrl;
   }, []);
 
   const scrollToWorks = () => {

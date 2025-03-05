@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect, memo } from "react";
 import { Play } from "lucide-react";
 
@@ -31,6 +32,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
   const [loadingThumbnail, setLoadingThumbnail] = useState(true);
 
   useEffect(() => {
+    // Use Intersection Observer API for better performance
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -129,7 +131,6 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
                 onLoad={handleThumbnailLoaded}
                 loading="lazy"
                 decoding="async"
-                fetchPriority="low"
               />
             )}
             
