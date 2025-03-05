@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section 
       id="about" 
-      className="py-4 px-6 md:px-12 -mt-20 animate-on-scroll bg-black text-white"
+      className="py-4 px-6 md:px-12 -mt-20 animate-on-scroll bg-black text-white border-t border-white/20"
     >
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
@@ -49,7 +49,7 @@ const About = () => {
               higher-budget productions with major record labels and influential artists.
             </p>
             
-            <p className="text-lg leading-relaxed">
+            <p className="text-lg leading-relaxed mb-12">
               Now based between NYC and LA, Yasha continues to craft visually striking, culturally resonant music videos. 
               His work fuses authentic storytelling, cutting-edge visuals, and an unwavering passion for music, 
               solidifying his place as a director shaping the future of music video cinema.
