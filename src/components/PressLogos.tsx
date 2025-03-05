@@ -50,7 +50,7 @@ const PressLogos = () => {
       name: "Grammy Awards",
       imagePath: "/lovable-uploads/de5c790c-d25a-4365-8746-9898a3e3d44a.png",
       altText: "Grammy Awards logo",
-      sizeClass: "max-h-10 md:max-h-[70.4px]"
+      sizeClass: "max-h-10 md:max-h-[74.6px]"
     },
     {
       name: "Highsnobiety",
