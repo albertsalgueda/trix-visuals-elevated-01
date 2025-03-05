@@ -23,7 +23,7 @@ const portfolioItems = [
     pressUrl: "https://www.highsnobiety.com/p/lil-uzi-vert-future-wassup-video/",
   },
   {
-    title: "WAP",
+    title: "WAP (Animated)",
     artist: "Cardi B & Megan Thee Stallion",
     description: "A hyper-stylized, controversial lyric video that turns everyday objects into symbols of power and desire.",
     thumbnailUrl: "/lovable-uploads/ef0cf4c2-3808-4caf-a75b-367cd0ab51ab.png",
