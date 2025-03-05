@@ -75,6 +75,7 @@ const pressLogos: PressLogo[] = [
     name: "Rolling Stone",
     imageUrl: "/lovable-uploads/c199e59c-fabd-4674-8e4e-545ada09aa92.png",
     linkUrl: "https://www.rollingstone.com/",
+    size: "large",
   },
   {
     name: "VH1",
@@ -119,7 +120,13 @@ const PressLogos = () => {
                 <img 
                   src={logo.imageUrl} 
                   alt={logo.name} 
-                  className={`h-full w-auto object-contain ${logo.size === 'large' ? 'scale-125' : ''}`}
+                  className={`h-full w-auto object-contain ${
+                    logo.name === "Grammy" || logo.name === "Rolling Stone" 
+                      ? 'scale-[1.2]' 
+                      : logo.size === 'large' 
+                        ? 'scale-125' 
+                        : ''
+                  }`}
                 />
               </a>
             ))}
