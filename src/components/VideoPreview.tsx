@@ -2,6 +2,11 @@
 import React, { useState, useRef, useEffect, memo } from "react";
 import { Play } from "lucide-react";
 
+interface WatchLink {
+  title: string;
+  url: string;
+}
+
 interface VideoPreviewProps {
   title: string;
   artist: string;
@@ -12,6 +17,7 @@ interface VideoPreviewProps {
   pressUrl?: string;
   btsUrl?: string;
   index: number;
+  additionalWatchLinks?: WatchLink[];
 }
 
 const VideoPreview: React.FC<VideoPreviewProps> = memo(({
@@ -24,6 +30,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
   pressUrl,
   btsUrl,
   index,
+  additionalWatchLinks,
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -174,6 +181,20 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
           >
             <span>Watch</span>
           </a>
+          
+          {additionalWatchLinks && additionalWatchLinks.length > 0 && (
+            additionalWatchLinks.map((link, i) => (
+              <a 
+                key={i}
+                href={link.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-1 text-sm font-medium text-white hover:text-white/80 after:bg-white link-hover"
+              >
+                <span>{link.title}</span>
+              </a>
+            ))
+          )}
           
           {btsUrl && (
             <a 

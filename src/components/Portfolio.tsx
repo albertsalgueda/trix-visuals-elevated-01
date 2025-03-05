@@ -106,6 +106,20 @@ const portfolioItems = [
     videoId: "6G2fyO5ibEE",
     watchUrl: "https://www.youtube.com/watch?v=6G2fyO5ibEE",
     pressUrl: "https://www.vh1.com/news/wrb5zv/trey-songz-tremaine-the-playboy",
+    additionalWatchLinks: [
+      {
+        title: "Nobody Else But You",
+        url: "https://www.youtube.com/watch?v=3v5HZTwFBCs"
+      },
+      {
+        title: "Song Goes Off",
+        url: "https://www.youtube.com/watch?v=JvlYjy9AYek"
+      },
+      {
+        title: "She Lovin It",
+        url: "https://www.youtube.com/watch?v=itaXFz2S4NI"
+      }
+    ]
   },
   {
     title: "Made in USA",
@@ -222,6 +236,7 @@ const Portfolio = () => {
                 watchUrl={item.watchUrl}
                 pressUrl={item.pressUrl}
                 btsUrl={item.btsUrl}
+                additionalWatchLinks={item.additionalWatchLinks}
               />
             </div>
           ))}
