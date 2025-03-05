@@ -5,7 +5,7 @@ interface PressLogo {
   name: string;
   imageUrl: string;
   linkUrl: string;
-  size?: "regular" | "large";
+  size?: "regular" | "large" | "small";
 }
 
 const pressLogos: PressLogo[] = [
@@ -54,6 +54,7 @@ const pressLogos: PressLogo[] = [
     name: "Hypebeast",
     imageUrl: "/lovable-uploads/aee5fc50-d17f-4907-857b-c2e83bb7d83f.png",
     linkUrl: "https://hypebeast.com/",
+    size: "small",
   },
   {
     name: "MTV",
@@ -121,11 +122,15 @@ const PressLogos = () => {
                   src={logo.imageUrl} 
                   alt={logo.name} 
                   className={`h-full w-auto object-contain ${
-                    logo.name === "Grammy" || logo.name === "Rolling Stone" 
-                      ? 'scale-[1.2]' 
-                      : logo.size === 'large' 
-                        ? 'scale-125' 
-                        : ''
+                    logo.name === "Grammy" 
+                      ? 'scale-[1.5]' 
+                      : logo.name === "Rolling Stone"
+                        ? 'scale-[1.2]'
+                        : logo.size === 'large' 
+                          ? 'scale-125' 
+                          : logo.size === 'small'
+                            ? 'scale-70'
+                            : ''
                   }`}
                 />
               </a>
