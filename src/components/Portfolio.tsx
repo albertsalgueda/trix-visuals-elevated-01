@@ -81,17 +81,21 @@ const portfolioItems = [
     description: "A cinematic and deeply personal visual album exploring themes of love, lust, relationships, and emotional vulnerability.",
     thumbnailUrl: "/lovable-uploads/504d7f7b-8e77-41fb-94e8-88053c27dd9a.png",
     videoId: "6G2fyO5ibEE",
-    watchUrl: "https://www.youtube.com/watch?v=6G2fyO5ibEE",
+    watchUrl: "https://www.youtube.com/watch?v=3v5HZTwFBCs",
     pressUrl: "https://www.vh1.com/news/wrb5zv/trey-songz-tremaine-the-playboy",
     additionalWatchLinks: [
       {
         title: "Watch",
-        url: "https://www.youtube.com/watch?v=3v5HZTwFBCs"
+        url: "https://www.youtube.com/watch?v=6G2fyO5ibEE"
       },
       {
         title: "Watch",
         url: "https://www.youtube.com/watch?v=JvlYjy9AYek"
       },
+      {
+        title: "Watch",
+        url: "https://www.youtube.com/watch?v=itaXFz2S4NI"
+      }
     ]
   },
   {
