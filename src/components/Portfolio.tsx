@@ -7,7 +7,7 @@ const portfolioItems = [
     title: "P's and Q's",
     artist: "Lil Uzi Vert",
     description: "An anime-inspired music video that transforms hip-hop into high-energy storytelling.",
-    thumbnailUrl: "https://i.ytimg.com/vi/x0fFzqX_Xgo/maxresdefault.jpg",
+    thumbnailUrl: "/lovable-uploads/5c9c4fdc-487a-42cb-8414-ca915dc01ae8.png",
     videoId: "x0fFzqX_Xgo",
     watchUrl: "https://www.youtube.com/watch?v=x0fFzqX_Xgo",
     pressUrl: "https://hypebeast.com/2018/1/lil-uzi-vert-ps-and-qs-video",
