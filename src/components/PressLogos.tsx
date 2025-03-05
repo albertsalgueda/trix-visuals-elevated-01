@@ -62,6 +62,11 @@ const pressLogos: PressLogo[] = [
     size: "large",
   },
   {
+    name: "Pitchfork",
+    imageUrl: "/lovable-uploads/360e05c1-bf3d-4d46-ba53-8a0f73b99577.png",
+    linkUrl: "https://pitchfork.com/",
+  },
+  {
     name: "Revolt",
     imageUrl: "/lovable-uploads/f2a18848-9d61-4088-bc38-6b10fcfe2d6c.png",
     linkUrl: "https://www.revolt.tv/",
@@ -97,7 +102,7 @@ const PressLogos = () => {
       <div className="relative w-full">
         {/* Static marquee title */}
         <div className="mb-4 text-center">
-          <p className="text-white/50 text-xs uppercase tracking-widest">Featured In</p>
+          <p className="text-black text-xs uppercase tracking-widest">Featured In</p>
         </div>
         
         {/* Scrolling container */}
