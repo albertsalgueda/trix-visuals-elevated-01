@@ -1,4 +1,3 @@
-
 import React from "react";
 
 interface PressLogo {
@@ -6,6 +5,7 @@ interface PressLogo {
   imagePath: string;
   altText: string;
   sizeClass?: string;
+  marginClass?: string;
 }
 
 const PressLogos = () => {
@@ -68,7 +68,8 @@ const PressLogos = () => {
       name: "MTV",
       imagePath: "/lovable-uploads/af6632a3-cd70-446b-801c-7e012c3919b5.png",
       altText: "MTV logo",
-      sizeClass: "max-h-14 md:max-h-18"
+      sizeClass: "max-h-12 md:max-h-16",
+      marginClass: "mx-4 md:mx-6"
     },
     {
       name: "Revolt",
@@ -112,7 +113,7 @@ const PressLogos = () => {
           {[...logos, ...logos].map((logo, index) => (
             <div 
               key={`${logo.name}-${index}`} 
-              className="flex-shrink-0 mx-6 md:mx-8 flex items-center justify-center h-14 md:h-16"
+              className={`flex-shrink-0 ${logo.marginClass || 'mx-6 md:mx-8'} flex items-center justify-center h-14 md:h-16`}
             >
               <img 
                 src={logo.imagePath} 
