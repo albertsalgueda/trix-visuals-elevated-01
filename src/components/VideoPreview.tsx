@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect, memo } from "react";
 import { Play } from "lucide-react";
 
@@ -29,6 +30,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
   const [isVisible, setIsVisible] = useState(false);
   const [thumbnailError, setThumbnailError] = useState(false);
   const [loadingThumbnail, setLoadingThumbnail] = useState(true);
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -79,6 +81,14 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
     setLoadingThumbnail(false);
   };
 
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
   // Early exit for non-visible components - reserve less space to reduce layout shifts
   if (!isVisible) {
     return (
@@ -113,7 +123,12 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
             allowFullScreen
           ></iframe>
         ) : (
-          <div className="relative w-full h-full cursor-pointer" onClick={handleVideoClick}>
+          <div 
+            className="relative w-full h-full cursor-pointer" 
+            onClick={handleVideoClick}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             {loadingThumbnail && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
                 <div className="w-8 h-8 rounded-full bg-gray-700 animate-pulse"></div>
@@ -139,7 +154,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
               </div>
             )}
             
-            <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+            <div className={`absolute inset-0 bg-black/20 flex items-center justify-center transition-opacity duration-300 ${isHovering ? 'opacity-100' : 'opacity-0 md:opacity-0'}`}>
               <Play size={80} className="text-white hover:text-white/90 transition-colors" />
             </div>
           </div>
