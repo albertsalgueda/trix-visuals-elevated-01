@@ -117,7 +117,7 @@ const PressLogos = () => {
               <img 
                 src={logo.imagePath} 
                 alt={logo.altText} 
-                className={`h-auto w-auto ${logo.sizeClass || 'max-h-8 md:max-h-10'} object-contain invert`}
+                className={`h-auto w-auto ${logo.sizeClass || 'max-h-8 md:max-h-10'} object-contain`}
               />
             </div>
           ))}
