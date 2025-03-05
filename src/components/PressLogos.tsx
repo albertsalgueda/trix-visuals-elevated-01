@@ -1,3 +1,4 @@
+
 import React from "react";
 
 interface PressLogo {
@@ -51,9 +52,9 @@ const pressLogos: PressLogo[] = [
 
 const PressLogos = () => {
   return (
-    <div className="bg-black py-6 md:py-8">
+    <div className="bg-black py-6 md:py-8 overflow-hidden w-full">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="flex items-center justify-around flex-wrap gap-4 md:gap-6">
+        <div className="flex flex-wrap items-center justify-around gap-4 md:gap-6">
           {pressLogos.map((logo) => (
             <a
               key={logo.name}
