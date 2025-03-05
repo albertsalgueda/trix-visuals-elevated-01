@@ -5,7 +5,7 @@ interface PressLogo {
   name: string;
   imageUrl: string;
   linkUrl: string;
-  size?: "regular" | "large" | "small";
+  size?: "regular" | "large" | "small" | "extra-small";
 }
 
 const pressLogos: PressLogo[] = [
@@ -54,7 +54,7 @@ const pressLogos: PressLogo[] = [
     name: "Hypebeast",
     imageUrl: "/lovable-uploads/aee5fc50-d17f-4907-857b-c2e83bb7d83f.png",
     linkUrl: "https://hypebeast.com/",
-    size: "small",
+    size: "extra-small", // Changed from 'small' to 'extra-small'
   },
   {
     name: "MTV",
@@ -130,7 +130,9 @@ const PressLogos = () => {
                           ? 'scale-125' 
                           : logo.size === 'small'
                             ? 'scale-70'
-                            : ''
+                            : logo.size === 'extra-small'
+                              ? 'scale-50' // 30% smaller than 'scale-70'
+                              : ''
                   }`}
                 />
               </a>
