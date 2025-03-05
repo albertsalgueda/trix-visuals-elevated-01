@@ -1,4 +1,3 @@
-
 import React from "react";
 
 interface PressLogo {
@@ -107,11 +106,8 @@ const PressLogos = () => {
           
           <div className="flex py-4 items-center infinite-scroll-track">
             {allLogos.map((logo, index) => (
-              <a
+              <div
                 key={`${logo.name}-${index}`}
-                href={logo.linkUrl}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="flex-shrink-0 h-8 md:h-10 mx-6 flex items-center justify-center"
               >
                 <img 
@@ -131,7 +127,7 @@ const PressLogos = () => {
                               : ''
                   }`}
                 />
-              </a>
+              </div>
             ))}
           </div>
           
