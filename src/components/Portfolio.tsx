@@ -87,7 +87,7 @@ const portfolioItems = [
 
 // Get unique artists
 const getUniqueArtists = () => {
-  const artistSet = new Set();
+  const artistSet = new Set<string>();
   
   portfolioItems.forEach(item => {
     // Handle cases where artists are listed together (e.g., "Artist A & Artist B")
@@ -105,7 +105,7 @@ const getUniqueArtists = () => {
 const Portfolio = () => {
   const uniqueArtists = getUniqueArtists();
   
-  const scrollToArtist = (artistName) => {
+  const scrollToArtist = (artistName: string) => {
     // Find the first video by this artist
     const index = portfolioItems.findIndex(item => 
       item.artist.includes(artistName)
