@@ -117,8 +117,8 @@
 
   /* Enhanced scrolling animation for the logos */
   .animate-scroll {
-    animation: scroll 30s linear infinite;
-    width: calc(100% * 2); /* Double width to accommodate the duplicated logos */
+    animation: scroll 40s linear infinite;
+    width: max-content; /* Allow content to determine width */
   }
 }
 
@@ -138,6 +138,6 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-50%));
   }
 }

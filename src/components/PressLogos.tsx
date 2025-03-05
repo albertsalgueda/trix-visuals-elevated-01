@@ -9,44 +9,79 @@ interface PressLogo {
 
 const pressLogos: PressLogo[] = [
   {
-    name: "Hypebeast",
-    imageUrl: "/lovable-uploads/0114878b-3509-4e56-8557-195954154491.png",
-    linkUrl: "https://hypebeast.com",
+    name: "Adult Swim",
+    imageUrl: "/lovable-uploads/41e494da-b880-4bba-b8e2-e5a2e195492c.png",
+    linkUrl: "https://www.adultswim.com/",
   },
   {
-    name: "Highsnobiety",
-    imageUrl: "/lovable-uploads/997b9914-f829-4813-a997-158459553e5a.png",
-    linkUrl: "https://www.highsnobiety.com/",
+    name: "BET",
+    imageUrl: "/lovable-uploads/1c7b96d9-aae6-4468-a972-2ce0fec90158.png",
+    linkUrl: "https://www.bet.com/",
   },
   {
     name: "Billboard",
-    imageUrl: "/lovable-uploads/55751809-424a-437f-850f-96b461ca996f.png",
+    imageUrl: "/lovable-uploads/139289dd-e4ab-4287-8f9b-0fe8c65fb4cd.png",
     linkUrl: "https://www.billboard.com/",
   },
   {
-    name: "Vibe",
-    imageUrl: "/lovable-uploads/69215438-6a9f-4596-8299-653a24455119.png",
-    linkUrl: "https://www.vibe.com/",
+    name: "Complex",
+    imageUrl: "/lovable-uploads/061be499-9160-496e-8be0-84f735f59322.png",
+    linkUrl: "https://www.complex.com/",
   },
   {
-    name: "Pitchfork",
-    imageUrl: "/lovable-uploads/45971591-9971-400d-8175-e3958471943a.png",
-    linkUrl: "https://pitchfork.com/",
+    name: "Fader",
+    imageUrl: "/lovable-uploads/5c54220a-21b7-4cfa-a8fe-df2261eb44f9.png",
+    linkUrl: "https://www.thefader.com/",
   },
   {
-    name: "VH1",
-    imageUrl: "/lovable-uploads/1c99814f-b945-4349-8535-4a7595589458.png",
-    linkUrl: "https://www.vh1.com/",
+    name: "Forbes",
+    imageUrl: "/lovable-uploads/f57ca638-a9b1-482c-8444-91e35e8ce123.png",
+    linkUrl: "https://www.forbes.com/",
+  },
+  {
+    name: "Grammy",
+    imageUrl: "/lovable-uploads/6a5b01f1-eeb0-4b6e-b32f-2f464eb9e185.png",
+    linkUrl: "https://www.grammy.com/",
+  },
+  {
+    name: "Highsnobiety",
+    imageUrl: "/lovable-uploads/03ce3b6f-8ae5-498e-ab5e-ccf3cee6e5b4.png",
+    linkUrl: "https://www.highsnobiety.com/",
+  },
+  {
+    name: "Hypebeast",
+    imageUrl: "/lovable-uploads/aee5fc50-d17f-4907-857b-c2e83bb7d83f.png",
+    linkUrl: "https://hypebeast.com/",
+  },
+  {
+    name: "MTV",
+    imageUrl: "/lovable-uploads/08170e87-c129-4149-b050-b4b13bba900f.png",
+    linkUrl: "https://www.mtv.com/",
   },
   {
     name: "Revolt",
-    imageUrl: "/lovable-uploads/5c57646d-4549-415a-891f-95a9a9a9593b.png",
+    imageUrl: "/lovable-uploads/f2a18848-9d61-4088-bc38-6b10fcfe2d6c.png",
     linkUrl: "https://www.revolt.tv/",
   },
   {
+    name: "Rolling Stone",
+    imageUrl: "/lovable-uploads/c199e59c-fabd-4674-8e4e-545ada09aa92.png",
+    linkUrl: "https://www.rollingstone.com/",
+  },
+  {
+    name: "VH1",
+    imageUrl: "/lovable-uploads/f32c6ec5-907c-4aa1-b3ff-ec5984362c03.png",
+    linkUrl: "https://www.vh1.com/",
+  },
+  {
     name: "Vice",
-    imageUrl: "/lovable-uploads/5817919f-0541-499a-a999-691479a26367.png",
+    imageUrl: "/lovable-uploads/124e2702-4f01-4a36-917b-51a02b70d598.png",
     linkUrl: "https://www.vice.com/",
+  },
+  {
+    name: "Vibe",
+    imageUrl: "/lovable-uploads/79155a17-ee53-4bdd-9607-1b512f83941f.png",
+    linkUrl: "https://www.vibe.com/",
   },
 ];
 
@@ -64,20 +99,20 @@ const PressLogos = () => {
         
         {/* Scrolling container */}
         <div className="relative overflow-hidden w-full">
-          <div className="animate-scroll flex space-x-12 py-2">
+          <div className="animate-scroll flex space-x-16 py-4">
             {allLogos.map((logo, index) => (
               <a
                 key={`${logo.name}-${index}`}
                 href={logo.linkUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-shrink-0 h-10 hover:opacity-80 transition-opacity"
+                className="flex-shrink-0 h-8 md:h-10 hover:opacity-100 transition-opacity"
               >
                 <img 
                   src={logo.imageUrl} 
                   alt={logo.name} 
-                  className="h-full w-auto object-contain filter invert opacity-70 hover:opacity-100 transition-opacity duration-300"
-                  style={{ minWidth: "100px" }}
+                  className="h-full w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  style={{ minWidth: "80px" }}
                 />
               </a>
             ))}
