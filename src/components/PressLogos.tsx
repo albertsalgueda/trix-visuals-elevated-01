@@ -5,6 +5,7 @@ interface PressLogo {
   name: string;
   imageUrl: string;
   linkUrl: string;
+  size?: "regular" | "large";
 }
 
 const pressLogos: PressLogo[] = [
@@ -42,6 +43,7 @@ const pressLogos: PressLogo[] = [
     name: "Grammy",
     imageUrl: "/lovable-uploads/6a5b01f1-eeb0-4b6e-b32f-2f464eb9e185.png",
     linkUrl: "https://www.grammy.com/",
+    size: "large",
   },
   {
     name: "Highsnobiety",
@@ -57,6 +59,7 @@ const pressLogos: PressLogo[] = [
     name: "MTV",
     imageUrl: "/lovable-uploads/08170e87-c129-4149-b050-b4b13bba900f.png",
     linkUrl: "https://www.mtv.com/",
+    size: "large",
   },
   {
     name: "Revolt",
@@ -99,20 +102,19 @@ const PressLogos = () => {
         
         {/* Scrolling container */}
         <div className="relative overflow-hidden w-full">
-          <div className="animate-scroll flex space-x-16 py-4">
+          <div className="animate-scroll flex py-4">
             {allLogos.map((logo, index) => (
               <a
                 key={`${logo.name}-${index}`}
                 href={logo.linkUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-shrink-0 h-8 md:h-10 hover:opacity-100 transition-opacity"
+                className="flex-shrink-0 h-8 md:h-10 mx-8 first:ml-8 last:mr-8"
               >
                 <img 
                   src={logo.imageUrl} 
                   alt={logo.name} 
-                  className="h-full w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
-                  style={{ minWidth: "80px" }}
+                  className={`h-full w-auto object-contain ${logo.size === 'large' ? 'scale-125' : ''}`}
                 />
               </a>
             ))}
