@@ -89,12 +89,12 @@ const pressLogos: PressLogo[] = [
   },
 ];
 
-// Duplicate the logos to ensure we always have logos visible during animation
+// We need three sets of logos to ensure continuous scrolling
 const allLogos = [...pressLogos, ...pressLogos, ...pressLogos];
 
 const PressLogos = () => {
   return (
-    <div className="py-8 w-full overflow-hidden">
+    <div className="py-8 w-full overflow-hidden bg-black">
       <div className="relative w-full">
         {/* Static marquee title */}
         <div className="mb-4 text-center">
@@ -103,7 +103,10 @@ const PressLogos = () => {
         
         {/* Scrolling container with improved animation for mobile */}
         <div className="relative overflow-hidden w-full">
-          <div className="flex py-4 items-center logos-scroll">
+          {/* Add gradient fade on left edge */}
+          <div className="absolute left-0 top-0 h-full w-12 z-10 bg-gradient-to-r from-black to-transparent pointer-events-none"></div>
+          
+          <div className="flex py-4 items-center infinite-scroll-track">
             {allLogos.map((logo, index) => (
               <a
                 key={`${logo.name}-${index}`}
@@ -115,7 +118,7 @@ const PressLogos = () => {
                 <img 
                   src={logo.imageUrl} 
                   alt={logo.name} 
-                  className={`h-full w-auto object-contain ${
+                  className={`h-full w-auto object-contain will-change-transform ${
                     logo.name === "Grammy" 
                       ? 'scale-[1.5]' 
                       : logo.name === "Rolling Stone"
@@ -132,6 +135,9 @@ const PressLogos = () => {
               </a>
             ))}
           </div>
+          
+          {/* Add gradient fade on right edge */}
+          <div className="absolute right-0 top-0 h-full w-12 z-10 bg-gradient-to-l from-black to-transparent pointer-events-none"></div>
         </div>
       </div>
     </div>

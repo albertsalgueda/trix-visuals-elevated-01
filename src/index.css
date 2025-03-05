@@ -121,11 +121,15 @@
     width: max-content; /* Allow content to determine width */
   }
   
-  /* New logo scroll animation that works better on mobile */
-  .logos-scroll {
+  /* New improved infinite scroll animation that works better on mobile */
+  .infinite-scroll-track {
     display: flex;
-    animation: logo-scroll 30s linear infinite;
+    animation: infinite-scroll 30s linear infinite;
     width: max-content;
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
   }
 }
 
@@ -149,12 +153,12 @@
   }
 }
 
-/* New animation for logos that ensures they don't disappear on mobile */
-@keyframes logo-scroll {
-  0% {
+/* Improved animation that prevents logos from disappearing on mobile */
+@keyframes infinite-scroll {
+  from {
     transform: translateX(0);
   }
-  100% {
-    transform: translateX(calc(-33.333%));
+  to {
+    transform: translateX(-33.333%);
   }
 }
