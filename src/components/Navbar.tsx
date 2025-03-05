@@ -34,10 +34,10 @@ const Navbar = () => {
         isScrolled ? "bg-white/90 backdrop-blur-md border-b border-black/5 py-3" : "py-6"
       }`}
     >
-      <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div className="container mx-auto px-0 md:px-4 flex items-center justify-between">
         <a 
           href="#hero" 
-          className="flex items-center pl-0 md:pl-0"
+          className="flex items-center pl-2 md:pl-0"
           onClick={(e) => {
             e.preventDefault();
             scrollToSection("hero");
