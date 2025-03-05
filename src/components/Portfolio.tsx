@@ -60,7 +60,7 @@ const portfolioItems = [
     title: "We Set the Trends",
     artist: "Jim Jones & Migos",
     description: "A trailblazing NFT-driven music video at the intersection of hip-hop and the metaverse.",
-    thumbnailUrl: "https://i.ytimg.com/vi/nfYscgHX29E/maxresdefault.jpg",
+    thumbnailUrl: "/lovable-uploads/7ab2c68d-9b07-4195-ae88-bad4b158da67.png",
     videoId: "nfYscgHX29E",
     watchUrl: "https://www.youtube.com/watch?v=nfYscgHX29E",
     pressUrl: "https://www.revolt.tv/article/2022-06-02/172102/jim-jones-migos-announce-we-set-the-trends-metaverse-nft-video",
