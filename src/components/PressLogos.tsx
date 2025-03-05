@@ -1,4 +1,3 @@
-
 import React from "react";
 
 interface PressLogo {
@@ -54,7 +53,7 @@ const pressLogos: PressLogo[] = [
     name: "Hypebeast",
     imageUrl: "/lovable-uploads/aee5fc50-d17f-4907-857b-c2e83bb7d83f.png",
     linkUrl: "https://hypebeast.com/",
-    size: "extra-small", // Changed from 'small' to 'extra-small'
+    size: "extra-small",
   },
   {
     name: "MTV",
@@ -116,9 +115,7 @@ const PressLogos = () => {
                 href={logo.linkUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex-shrink-0 h-8 md:h-10 mx-8 first:ml-8 last:mr-8 ${
-                  logo.name === "Hypebeast" ? "mx-5" : "" // Reduced margin specifically for Hypebeast
-                }`}
+                className="flex-shrink-0 h-8 md:h-10 mx-8 first:ml-8 last:mr-8"
               >
                 <img 
                   src={logo.imageUrl} 
