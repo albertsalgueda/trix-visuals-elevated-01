@@ -102,7 +102,7 @@ const Portfolio = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-x-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
           {portfolioItems.map((item, index) => (
             <VideoPreview 
               key={index}
