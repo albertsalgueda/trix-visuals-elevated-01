@@ -105,7 +105,7 @@
   }
 
   .animate-scroll {
-    animation: scroll 20s linear infinite;
+    animation: scroll 60s linear infinite;
   }
 }
 

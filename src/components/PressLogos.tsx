@@ -110,7 +110,7 @@ const PressLogos = () => {
         <div className="text-center mb-6">
           <span className="text-white text-sm uppercase tracking-widest font-medium">Featured In</span>
         </div>
-        <div className="flex animate-scroll">
+        <div className="flex animate-scroll" style={{ width: "max-content" }}>
           {[...logos, ...logos].map((logo, index) => (
             <div 
               key={`${logo.name}-${index}`} 
