@@ -107,11 +107,12 @@ const Navbar = () => {
           )}
         </button>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Fixed positioning to prevent scroll issues */}
         <div
-          className={`fixed inset-0 bg-white flex flex-col items-center justify-center transition-all duration-300 ease-in-out ${
+          className={`fixed inset-0 bg-white z-40 flex flex-col items-center justify-center transition-all duration-300 ease-in-out ${
             isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
           }`}
+          style={{ top: 0, left: 0, right: 0, bottom: 0 }}
         >
           <nav className="flex flex-col items-center space-y-8">
             {[
