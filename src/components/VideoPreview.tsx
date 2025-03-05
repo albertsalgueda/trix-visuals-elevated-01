@@ -146,19 +146,19 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
         )}
       </div>
       
-      <div className="mt-4 md:mt-6 px-6 md:px-12">
+      <div className="mt-4 md:mt-6 px-6 md:px-12 bg-black text-white">
         <div className="flex items-center mb-2">
-          <span className="text-xs uppercase tracking-widest text-black/60">🎥 Music Video</span>
+          <span className="text-xs uppercase tracking-widest text-white/60">🎥 Music Video</span>
         </div>
-        <h3 className="text-xl md:text-2xl font-display font-semibold mb-2">{artist} – {title}</h3>
-        <p className="text-base text-black/80 mb-4">{description}</p>
+        <h3 className="text-xl md:text-2xl font-display font-semibold mb-2 text-white">{artist} – {title}</h3>
+        <p className="text-base text-white/80 mb-4">{description}</p>
         
         <div className="flex flex-wrap items-center gap-4">
           <a 
             href={watchUrl} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-1 text-sm font-medium link-hover"
+            className="inline-flex items-center space-x-1 text-sm font-medium text-white hover:text-white/80 after:bg-white link-hover"
           >
             <span>Watch</span>
           </a>
@@ -168,7 +168,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
               href={btsUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-1 text-sm font-medium link-hover"
+              className="inline-flex items-center space-x-1 text-sm font-medium text-white hover:text-white/80 after:bg-white link-hover"
             >
               <span>BTS</span>
             </a>
@@ -179,7 +179,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
               href={pressUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-1 text-sm font-medium link-hover"
+              className="inline-flex items-center space-x-1 text-sm font-medium text-white hover:text-white/80 after:bg-white link-hover"
             >
               <span>Press</span>
             </a>
