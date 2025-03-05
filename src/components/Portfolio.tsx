@@ -167,13 +167,13 @@ const Portfolio = () => {
   return (
     <section 
       id="works" 
-      className="py-24 animate-on-scroll"
+      className="py-24 animate-on-scroll bg-black text-white"
     >
       <div className="w-full mx-auto">
         <div className="mb-16 px-6 md:px-12">
-          <span className="text-sm uppercase tracking-widest text-black/60 mb-2 inline-block">Portfolio</span>
+          <span className="text-sm uppercase tracking-widest text-white/60 mb-2 inline-block">Portfolio</span>
           <h2 className="font-display text-3xl md:text-4xl font-bold">SELECTED WORKS</h2>
-          <p className="mt-4 text-lg max-w-3xl">
+          <p className="mt-4 text-lg max-w-3xl text-white/80">
             Our portfolio spans culturally defining projects, from anime-inspired epics to futuristic 
             deepfake-driven worlds. Each video is an immersive visual statement, designed to elevate 
             the artistry of the music it represents.
@@ -184,10 +184,10 @@ const Portfolio = () => {
               <button
                 key={index}
                 onClick={() => scrollToArtist(artist)}
-                className="text-sm md:text-base hover:text-black/70 transition-colors focus:outline-none link-hover"
+                className="text-sm md:text-base hover:text-white/70 transition-colors focus:outline-none link-hover"
               >
                 {artist}
-                {index < uniqueArtists.length - 1 && <span className="mx-1 text-black/30">•</span>}
+                {index < uniqueArtists.length - 1 && <span className="mx-1 text-white/30">•</span>}
               </button>
             ))}
           </div>
