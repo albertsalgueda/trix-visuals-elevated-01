@@ -9,7 +9,7 @@ const About = () => {
     >
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
-          <div className="md:col-span-5">
+          <div className="md:col-span-5 mt-12">
             <span className="text-sm uppercase tracking-widest text-white/60 mb-2 inline-block">About</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold">WHO WE ARE</h2>
           </div>
