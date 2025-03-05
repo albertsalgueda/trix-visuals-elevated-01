@@ -133,7 +133,7 @@ export default {
 						transform: 'translateX(0)'
 					},
 					'100%': {
-						transform: 'translateX(calc(-100% - 3rem))'
+						transform: 'translateX(calc(-50% - 1.5rem))'
 					}
 				}
 			},

@@ -1,3 +1,4 @@
+
 import React from "react";
 
 interface PressLogo {
@@ -108,14 +109,14 @@ const PressLogos = () => {
         
         {/* Scrolling container */}
         <div className="relative overflow-hidden w-full">
-          <div className="animate-scroll flex py-4">
+          <div className="animate-scroll flex py-4 items-center">
             {allLogos.map((logo, index) => (
               <a
                 key={`${logo.name}-${index}`}
                 href={logo.linkUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-shrink-0 h-8 md:h-10 mx-8 first:ml-8 last:mr-8"
+                className="flex-shrink-0 h-8 md:h-10 mx-6 flex items-center justify-center"
               >
                 <img 
                   src={logo.imageUrl} 
