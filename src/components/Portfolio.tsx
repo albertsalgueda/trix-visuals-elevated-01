@@ -33,7 +33,7 @@ const portfolioItems = [
   {
     title: "Super Freaky Girl (Animated)",
     artist: "Nicki Minaj",
-    description: "An animated lyric video that complements Nicki Minaj's chart-topping single, \"Super Freaky Girl.\" The visual features vibrant animations synchronized with the song's lyrics, enhancing the track's playful and bold themes.",
+    description: "An animated lyric video that complements Nicki Minaj's chart-topping single, \"Super Freaky Girl.\"",
     thumbnailUrl: "/lovable-uploads/c9ac84de-ef4d-4bc1-89b5-24372e9b08a5.png",
     videoId: "HInFfnzyqR4",
     watchUrl: "https://www.youtube.com/watch?v=HInFfnzyqR4",
@@ -102,7 +102,7 @@ const portfolioItems = [
   {
     title: "Tremaine",
     artist: "Trey Songz",
-    description: "A cinematic and deeply personal visual album exploring themes of love, relationships, and emotional vulnerability. The video album blends storytelling with R&B sensuality, creating a cohesive, immersive experience that reflects Trey Songz's evolution as an artist.",
+    description: "A cinematic and deeply personal visual album exploring themes of love, relationships, and emotional vulnerability.",
     thumbnailUrl: "/lovable-uploads/504d7f7b-8e77-41fb-94e8-88053c27dd9a.png",
     videoId: "6G2fyO5ibEE",
     watchUrl: "https://www.youtube.com/watch?v=6G2fyO5ibEE",
@@ -111,7 +111,7 @@ const portfolioItems = [
   {
     title: "Made in USA",
     artist: "Lupe Fiasco",
-    description: "An intense and politically charged visual pairing razor-sharp lyricism with stark imagery reflecting American identity, globalization, and cultural influence. The video's raw and fast-paced edits mirror the urgency of the track's message.",
+    description: "An intense and politically charged visual pairing razor-sharp lyricism with stark imagery reflecting American identity.",
     thumbnailUrl: "/lovable-uploads/7149ca39-55a6-4381-8408-c85d448402ce.png",
     videoId: "9fFT2PvztMk",
     watchUrl: "https://www.youtube.com/watch?v=9fFT2PvztMk",
@@ -120,7 +120,7 @@ const portfolioItems = [
   {
     title: "Real Man",
     artist: "Ne-Yo & Behani",
-    description: "A sultry, visually polished collaboration that fuses Behani's pop sensibilities with Ne-Yo's signature R&B charm. Features sleek cinematography, intimate lighting, and choreographed elegance, delivering a smooth and stylish visual experience.",
+    description: "A sultry, visually polished collaboration that fuses Behani's pop sensibilities with Ne-Yo's signature R&B charm.",
     thumbnailUrl: "/lovable-uploads/dd7199a6-8b7d-4b00-a002-0302dfb60ba5.png",
     videoId: "B24X3M2j-Oo",
     watchUrl: "https://www.youtube.com/watch?v=B24X3M2j-Oo",
