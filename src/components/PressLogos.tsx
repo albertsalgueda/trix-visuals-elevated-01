@@ -1,3 +1,4 @@
+
 import React from "react";
 
 interface PressLogo {
@@ -50,7 +51,7 @@ const PressLogos = () => {
       name: "Grammy Awards",
       imagePath: "/lovable-uploads/de5c790c-d25a-4365-8746-9898a3e3d44a.png",
       altText: "Grammy Awards logo",
-      sizeClass: "max-h-12 md:max-h-16"
+      sizeClass: "max-h-15 md:max-h-20" // Increased by 25% from max-h-12/max-h-16
     },
     {
       name: "Highsnobiety",
