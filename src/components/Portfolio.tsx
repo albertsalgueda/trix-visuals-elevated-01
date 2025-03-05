@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from "react";
 import VideoPreview from "./VideoPreview";
 
@@ -77,7 +78,7 @@ const portfolioItems = [
   {
     title: "All My Children",
     artist: "Gucci Mane",
-    description: "A bold, animated journey that cements Gucci Mane's legacy as a mentor to a generation of artists.",
+    description: "A bold, animated journey that cements Gucci Mane's legacy as a mentor to a generation of artists. Premiered on Adult Swim.",
     thumbnailUrl: "/lovable-uploads/ec82725b-126e-4f53-931f-c8d990febc23.png",
     videoId: "pOmsxhn6F90",
     watchUrl: "https://www.youtube.com/watch?v=pOmsxhn6F90",
