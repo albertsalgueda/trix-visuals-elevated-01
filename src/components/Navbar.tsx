@@ -90,12 +90,15 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Mobile Menu Button - adjusted for alignment with TRIX STUDIOS text */}
+        {/* Mobile Menu Button - repositioned */}
         <button
-          className="md:hidden z-50 flex items-center"
+          className="md:hidden z-50 flex items-center relative"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
-          style={{ paddingTop: '4px' }}
+          style={{ 
+            marginRight: '8px',  // Move left a bit 
+            marginTop: '8px'     // Move down a bit
+          }}
         >
           {isOpen ? (
             <X size={24} color="black" /> 
