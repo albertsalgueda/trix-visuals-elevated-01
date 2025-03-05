@@ -31,6 +31,14 @@ const portfolioItems = [
     watchUrl: "https://www.youtube.com/watch?v=ohD6cyB8RI4",
   },
   {
+    title: "Super Freaky Girl",
+    artist: "Nicki Minaj",
+    description: "An animated lyric video that complements Nicki Minaj's chart-topping single, \"Super Freaky Girl.\" The visual features vibrant animations synchronized with the song's lyrics, enhancing the track's playful and bold themes.",
+    thumbnailUrl: "https://i.ytimg.com/vi/HInFfnzyqR4/maxresdefault.jpg",
+    videoId: "HInFfnzyqR4",
+    watchUrl: "https://www.youtube.com/watch?v=HInFfnzyqR4",
+  },
+  {
     title: "Distraction",
     artist: "Kehlani",
     description: "A sleek, Grammy-nominated visual masterpiece blending intimacy with minimalist elegance.",
