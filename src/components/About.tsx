@@ -1,4 +1,3 @@
-
 import React from "react";
 
 const About = () => {
@@ -45,13 +44,12 @@ const About = () => {
           <div className="md:col-span-7">
             <p className="text-lg leading-relaxed mb-6">
               Yasha Gruben is a New York native and visionary director with roots in Brooklyn's vibrant music scene. 
-              He launched his career collaborating with local talent before his relentless drive propelled him into 
+              He launched his career collaborating with local talent both as a solo director and as one-half of the directing duo YASHXANA before his relentless drive propelled him into 
               higher-budget productions with major record labels and influential artists.
             </p>
             
             <p className="text-lg leading-relaxed mb-12">
-              Now based between NYC and LA, Yasha continues to craft visually striking, culturally resonant music videos 
-              both as a solo director and as one-half of the directing duo YASHXANA. 
+              Now based between NYC and LA, Yasha continues to craft visually striking, culturally resonant music videos. 
               His work fuses authentic storytelling, cutting-edge visuals, and an unwavering passion for music, 
               solidifying his place as a director shaping the future of music video cinema.
             </p>
