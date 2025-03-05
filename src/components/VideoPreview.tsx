@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect, memo } from "react";
 import { Play } from "lucide-react";
 
@@ -17,6 +18,7 @@ interface VideoPreviewProps {
   btsUrl?: string;
   index: number;
   additionalWatchLinks?: WatchLink[];
+  startTime?: number;
 }
 
 const VideoPreview: React.FC<VideoPreviewProps> = memo(({
@@ -30,6 +32,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
   btsUrl,
   index,
   additionalWatchLinks,
+  startTime,
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -121,7 +124,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
         {isPlaying && videoId ? (
           <iframe
             className="w-full h-full absolute inset-0"
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&rel=0`} // Added rel=0 to reduce related videos
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&rel=0${startTime ? `&start=${startTime}` : ''}`}
             title={`${artist} - ${title}`}
             loading="lazy"
             frameBorder="0"

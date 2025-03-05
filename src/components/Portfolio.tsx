@@ -29,6 +29,7 @@ const portfolioItems = [
     videoId: "HPHbeSGVKJo",
     watchUrl: "https://www.youtube.com/watch?v=HPHbeSGVKJo",
     pressUrl: "https://www.thefader.com/2016/11/22/kehlani-distraction-music-video",
+    startTime: 4,
   },
   {
     title: "Black Bonnie",
