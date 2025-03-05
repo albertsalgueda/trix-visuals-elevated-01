@@ -82,10 +82,11 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
   return (
     <div 
       ref={containerRef}
-      className={`w-full mb-16 transition-opacity duration-700 px-0 ${
+      className={`w-full mb-16 transition-opacity duration-700 px-0 video-preview-item ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
       style={{ transitionDelay: `${index * 150}ms` }}
+      data-artist={artist}
     >
       <div 
         className="relative aspect-video overflow-hidden bg-black w-full"

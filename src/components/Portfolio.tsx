@@ -85,7 +85,40 @@ const portfolioItems = [
   }
 ];
 
+// Get unique artists
+const getUniqueArtists = () => {
+  const artistSet = new Set();
+  
+  portfolioItems.forEach(item => {
+    // Handle cases where artists are listed together (e.g., "Artist A & Artist B")
+    if (item.artist.includes("&")) {
+      const artists = item.artist.split("&").map(a => a.trim());
+      artists.forEach(artist => artistSet.add(artist));
+    } else {
+      artistSet.add(item.artist);
+    }
+  });
+  
+  return Array.from(artistSet).sort();
+};
+
 const Portfolio = () => {
+  const uniqueArtists = getUniqueArtists();
+  
+  const scrollToArtist = (artistName) => {
+    // Find the first video by this artist
+    const index = portfolioItems.findIndex(item => 
+      item.artist.includes(artistName)
+    );
+    
+    if (index !== -1) {
+      const videoElements = document.querySelectorAll('.video-preview-item');
+      if (videoElements[index]) {
+        videoElements[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  };
+
   return (
     <section 
       id="works" 
@@ -100,6 +133,19 @@ const Portfolio = () => {
             deepfake-driven worlds. Each video is an immersive visual statement, designed to elevate 
             the artistry of the music it represents.
           </p>
+          
+          <div className="mt-6 flex flex-wrap gap-2 md:gap-3">
+            {uniqueArtists.map((artist, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToArtist(artist)}
+                className="text-sm md:text-base hover:text-black/70 transition-colors focus:outline-none link-hover"
+              >
+                {artist}
+                {index < uniqueArtists.length - 1 && <span className="mx-1 text-black/30">•</span>}
+              </button>
+            ))}
+          </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
