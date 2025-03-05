@@ -16,7 +16,7 @@ const portfolioItems = [
     title: "Wassup",
     artist: "Lil Uzi Vert",
     description: "A deepfake-fueled, reality-bending experience in collaboration with Future.",
-    thumbnailUrl: "https://i.ytimg.com/vi/Ac6kDNMQK3c/maxresdefault.jpg",
+    thumbnailUrl: "/lovable-uploads/ab796fc0-c363-4ac3-bf3c-a631cc59785b.png",
     videoId: "Ac6kDNMQK3c",
     watchUrl: "https://www.youtube.com/watch?v=Ac6kDNMQK3c",
     btsUrl: "https://www.youtube.com/watch?v=zG-wc4q5KeA",
