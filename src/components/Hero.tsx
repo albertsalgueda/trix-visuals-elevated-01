@@ -1,8 +1,6 @@
 
-import React, { useEffect, useState, lazy, Suspense } from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowDown } from "lucide-react";
-
-// Import PressLogos directly instead of lazy loading to ensure it renders
 import PressLogos from "./PressLogos";
 
 const Hero = () => {
@@ -83,8 +81,7 @@ const Hero = () => {
       </div>
       
       {/* Press logos and scroll indicator */}
-      <div className="w-full relative z-10">
-        {/* Render PressLogos directly without Suspense to ensure it's always visible */}
+      <div className="w-full relative z-10 mt-auto">
         <PressLogos />
         <div className="flex justify-center mt-8 mb-12">
           <ArrowDown 

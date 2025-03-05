@@ -50,29 +50,38 @@ const pressLogos: PressLogo[] = [
   },
 ];
 
+// For smoother scrolling, we duplicate the logos
+const allLogos = [...pressLogos, ...pressLogos];
+
 const PressLogos = () => {
   return (
-    <div className="bg-black py-6 md:py-8 overflow-hidden w-full">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-wrap items-center justify-around gap-6 md:gap-8">
-          {pressLogos.map((logo) => (
-            <a
-              key={logo.name}
-              href={logo.linkUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block h-12 md:h-16 w-auto"
-            >
-              <img 
-                src={logo.imageUrl} 
-                alt={logo.name} 
-                className="h-full w-auto object-contain mix-blend-luminosity hover:mix-blend-normal transition-all duration-300 filter grayscale hover:grayscale-0"
-                loading="lazy"
-                width="150"
-                height="40"
-              />
-            </a>
-          ))}
+    <div className="bg-black py-8 w-full overflow-hidden">
+      <div className="relative w-full">
+        {/* Static marquee title */}
+        <div className="mb-4 text-center">
+          <p className="text-white/50 text-xs uppercase tracking-widest">Featured In</p>
+        </div>
+        
+        {/* Scrolling container */}
+        <div className="relative overflow-hidden w-full">
+          <div className="animate-scroll flex space-x-12 py-2">
+            {allLogos.map((logo, index) => (
+              <a
+                key={`${logo.name}-${index}`}
+                href={logo.linkUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 h-10 hover:opacity-80 transition-opacity"
+              >
+                <img 
+                  src={logo.imageUrl} 
+                  alt={logo.name} 
+                  className="h-full w-auto object-contain filter invert opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  style={{ minWidth: "100px" }}
+                />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </div>
