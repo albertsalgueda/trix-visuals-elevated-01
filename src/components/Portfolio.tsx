@@ -1,3 +1,4 @@
+
 import React from "react";
 import VideoPreview from "./VideoPreview";
 
@@ -102,7 +103,7 @@ const portfolioItems = [
     title: "Tremaine",
     artist: "Trey Songz",
     description: "A cinematic and deeply personal visual album exploring themes of love, relationships, and emotional vulnerability. The video album blends storytelling with R&B sensuality, creating a cohesive, immersive experience that reflects Trey Songz's evolution as an artist.",
-    thumbnailUrl: "https://i.ytimg.com/vi/6G2fyO5ibEE/maxresdefault.jpg",
+    thumbnailUrl: "/lovable-uploads/504d7f7b-8e77-41fb-94e8-88053c27dd9a.png",
     videoId: "6G2fyO5ibEE",
     watchUrl: "https://www.youtube.com/watch?v=6G2fyO5ibEE",
     pressUrl: "https://www.vh1.com/news/wrb5zv/trey-songz-tremaine-the-playboy",
