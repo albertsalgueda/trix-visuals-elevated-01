@@ -56,11 +56,12 @@ const Navbar = () => {
             scrollToSection("hero");
           }}
         >
-          {/* Logo with increased size on mobile */}
+          {/* Logo with fixed aspect ratio to prevent distortion */}
           <img 
             src="/lovable-uploads/87bbcdd9-e884-489b-a257-8495edf6bfbe.png" 
             alt="TRIX STUDIOS Logo" 
-            className="h-16 md:h-20 brightness-0 invert" 
+            className="h-14 md:h-16 w-auto object-contain brightness-0 invert" 
+            style={{ aspectRatio: "160/64", objectFit: "contain" }}
             width="160"
             height="64"
           />
