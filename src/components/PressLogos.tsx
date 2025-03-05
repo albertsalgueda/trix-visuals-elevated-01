@@ -103,7 +103,7 @@ const PressLogos = () => {
       <div className="relative w-full">
         {/* Static marquee title */}
         <div className="mb-4 text-center">
-          <p className="text-black text-xs uppercase tracking-widest">Featured In</p>
+          <p className="text-white text-xs uppercase tracking-widest">Featured In</p>
         </div>
         
         {/* Scrolling container */}
