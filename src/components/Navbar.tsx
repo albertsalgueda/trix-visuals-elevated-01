@@ -97,7 +97,7 @@ const Navbar = () => {
           aria-label="Toggle menu"
           style={{ 
             marginRight: '12px',  // Moved more to the left
-            marginTop: '12px'     // Moved more down
+            marginTop: '18px'     // Moved even more down
           }}
         >
           {isOpen ? (
