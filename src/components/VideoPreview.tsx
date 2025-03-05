@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect, memo } from "react";
 import { Play } from "lucide-react";
 

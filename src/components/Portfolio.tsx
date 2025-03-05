@@ -108,15 +108,15 @@ const portfolioItems = [
     pressUrl: "https://www.vh1.com/news/wrb5zv/trey-songz-tremaine-the-playboy",
     additionalWatchLinks: [
       {
-        title: "Nobody Else But You",
+        title: "Watch",
         url: "https://www.youtube.com/watch?v=3v5HZTwFBCs"
       },
       {
-        title: "Song Goes Off",
+        title: "Watch",
         url: "https://www.youtube.com/watch?v=JvlYjy9AYek"
       },
       {
-        title: "She Lovin It",
+        title: "Watch",
         url: "https://www.youtube.com/watch?v=itaXFz2S4NI"
       }
     ]
