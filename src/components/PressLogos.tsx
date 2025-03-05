@@ -125,7 +125,7 @@ const PressLogos = () => {
                     logo.name === "Grammy" 
                       ? 'scale-[1.5]' 
                       : logo.name === "Rolling Stone"
-                        ? 'scale-[1.2]'
+                        ? 'scale-[1.3]' // Updated from 1.2 to 1.3 (10% bigger)
                         : logo.size === 'large' 
                           ? 'scale-125' 
                           : logo.size === 'small'
