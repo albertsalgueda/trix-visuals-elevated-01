@@ -50,7 +50,8 @@ const About = () => {
             </p>
             
             <p className="text-lg leading-relaxed mb-12">
-              Now based between NYC and LA, Yasha continues to craft visually striking, culturally resonant music videos. 
+              Now based between NYC and LA, Yasha continues to craft visually striking, culturally resonant music videos 
+              both as a solo director and as one-half of the directing duo YASHXANA. 
               His work fuses authentic storytelling, cutting-edge visuals, and an unwavering passion for music, 
               solidifying his place as a director shaping the future of music video cinema.
             </p>
