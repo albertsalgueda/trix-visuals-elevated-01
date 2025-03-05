@@ -34,7 +34,7 @@ const portfolioItems = [
     title: "Super Freaky Girl (Animated)",
     artist: "Nicki Minaj",
     description: "An animated lyric video that complements Nicki Minaj's chart-topping single, \"Super Freaky Girl.\" The visual features vibrant animations synchronized with the song's lyrics, enhancing the track's playful and bold themes.",
-    thumbnailUrl: "https://i.ytimg.com/vi/HInFfnzyqR4/hqdefault.jpg",
+    thumbnailUrl: "/lovable-uploads/c9ac84de-ef4d-4bc1-89b5-24372e9b08a5.png",
     videoId: "HInFfnzyqR4",
     watchUrl: "https://www.youtube.com/watch?v=HInFfnzyqR4",
   },
