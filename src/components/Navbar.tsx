@@ -1,24 +1,37 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Handle scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  // Memoize scroll handler for better performance
+  const handleScroll = useCallback(() => {
+    if (window.scrollY > 50) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
   }, []);
+
+  // Use passive event listener to improve scrolling performance
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   const scrollToSection = (id: string) => {
     setIsOpen(false);
@@ -48,6 +61,8 @@ const Navbar = () => {
             src="/lovable-uploads/87bbcdd9-e884-489b-a257-8495edf6bfbe.png" 
             alt="TRIX STUDIOS Logo" 
             className="h-16 md:h-20 brightness-0 invert" 
+            width="160"
+            height="64"
           />
         </a>
 
@@ -91,7 +106,7 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <div
           className={`fixed inset-0 bg-white flex flex-col items-center justify-center transition-all duration-300 ease-in-out ${
-            isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+            isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
           }`}
         >
           <nav className="flex flex-col items-center space-y-8">

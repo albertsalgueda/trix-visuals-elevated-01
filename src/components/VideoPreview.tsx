@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect, memo } from "react";
 import { Play } from "lucide-react";
 
@@ -35,10 +36,10 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
       (entries) => {
         if (entries[0].isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(entries[0].target); // Disconnect after becoming visible
+          observer.unobserve(entries[0].target);
         }
       },
-      { threshold: 0.1, rootMargin: "200px" } // Load images 200px before they enter viewport
+      { threshold: 0.1, rootMargin: "300px" } // Increased rootMargin for earlier loading
     );
 
     if (containerRef.current) {
@@ -79,12 +80,13 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
     setLoadingThumbnail(false);
   };
 
+  // Early exit for non-visible components - reserve less space to reduce layout shifts
   if (!isVisible) {
     return (
       <div 
         ref={containerRef}
-        className="w-full mb-16 opacity-0"
-        style={{ height: "400px" }} // Reserve space to prevent layout shifts
+        className="w-full mb-12 opacity-0"
+        style={{ height: "200px" }} // Reduced height reservation
       />
     );
   }
@@ -95,7 +97,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
       className={`w-full mb-16 transition-opacity duration-700 px-0 video-preview-item ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
-      style={{ transitionDelay: `${Math.min(index * 100, 800)}ms` }} // Cap delay at 800ms
+      style={{ transitionDelay: `${Math.min(index * 75, 500)}ms` }} // Reduced delay cap to 500ms
       data-artist={artist}
     >
       <div 
@@ -104,7 +106,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
         {isPlaying && videoId ? (
           <iframe
             className="w-full h-full absolute inset-0"
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`}
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&rel=0`} // Added rel=0 to reduce related videos
             title={`${artist} - ${title}`}
             loading="lazy"
             frameBorder="0"
@@ -115,7 +117,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
           <div className="relative w-full h-full cursor-pointer" onClick={handleVideoClick}>
             {loadingThumbnail && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
-                <div className="w-12 h-12 rounded-full bg-gray-700"></div>
+                <div className="w-8 h-8 rounded-full bg-gray-700 animate-pulse"></div>
               </div>
             )}
             
@@ -128,6 +130,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
                 onLoad={handleThumbnailLoaded}
                 loading="lazy"
                 decoding="async"
+                fetchpriority="low"
               />
             )}
             

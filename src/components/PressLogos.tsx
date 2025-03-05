@@ -107,28 +107,37 @@ const PressLogos = memo(() => {
   ];
 
   useEffect(() => {
-    // Preload all logo images in a separate thread
-    const preloadImages = async () => {
+    // Use requestIdleCallback to preload images during browser idle time
+    const preloadImages = () => {
       const imagePromises = logos.map((logo) => {
         return new Promise((resolve, reject) => {
-          const img = new Image();
-          img.onload = resolve;
-          img.onerror = reject;
-          img.src = logo.imagePath;
+          if ('requestIdleCallback' in window) {
+            // @ts-ignore
+            window.requestIdleCallback(() => {
+              const img = new Image();
+              img.onload = resolve;
+              img.onerror = reject;
+              img.src = logo.imagePath;
+            });
+          } else {
+            // Fallback for browsers without requestIdleCallback
+            setTimeout(() => {
+              const img = new Image();
+              img.onload = resolve;
+              img.onerror = reject;
+              img.src = logo.imagePath;
+            }, 200);
+          }
         });
       });
       
-      try {
-        await Promise.all(imagePromises);
+      Promise.allSettled(imagePromises).then(() => {
         setImagesLoaded(true);
-      } catch (error) {
-        console.error("Error preloading logos:", error);
-        // Still show logos even if some fail to load
-        setImagesLoaded(true);
-      }
+      });
     };
 
-    preloadImages();
+    // Delay preload to prioritize more critical resources
+    setTimeout(preloadImages, 1000);
   }, []);
 
   return (
@@ -152,6 +161,9 @@ const PressLogos = memo(() => {
                 className={`h-auto w-auto ${logo.sizeClass || 'max-h-8 md:max-h-10'} object-contain`}
                 loading="lazy"
                 decoding="async"
+                fetchpriority="low"
+                width="100"
+                height="40"
               />
             </div>
           ))}
