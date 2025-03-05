@@ -43,11 +43,11 @@ const Navbar = () => {
             scrollToSection("hero");
           }}
         >
-          {/* Logo with consistent sizing across mobile and desktop */}
+          {/* Logo with increased size on mobile */}
           <img 
             src="/lovable-uploads/87bbcdd9-e884-489b-a257-8495edf6bfbe.png" 
             alt="TRIX STUDIOS Logo" 
-            className="h-12 md:h-20 brightness-0 invert" 
+            className="h-[13.8px] md:h-20 brightness-0 invert" 
           />
         </a>
 
