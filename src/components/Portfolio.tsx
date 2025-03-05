@@ -1,4 +1,3 @@
-
 import React from "react";
 import VideoPreview from "./VideoPreview";
 
@@ -127,22 +126,18 @@ const portfolioItems = [
   }
 ];
 
-// Get unique artists
 const getUniqueArtists = () => {
   const artistSet = new Set<string>();
   
   portfolioItems.forEach(item => {
-    // Handle cases where artists are listed together (e.g., "Artist A & Artist B")
     if (item.artist.includes("&")) {
       const artists = item.artist.split("&").map(a => a.trim());
       artists.forEach(artist => {
-        // Exclude Curren$y, Jim Jones, and Behani from the artist list
         if (artist !== "Curren$y" && artist !== "Jim Jones" && artist !== "Behani") {
           artistSet.add(artist);
         }
       });
     } else {
-      // Exclude Jim Jones as a solo artist
       if (item.artist !== "Jim Jones") {
         artistSet.add(item.artist);
       }
@@ -156,7 +151,6 @@ const Portfolio = () => {
   const uniqueArtists = getUniqueArtists();
   
   const scrollToArtist = (artistName: string) => {
-    // Find the first video by this artist
     const index = portfolioItems.findIndex(item => 
       item.artist.includes(artistName)
     );
