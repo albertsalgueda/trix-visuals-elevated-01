@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -59,7 +60,6 @@
     @apply bg-background text-foreground antialiased;
     overflow-x: hidden;
     overflow-y: auto !important;
-    text-rendering: optimizeSpeed;
   }
 
   /* Fix for images in general */
@@ -115,37 +115,10 @@
     @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full focus:after:w-full;
   }
 
-  .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s, transform 0.5s;
-  }
-
-  .appear {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
+  /* Enhanced scrolling animation for the logos */
   .animate-scroll {
     animation: scroll 40s linear infinite;
-    will-change: transform;
-  }
-
-  .infinite-scroll-container {
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .scroller {
-    display: flex;
-    animation: scroll 25s linear infinite;
-    width: max-content;
-  }
-  
-  .preload * {
-    animation-duration: 0s !important;
-    -webkit-animation-duration: 0s !important;
-    transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+    width: max-content; /* Allow content to determine width */
   }
 }
 
@@ -165,6 +138,6 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 1.5rem));
+    transform: translateX(calc(-50%));
   }
 }

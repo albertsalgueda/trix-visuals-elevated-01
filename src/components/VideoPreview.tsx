@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect, memo } from "react";
 import { Play } from "lucide-react";
 
@@ -32,7 +31,6 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
   const [loadingThumbnail, setLoadingThumbnail] = useState(true);
 
   useEffect(() => {
-    // Optimized Intersection Observer with increased rootMargin for earlier loading
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -40,7 +38,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
           observer.unobserve(entries[0].target);
         }
       },
-      { threshold: 0.1, rootMargin: "400px" } // Increased rootMargin for earlier loading
+      { threshold: 0.1, rootMargin: "300px" } // Increased rootMargin for earlier loading
     );
 
     if (containerRef.current) {
@@ -59,11 +57,11 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
   };
 
   const handleThumbnailError = () => {
+    console.log(`Error loading thumbnail for ${title}`);
     setThumbnailError(true);
     setLoadingThumbnail(false);
     
     if (videoId) {
-      // Pre-load fallback image
       const img = new Image();
       img.onload = () => {
         setThumbnailError(false);
@@ -73,8 +71,6 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
         setThumbnailError(true);
         setLoadingThumbnail(false);
       };
-      img.loading = 'lazy';
-      img.fetchPriority = 'low';
       img.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
     }
   };
@@ -83,13 +79,13 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
     setLoadingThumbnail(false);
   };
 
-  // Early exit for non-visible components
+  // Early exit for non-visible components - reserve less space to reduce layout shifts
   if (!isVisible) {
     return (
       <div 
         ref={containerRef}
         className="w-full mb-12 opacity-0"
-        style={{ height: "200px" }} 
+        style={{ height: "200px" }} // Reduced height reservation
       />
     );
   }
@@ -97,19 +93,19 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
   return (
     <div 
       ref={containerRef}
-      className={`w-full mb-16 transition-opacity duration-500 px-0 video-preview-item ${
+      className={`w-full mb-16 transition-opacity duration-700 px-0 video-preview-item ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
-      style={{ transitionDelay: `${Math.min(index * 50, 300)}ms` }} // Reduced delay cap to 300ms
+      style={{ transitionDelay: `${Math.min(index * 75, 500)}ms` }} // Reduced delay cap to 500ms
       data-artist={artist}
     >
       <div 
-        className="relative aspect-video overflow-hidden bg-gray-900 w-full"
+        className="relative aspect-video overflow-hidden bg-black w-full"
       >
         {isPlaying && videoId ? (
           <iframe
             className="w-full h-full absolute inset-0"
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&rel=0`}
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&rel=0`} // Added rel=0 to reduce related videos
             title={`${artist} - ${title}`}
             loading="lazy"
             frameBorder="0"
@@ -120,7 +116,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
           <div className="relative w-full h-full cursor-pointer" onClick={handleVideoClick}>
             {loadingThumbnail && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
-                <div className="w-6 h-6 rounded-full bg-gray-700 animate-pulse"></div>
+                <div className="w-8 h-8 rounded-full bg-gray-700 animate-pulse"></div>
               </div>
             )}
             
@@ -132,10 +128,8 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
                 onError={handleThumbnailError}
                 onLoad={handleThumbnailLoaded}
                 loading="lazy"
-                fetchPriority="low"
                 decoding="async"
-                width="640"
-                height="360"
+                fetchPriority="low"
               />
             )}
             
@@ -146,7 +140,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
             )}
             
             <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-              <Play size={60} className="text-white hover:text-white/90 transition-colors" />
+              <Play size={80} className="text-white hover:text-white/90 transition-colors" />
             </div>
           </div>
         )}

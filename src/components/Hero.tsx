@@ -7,40 +7,35 @@ const Hero = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   
   useEffect(() => {
-    // Optimized image loading strategy
+    // Immediately start loading the background image
     const cactusBgUrl = "/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png";
     
-    // Check if image is already in browser cache
-    const img = new Image();
-    
-    // Set as high priority since this is the hero image
-    img.fetchPriority = 'high';
-    img.loading = 'eager';
-    
-    img.onload = () => setImageLoaded(true);
-    img.onerror = () => {
-      console.error("Background image failed to load");
-      setImageLoaded(true); // Still mark as loaded to show content
-    };
-    
-    // Start loading
-    img.src = cactusBgUrl;
-    
-    // Add preload class to body to prevent animations during initial load
-    document.body.classList.add('preload');
-    
-    // Remove preload class after page has loaded
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.body.classList.remove('preload');
-      }, 100);
-    });
-    
-    return () => {
-      window.removeEventListener('load', () => {
-        document.body.classList.remove('preload');
-      });
-    };
+    // Add a slight delay to prioritize initial paint
+    setTimeout(() => {
+      // Check if the image is already in the browser cache
+      const img = new Image();
+      
+      // Use requestIdleCallback to load in the background when the browser is idle
+      if ('requestIdleCallback' in window) {
+        // @ts-ignore - TypeScript doesn't recognize requestIdleCallback
+        window.requestIdleCallback(() => {
+          img.onload = () => setImageLoaded(true);
+          img.onerror = (e) => {
+            console.error("Background image failed to load:", e);
+            // If there's an error, we'll still show the section with its base background color
+            setImageLoaded(true);
+          };
+          img.src = cactusBgUrl;
+        }, { timeout: 2000 }); // Set a timeout to ensure it loads within 2 seconds
+      } else {
+        // Fallback for browsers that don't support requestIdleCallback
+        setTimeout(() => {
+          img.onload = () => setImageLoaded(true);
+          img.onerror = () => setImageLoaded(true);
+          img.src = cactusBgUrl;
+        }, 200); // Small delay to prioritize other resources
+      }
+    }, 100);
   }, []);
 
   const scrollToWorks = () => {
@@ -57,7 +52,7 @@ const Hero = () => {
     >
       {/* Background image with optimized loading strategy */}
       <div 
-        className={`absolute inset-0 z-0 transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute inset-0 z-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{
           backgroundImage: imageLoaded ? `url('/lovable-uploads/52faeb82-3f1f-4c58-a356-6f7db1f15431.png')` : 'none',
           backgroundSize: "cover",

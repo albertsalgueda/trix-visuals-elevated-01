@@ -3,38 +3,22 @@ import React, { useEffect, lazy, Suspense } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 
-// Only lazy load components that are not needed for initial rendering
-// Keep About loaded eagerly since it's important content
-import About from "../components/About";
-
-// Lazy load less critical components
+// Lazy load non-critical components
 const Portfolio = lazy(() => import("../components/Portfolio"));
+const About = lazy(() => import("../components/About"));
 const Contact = lazy(() => import("../components/Contact"));
 const Footer = lazy(() => import("../components/Footer"));
 
-// Optimized loading component with reduced animation
+// Simple loading component
 const SectionLoader = () => (
-  <div className="w-full h-32 flex items-center justify-center">
-    <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+  <div className="w-full h-64 flex items-center justify-center">
+    <div className="w-6 h-6 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
 const Index = () => {
-  // Add preload detection to prevent animations during page load
-  useEffect(() => {
-    document.body.classList.add('preload');
-    
-    // Remove preload class after components have loaded
-    const timer = setTimeout(() => {
-      document.body.classList.remove('preload');
-    }, 100);
-    
-    return () => clearTimeout(timer);
-  }, []);
-  
   // Implement a staggered animation effect for page load
   useEffect(() => {
-    // Use a more efficient selector
     const sections = document.querySelectorAll(".animate-on-scroll");
 
     // Use IntersectionObserver for better performance
@@ -49,7 +33,7 @@ const Index = () => {
       },
       { 
         threshold: 0.1,
-        rootMargin: "100px 0px" // Start animation earlier before element comes into view
+        rootMargin: "50px 0px" // Start animation slightly before element comes into view
       }
     );
 
@@ -72,12 +56,13 @@ const Index = () => {
         {/* Hero is always loaded immediately */}
         <Hero />
         
-        {/* About is important and loaded eagerly */}
-        <About />
-        
         {/* Lazy load other sections with suspense fallbacks */}
         <Suspense fallback={<SectionLoader />}>
           <Portfolio />
+        </Suspense>
+        
+        <Suspense fallback={<SectionLoader />}>
+          <About />
         </Suspense>
         
         <Suspense fallback={<SectionLoader />}>
