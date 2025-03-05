@@ -107,12 +107,22 @@ const Navbar = () => {
           )}
         </button>
 
-        {/* Mobile Menu - Fixed positioning to prevent scroll issues */}
-        <div
-          className={`fixed inset-0 bg-white z-40 flex flex-col items-center justify-center transition-all duration-300 ease-in-out ${
+        {/* Mobile Menu - Enhanced fixed positioning with proper stacking */}
+        <div 
+          className={`fixed inset-0 bg-white z-40 transition-opacity duration-300 ease-in-out ${
             isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
           }`}
-          style={{ top: 0, left: 0, right: 0, bottom: 0 }}
+          style={{ 
+            position: 'fixed', 
+            top: 0, 
+            left: 0, 
+            right: 0, 
+            bottom: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
         >
           <nav className="flex flex-col items-center space-y-8">
             {[
