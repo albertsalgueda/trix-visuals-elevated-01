@@ -96,8 +96,8 @@ const Navbar = () => {
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
           style={{ 
-            marginRight: '8px',  // Move left a bit 
-            marginTop: '8px'     // Move down a bit
+            marginRight: '12px',  // Moved more to the left
+            marginTop: '12px'     // Moved more down
           }}
         >
           {isOpen ? (
