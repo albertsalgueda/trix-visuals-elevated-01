@@ -47,7 +47,7 @@ const Hero = () => {
         
         <div className="mt-8 mb-16">
           <p className="text-lg md:text-xl leading-relaxed max-w-3xl text-white/90">
-            Welcome to TRIX STUDIO, where music meets art, technology meets storytelling, 
+            Welcome to Trix, where music meets art, technology meets storytelling, 
             and visuals redefine culture. We craft bold, high-concept music videos that push 
             creative boundaries—merging animation, deepfake technology, surreal aesthetics, 
             and cinematic narratives into unforgettable visual experiences.
