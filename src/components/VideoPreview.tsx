@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from "react";
 import { Play, Link } from "lucide-react";
 
@@ -87,7 +88,7 @@ const VideoPreview: React.FC<VideoPreviewProps> = ({
       style={{ transitionDelay: `${index * 150}ms` }}
     >
       <div 
-        className="relative aspect-video overflow-hidden bg-black"
+        className="relative aspect-video overflow-hidden bg-black w-full"
       >
         {isPlaying && videoId ? (
           <iframe

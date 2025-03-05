@@ -89,10 +89,10 @@ const Portfolio = () => {
   return (
     <section 
       id="works" 
-      className="py-24 px-6 md:px-12 animate-on-scroll"
+      className="py-24 animate-on-scroll"
     >
-      <div className="container mx-auto max-w-6xl">
-        <div className="mb-16">
+      <div className="max-w-[1920px] mx-auto">
+        <div className="mb-16 px-6 md:px-12">
           <span className="text-sm uppercase tracking-widest text-black/60 mb-2 inline-block">Portfolio</span>
           <h2 className="font-display text-3xl md:text-4xl font-bold">SELECTED WORKS</h2>
           <p className="mt-4 text-lg max-w-3xl">
@@ -102,7 +102,7 @@ const Portfolio = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-16 px-6 md:px-12 lg:gap-x-12">
           {portfolioItems.map((item, index) => (
             <VideoPreview 
               key={index}
