@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect, memo } from "react";
 import { Play } from "lucide-react";
 
@@ -80,7 +79,6 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
     setLoadingThumbnail(false);
   };
 
-  // Don't render any content until intersection observer has detected visibility
   if (!isVisible) {
     return (
       <div 
@@ -147,9 +145,6 @@ const VideoPreview: React.FC<VideoPreviewProps> = memo(({
       </div>
       
       <div className="mt-4 md:mt-6 px-6 md:px-12 bg-black text-white">
-        <div className="flex items-center mb-2">
-          <span className="text-xs uppercase tracking-widest text-white/60">🎥 Music Video</span>
-        </div>
         <h3 className="text-xl md:text-2xl font-display font-semibold mb-2 text-white">{artist} – {title}</h3>
         <p className="text-base text-white/80 mb-4">{description}</p>
         
