@@ -120,6 +120,13 @@
     animation: scroll 40s linear infinite;
     width: max-content; /* Allow content to determine width */
   }
+  
+  /* New logo scroll animation that works better on mobile */
+  .logos-scroll {
+    display: flex;
+    animation: logo-scroll 30s linear infinite;
+    width: max-content;
+  }
 }
 
 @keyframes appear {
@@ -139,5 +146,15 @@
   }
   100% {
     transform: translateX(calc(-50%));
+  }
+}
+
+/* New animation for logos that ensures they don't disappear on mobile */
+@keyframes logo-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-33.333%));
   }
 }

@@ -1,3 +1,4 @@
+
 import React from "react";
 
 interface PressLogo {
@@ -88,8 +89,8 @@ const pressLogos: PressLogo[] = [
   },
 ];
 
-// For smoother scrolling, we duplicate the logos
-const allLogos = [...pressLogos, ...pressLogos];
+// Duplicate the logos to ensure we always have logos visible during animation
+const allLogos = [...pressLogos, ...pressLogos, ...pressLogos];
 
 const PressLogos = () => {
   return (
@@ -100,9 +101,9 @@ const PressLogos = () => {
           <p className="text-white text-xs uppercase tracking-widest">Featured In</p>
         </div>
         
-        {/* Scrolling container */}
+        {/* Scrolling container with improved animation for mobile */}
         <div className="relative overflow-hidden w-full">
-          <div className="animate-scroll flex py-4 items-center">
+          <div className="flex py-4 items-center logos-scroll">
             {allLogos.map((logo, index) => (
               <a
                 key={`${logo.name}-${index}`}
