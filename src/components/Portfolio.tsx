@@ -57,6 +57,14 @@ const portfolioItems = [
     pressUrl: "https://www.billboard.com/music/rb-hip-hop/wale-black-bonnie-music-video-8467980/",
   },
   {
+    title: "Don't Save Me",
+    artist: "Marshmello & SOB X RBE",
+    description: "Collaborative music video blending Marshmello's electronic style with SOB X RBE's rap vocals.",
+    thumbnailUrl: "https://i.ytimg.com/vi/t8eiTPi3OqI/maxresdefault.jpg",
+    videoId: "t8eiTPi3OqI",
+    watchUrl: "https://www.youtube.com/watch?v=t8eiTPi3OqI",
+  },
+  {
     title: "We Set the Trends",
     artist: "Jim Jones & Migos",
     description: "A trailblazing NFT-driven music video at the intersection of hip-hop and the metaverse.",
