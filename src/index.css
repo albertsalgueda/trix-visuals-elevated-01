@@ -121,19 +121,11 @@
     width: max-content; /* Allow content to determine width */
   }
   
-  /* Improved logo scroll animation with better mobile support */
+  /* New logo scroll animation that works better on mobile */
   .logos-scroll {
     display: flex;
-    position: relative;
-    width: max-content;
     animation: logo-scroll 30s linear infinite;
-    will-change: transform;
-  }
-  
-  /* Force hardware acceleration for smoother animations */
-  .logos-scroll > * {
-    flex-shrink: 0;
-    transform: translateZ(0);
+    width: max-content;
   }
 }
 
@@ -157,12 +149,12 @@
   }
 }
 
-/* Improved animation for logos with better mobile support */
+/* New animation for logos that ensures they don't disappear on mobile */
 @keyframes logo-scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50%)); /* Changed from -33.333% to -50% for smoother looping */
+    transform: translateX(calc(-33.333%));
   }
 }
