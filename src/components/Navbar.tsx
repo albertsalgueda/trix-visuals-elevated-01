@@ -34,9 +34,13 @@ const Navbar = () => {
     setIsOpen(false);
     // Add a small timeout to ensure the section is in the DOM
     setTimeout(() => {
+      console.log(`Attempting to scroll to section with ID: ${id}`);
       const element = document.getElementById(id);
       if (element) {
+        console.log(`Found element with ID ${id}, scrolling to it`);
         element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        console.log(`Could not find element with ID: ${id}`);
       }
     }, 100);
   };

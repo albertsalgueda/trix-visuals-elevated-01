@@ -50,6 +50,18 @@ const Index = () => {
     };
   }, []);
 
+  // Log section IDs when component mounts for debugging
+  useEffect(() => {
+    // Wait for all sections to be loaded
+    setTimeout(() => {
+      const allSections = document.querySelectorAll('section[id]');
+      console.log('Available sections in the DOM:');
+      allSections.forEach(section => {
+        console.log(`Section ID: ${section.id}`);
+      });
+    }, 1000);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white text-black overflow-x-hidden">
       <Navbar />
