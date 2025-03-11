@@ -69,6 +69,7 @@ const Web3 = () => {
           </div>
           
           <div className="lg:col-span-2 grid grid-cols-2 gap-4">
+            {/* Original 4 images */}
             <div className="aspect-video overflow-hidden rounded-md">
               <img 
                 src="/lovable-uploads/aa11ee61-a6d2-4ded-896a-bb9cb59c068d.png" 
@@ -83,6 +84,24 @@ const Web3 = () => {
                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
               />
             </div>
+            
+            {/* New images added in the middle row */}
+            <div className="aspect-video overflow-hidden rounded-md">
+              <img 
+                src="/lovable-uploads/7839676c-d4cc-4489-be03-beb0416c681f.png" 
+                alt="Avatars in formal attire on red carpet" 
+                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="aspect-video overflow-hidden rounded-md">
+              <img 
+                src="/lovable-uploads/524cb77b-17d1-4c4c-bce1-a670ee873b27.png" 
+                alt="Avatar in glowing outfit at the event" 
+                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            
+            {/* Original last row images */}
             <div className="aspect-video overflow-hidden rounded-md">
               <img 
                 src="/lovable-uploads/cea08ff6-ed39-45ad-b2f7-f19d11af86cc.png" 
