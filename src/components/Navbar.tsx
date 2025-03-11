@@ -32,17 +32,27 @@ const Navbar = () => {
 
   const scrollToSection = (id: string) => {
     setIsOpen(false);
-    // Add a small timeout to ensure the section is in the DOM
+    
+    // Force a small delay to ensure all lazy-loaded components are ready
     setTimeout(() => {
       console.log(`Attempting to scroll to section with ID: ${id}`);
       const element = document.getElementById(id);
       if (element) {
         console.log(`Found element with ID ${id}, scrolling to it`);
-        element.scrollIntoView({ behavior: "smooth" });
+        
+        // Use scrollIntoView with a specific offset to account for the fixed header
+        const headerOffset = 100;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
       } else {
         console.log(`Could not find element with ID: ${id}`);
       }
-    }, 100);
+    }, 300); // Increased timeout to ensure lazy-loaded components are fully rendered
   };
 
   return (

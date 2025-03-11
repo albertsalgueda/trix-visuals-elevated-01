@@ -1,11 +1,13 @@
 
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { useEffect, lazy, Suspense, useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 
-// Lazy load non-critical components
+// Eagerly import the Web3 component to ensure it's loaded when needed
+import Web3 from "../components/Web3";
+
+// Lazy load other non-critical components
 const Portfolio = lazy(() => import("../components/Portfolio"));
-const Web3 = lazy(() => import("../components/Web3"));
 const About = lazy(() => import("../components/About"));
 const Contact = lazy(() => import("../components/Contact"));
 const Footer = lazy(() => import("../components/Footer"));
@@ -18,6 +20,8 @@ const SectionLoader = () => (
 );
 
 const Index = () => {
+  const [sectionsLoaded, setSectionsLoaded] = useState(false);
+
   // Implement a staggered animation effect for page load
   useEffect(() => {
     const sections = document.querySelectorAll(".animate-on-scroll");
@@ -59,6 +63,7 @@ const Index = () => {
       allSections.forEach(section => {
         console.log(`Section ID: ${section.id}`);
       });
+      setSectionsLoaded(true);
     }, 1000);
   }, []);
 
@@ -69,14 +74,13 @@ const Index = () => {
         {/* Hero is always loaded immediately */}
         <Hero />
         
-        {/* Lazy load other sections with suspense fallbacks */}
+        {/* Portfolio section with videos */}
         <Suspense fallback={<SectionLoader />}>
           <Portfolio />
         </Suspense>
         
-        <Suspense fallback={<SectionLoader />}>
-          <Web3 />
-        </Suspense>
+        {/* Web3 section now directly imported (not lazy loaded) */}
+        <Web3 />
         
         <Suspense fallback={<SectionLoader />}>
           <About />
