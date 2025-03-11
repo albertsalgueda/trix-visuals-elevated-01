@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -37,62 +36,39 @@ const Navbar = () => {
     const headerOffset = 100;
     
     if (id === "web3Section") {
-      // Set a flag in sessionStorage to indicate we're navigating to Web3
-      sessionStorage.setItem('navigatingToWeb3', 'true');
+      // Force a direct scroll to Web3 section by position
+      // This is a more reliable approach than using element IDs
+      // which might not be loaded yet
+      window.scrollTo({
+        top: 1800, // Use an approximate position where Web3 section typically is
+        behavior: "smooth"
+      });
       
-      // First scroll to the section to ensure it's in view and loaded
-      const section = document.getElementById(id);
-      if (section) {
-        const sectionRect = section.getBoundingClientRect();
-        const sectionTop = window.pageYOffset + sectionRect.top;
-        
-        window.scrollTo({
-          top: sectionTop - headerOffset,
-          behavior: "smooth"
-        });
-      }
-      
-      // Now try to find the heading with increasing delays until found
-      let attempts = 0;
-      const maxAttempts = 10;
-      const attemptInterval = 200;
-      
-      const findAndScrollToHeading = () => {
-        const heading = document.getElementById('web3-heading');
+      // Then try to find the exact position after a delay to adjust if needed
+      setTimeout(() => {
+        const section = document.getElementById("web3Section");
+        const heading = document.getElementById("web3-heading");
         
         if (heading) {
           const headingRect = heading.getBoundingClientRect();
           const headingTop = window.pageYOffset + headingRect.top;
           
-          // Only scroll if the heading is found and we're not already there
-          const currentPosition = window.pageYOffset;
-          if (Math.abs(currentPosition - (headingTop - 130)) > 50) {
-            window.scrollTo({
-              top: headingTop - 130,
-              behavior: "smooth"
-            });
-          }
+          window.scrollTo({
+            top: headingTop - 130,
+            behavior: "smooth"
+          });
+        } else if (section) {
+          const sectionRect = section.getBoundingClientRect();
+          const sectionTop = window.pageYOffset + sectionRect.top;
           
-          return true; // Success
+          window.scrollTo({
+            top: sectionTop - headerOffset,
+            behavior: "smooth"
+          });
         }
-        
-        if (++attempts < maxAttempts) {
-          // Try again after a delay
-          setTimeout(findAndScrollToHeading, attemptInterval);
-          return false; // Not found yet
-        }
-        
-        // Give up after max attempts
-        console.log("Could not find Web3 heading after multiple attempts");
-        return false;
-      };
-      
-      // Start the attempt process with a small initial delay
-      setTimeout(findAndScrollToHeading, 100);
+      }, 500);
     } else {
-      // Clear any Web3 navigation flag if we're going elsewhere
-      sessionStorage.removeItem('navigatingToWeb3');
-      
+      // For other sections, use the regular approach
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {

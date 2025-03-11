@@ -1,22 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ExternalLink, Youtube, Link } from "lucide-react";
 
 const Web3 = () => {
-  useEffect(() => {
-    if (sessionStorage.getItem('navigatingToWeb3')) {
-      const heading = document.getElementById('web3-heading');
-      if (heading) {
-        const headingRect = heading.getBoundingClientRect();
-        const headingTop = window.pageYOffset + headingRect.top;
-        
-        window.scrollTo({
-          top: headingTop - 130,
-          behavior: "smooth"
-        });
-      }
-    }
-  }, []);
-
   return (
     <section id="web3Section" className="py-24 animate-on-scroll bg-black">
       <div className="container mx-auto px-6 md:px-12">

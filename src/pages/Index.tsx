@@ -1,3 +1,4 @@
+
 import React, { useEffect, lazy, Suspense, useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
@@ -52,35 +53,6 @@ const Index = () => {
       });
     };
   }, []);
-
-  // Add a specific effect to handle Web3 navigation
-  useEffect(() => {
-    // Check if we're navigating to Web3 from another page or on initial load
-    const handleWeb3Navigation = () => {
-      const navigatingToWeb3 = sessionStorage.getItem('navigatingToWeb3');
-      if (navigatingToWeb3) {
-        // Add a slight delay to ensure DOM is ready
-        setTimeout(() => {
-          const web3Heading = document.getElementById('web3-heading');
-          if (web3Heading) {
-            const headingRect = web3Heading.getBoundingClientRect();
-            const headingTop = window.pageYOffset + headingRect.top;
-            
-            window.scrollTo({
-              top: headingTop - 130,
-              behavior: "smooth"
-            });
-            
-            // Clear the navigation flag
-            sessionStorage.removeItem('navigatingToWeb3');
-          }
-        }, 300);
-      }
-    };
-
-    // Run on component mount and whenever sectionsLoaded changes
-    handleWeb3Navigation();
-  }, [sectionsLoaded]);
 
   // Log section IDs when component mounts for debugging
   useEffect(() => {
