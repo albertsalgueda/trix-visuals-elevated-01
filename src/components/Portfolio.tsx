@@ -196,7 +196,7 @@ const Portfolio = () => {
 
   return (
     <section 
-      id="works" 
+      id="portfolio" // Changed from "works" to "portfolio" to match the navigation ID
       className="py-24 animate-on-scroll bg-black text-white"
     >
       <div className="w-full mx-auto">

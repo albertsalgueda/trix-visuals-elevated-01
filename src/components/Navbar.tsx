@@ -33,22 +33,31 @@ const Navbar = () => {
   const scrollToSection = (id: string) => {
     setIsOpen(false);
     
-    // Force a larger delay to ensure all components are properly loaded
+    // For web3, use the specific target we created
+    const targetId = id === "web3Section" ? "web3NavTarget" : id;
+    
+    console.log(`Attempting to scroll to section with ID: ${targetId}`);
+    
+    // Immediate attempt to scroll for already-loaded elements
+    let element = document.getElementById(targetId);
+    
+    if (!element) {
+      console.log(`Element with ID ${targetId} not found immediately, will retry after delay`);
+    }
+    
+    // Use a longer delay and retry with enhanced scroll logic
     setTimeout(() => {
-      console.log(`Attempting to scroll to section with ID: ${id}`);
-      
-      // Query for the element directly
-      const element = document.getElementById(id);
+      element = document.getElementById(targetId);
       
       if (element) {
-        console.log(`Found element with ID ${id}, scrolling to it`);
+        console.log(`Found element with ID ${targetId} after delay, scrolling to it`);
         
-        // Get the element's position
+        // Get the element's position with more precise calculation
         const rect = element.getBoundingClientRect();
-        const absoluteElementTop = rect.top + window.pageYOffset;
+        const absoluteElementTop = rect.top + window.scrollY;
         
         // Account for fixed header with a slightly larger offset for better positioning
-        const headerOffset = 120;
+        const headerOffset = 100;
         const scrollPosition = absoluteElementTop - headerOffset;
         
         // Scroll with smooth behavior
@@ -57,9 +66,9 @@ const Navbar = () => {
           behavior: "smooth"
         });
       } else {
-        console.error(`Could not find element with ID: ${id}`);
+        console.error(`Could not find element with ID: ${targetId} even after delay`);
       }
-    }, 500); // Use a longer timeout to ensure everything is rendered properly
+    }, 600); // Use an even longer timeout to ensure everything is rendered properly
   };
 
   return (
@@ -89,7 +98,7 @@ const Navbar = () => {
 
         <nav className="hidden md:flex items-center space-x-8">
           {[
-            { id: "portfolio", label: "videos" }, // Changed from "works" to match section ID
+            { id: "portfolio", label: "videos" },
             { id: "web3Section", label: "web3" }, 
             { id: "about", label: "about" }, 
             { id: "contact", label: "contact" }

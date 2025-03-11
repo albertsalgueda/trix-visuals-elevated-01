@@ -1,4 +1,3 @@
-
 import React, { useEffect, lazy, Suspense, useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
@@ -74,15 +73,15 @@ const Index = () => {
         {/* Hero is always loaded immediately */}
         <Hero />
         
-        {/* Portfolio section with videos - wrapped with a div with consistent ID */}
-        <div id="portfolio">
-          <Suspense fallback={<SectionLoader />}>
-            <Portfolio />
-          </Suspense>
-        </div>
+        {/* Portfolio section - now using consistent ID naming */}
+        <Suspense fallback={<SectionLoader />}>
+          <Portfolio />
+        </Suspense>
         
-        {/* Web3 section now directly imported (not lazy loaded) */}
-        <Web3 />
+        {/* Web3 section with explicit wrapper div */}
+        <div id="web3NavTarget">
+          <Web3 />
+        </div>
         
         <Suspense fallback={<SectionLoader />}>
           <About />
