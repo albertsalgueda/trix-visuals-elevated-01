@@ -1,6 +1,5 @@
-
 import React from "react";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Youtube, Link } from "lucide-react";
 
 const Web3 = () => {
   return (
@@ -173,15 +172,35 @@ const Web3 = () => {
                 </ul>
               </div>
 
-              <div className="pt-4">
+              <div className="pt-4 space-y-3">
                 <a 
-                  href="https://www.youtube.com/watch?v=F_TE87eskaI" 
+                  href="https://youtu.be/0TD53-FSCH0" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-[#8eff8e] text-black rounded-md hover:bg-[#7aef7a] transition-colors"
+                  className="inline-flex items-center px-6 py-3 bg-[#8eff8e] text-black rounded-md hover:bg-[#7aef7a] transition-colors w-full justify-center"
                 >
-                  <span className="mr-2">Festival Highlights</span>
-                  <ExternalLink size={16} />
+                  <Youtube size={16} className="mr-2" />
+                  <span>Behind the Scenes</span>
+                </a>
+
+                <a 
+                  href="https://youtu.be/3fn3rYsafxg" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 bg-[#8eff8e] text-black rounded-md hover:bg-[#7aef7a] transition-colors w-full justify-center"
+                >
+                  <Youtube size={16} className="mr-2" />
+                  <span>Full Performance</span>
+                </a>
+
+                <a 
+                  href="https://www.billboard.com/pro/decentraland-metaverse-festival-lineup-2022/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 bg-[#8eff8e] text-black rounded-md hover:bg-[#7aef7a] transition-colors w-full justify-center"
+                >
+                  <Link size={16} className="mr-2" />
+                  <span>Press Coverage</span>
                 </a>
               </div>
             </div>
