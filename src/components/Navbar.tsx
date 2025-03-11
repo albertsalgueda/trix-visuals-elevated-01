@@ -1,9 +1,12 @@
+
 import React, { useState, useEffect, useCallback } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ExternalLink } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   const handleScroll = useCallback(() => {
     if (window.scrollY > 50) {
@@ -32,42 +35,11 @@ const Navbar = () => {
   const scrollToSection = (id: string) => {
     setIsOpen(false);
     
-    // Hard-coded offsets based on section
-    const headerOffset = 100;
-    
-    if (id === "web3Section") {
-      // Force a direct scroll to Web3 section by position
-      // This is a more reliable approach than using element IDs
-      // which might not be loaded yet
-      window.scrollTo({
-        top: 1800, // Use an approximate position where Web3 section typically is
-        behavior: "smooth"
-      });
+    // Only handle scrolling if we're on the home page
+    if (location.pathname === '/') {
+      // Hard-coded offsets based on section
+      const headerOffset = 100;
       
-      // Then try to find the exact position after a delay to adjust if needed
-      setTimeout(() => {
-        const section = document.getElementById("web3Section");
-        const heading = document.getElementById("web3-heading");
-        
-        if (heading) {
-          const headingRect = heading.getBoundingClientRect();
-          const headingTop = window.pageYOffset + headingRect.top;
-          
-          window.scrollTo({
-            top: headingTop - 130,
-            behavior: "smooth"
-          });
-        } else if (section) {
-          const sectionRect = section.getBoundingClientRect();
-          const sectionTop = window.pageYOffset + sectionRect.top;
-          
-          window.scrollTo({
-            top: sectionTop - headerOffset,
-            behavior: "smooth"
-          });
-        }
-      }, 500);
-    } else {
       // For other sections, use the regular approach
       setTimeout(() => {
         const element = document.getElementById(id);
@@ -84,6 +56,14 @@ const Navbar = () => {
     }
   };
 
+  // Navigation items with their links/actions
+  const navItems = [
+    { id: "portfolio", label: "videos", isExternal: false, path: "/" },
+    { id: "web3Section", label: "web3", isExternal: true, path: "/web3" },
+    { id: "about", label: "about", isExternal: false, path: "/" },
+    { id: "contact", label: "contact", isExternal: false, path: "/" }
+  ];
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -91,12 +71,13 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a 
-          href="#hero" 
+        <Link 
+          to="/"
           className="flex items-center"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("hero");
+          onClick={() => {
+            if (location.pathname === '/') {
+              scrollToSection("hero");
+            }
           }}
         >
           <img 
@@ -107,28 +88,36 @@ const Navbar = () => {
             width="160"
             height="64"
           />
-        </a>
+        </Link>
 
         <nav className="hidden md:flex items-center space-x-8">
-          {[
-            { id: "portfolio", label: "videos" },
-            { id: "web3Section", label: "web3" }, 
-            { id: "about", label: "about" }, 
-            { id: "contact", label: "contact" }
-          ].map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              className={`text-sm uppercase tracking-wide link-hover ${
-                isScrolled ? "text-black" : "text-white"
-              }`}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection(item.id);
-              }}
-            >
-              {item.label}
-            </a>
+          {navItems.map((item) => (
+            item.isExternal ? (
+              <Link
+                key={item.id}
+                to={item.path}
+                className={`text-sm uppercase tracking-wide link-hover flex items-center ${
+                  isScrolled ? "text-black" : "text-white"
+                }`}
+              >
+                {item.label}
+                <ExternalLink className="ml-1" size={14} />
+              </Link>
+            ) : (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className={`text-sm uppercase tracking-wide link-hover ${
+                  isScrolled ? "text-black" : "text-white"
+                }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.id);
+                }}
+              >
+                {item.label}
+              </a>
+            )
           ))}
         </nav>
 
@@ -159,23 +148,30 @@ const Navbar = () => {
             }}
           >
             <nav className="flex flex-col items-center space-y-8">
-              {[
-                { id: "portfolio", label: "videos" },
-                { id: "web3Section", label: "web3" },
-                { id: "about", label: "about" },
-                { id: "contact", label: "contact" }
-              ].map((item) => (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  className="text-xl uppercase font-medium tracking-wide link-hover"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.id);
-                  }}
-                >
-                  {item.label}
-                </a>
+              {navItems.map((item) => (
+                item.isExternal ? (
+                  <Link
+                    key={item.id}
+                    to={item.path}
+                    className="text-xl uppercase font-medium tracking-wide link-hover flex items-center"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                    <ExternalLink className="ml-1" size={18} />
+                  </Link>
+                ) : (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="text-xl uppercase font-medium tracking-wide link-hover"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.id);
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                )
               ))}
             </nav>
           </div>
