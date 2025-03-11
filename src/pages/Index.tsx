@@ -79,7 +79,7 @@ const Index = () => {
           <Portfolio />
         </Suspense>
         
-        {/* Directly embed Web3 section without wrapper for more consistent scrolling */}
+        {/* Web3 section is loaded eagerly for better navigation */}
         <Web3 />
         
         <Suspense fallback={<SectionLoader />}>

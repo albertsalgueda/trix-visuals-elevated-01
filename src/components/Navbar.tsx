@@ -33,70 +33,56 @@ const Navbar = () => {
   const scrollToSection = (id: string) => {
     setIsOpen(false);
     
+    // Hard-coded offsets based on section
+    const headerOffset = 100;
+    
     if (id === "web3Section") {
-      // Start polling for the Web3 heading
-      let attempts = 0;
-      const maxAttempts = 50; // 5 seconds total (50 * 100ms)
+      // Get exact pixel position of the Web3 section
+      const web3Section = document.getElementById("web3Section");
       
-      const findAndScrollToWeb3 = () => {
-        const heading = document.querySelector("#web3Section h2");
+      if (web3Section) {
+        // Force browser to re-calculate layout to get accurate position
+        document.body.offsetHeight;
         
-        if (heading) {
-          // Found the heading, calculate position and scroll
-          const rect = heading.getBoundingClientRect();
-          const absoluteTop = rect.top + window.scrollY;
-          const headerOffset = 130;
-          
-          window.scrollTo({
-            top: absoluteTop - headerOffset,
-            behavior: "smooth"
-          });
-          return true;
-        }
+        // Calculate position
+        const rect = web3Section.getBoundingClientRect();
+        const absoluteTop = window.pageYOffset + rect.top;
         
-        attempts++;
-        if (attempts < maxAttempts) {
-          // Try again in 100ms
-          setTimeout(findAndScrollToWeb3, 100);
-        } else {
-          // Fallback to section if heading not found after all attempts
-          const section = document.getElementById("web3Section");
-          if (section) {
-            const rect = section.getBoundingClientRect();
-            const absoluteTop = rect.top + window.scrollY;
-            const headerOffset = 100;
-            
-            window.scrollTo({
-              top: absoluteTop - headerOffset,
-              behavior: "smooth"
-            });
-          }
-        }
-      };
-      
-      // Initial scroll to roughly the right area
-      const section = document.getElementById("web3Section");
-      if (section) {
-        const rect = section.getBoundingClientRect();
-        const absoluteTop = rect.top + window.scrollY;
-        const headerOffset = 100;
+        // Set a flag in sessionStorage to indicate we're navigating to Web3
+        sessionStorage.setItem('navigatingToWeb3', 'true');
         
+        // Scroll with a custom web3 offset
         window.scrollTo({
           top: absoluteTop - headerOffset,
           behavior: "smooth"
         });
+        
+        // After scrolling completes, try to scroll to the heading
+        setTimeout(() => {
+          const heading = document.querySelector("#web3Section h2");
+          if (heading) {
+            const headingRect = heading.getBoundingClientRect();
+            const headingTop = window.pageYOffset + headingRect.top;
+            
+            window.scrollTo({
+              top: headingTop - 130, // Larger offset for the heading
+              behavior: "smooth"
+            });
+          }
+          
+          // Clear the navigation flag
+          sessionStorage.removeItem('navigatingToWeb3');
+        }, 750); // Wait a bit longer for the initial scroll to complete
       }
-      
-      // Start polling for the heading
-      setTimeout(findAndScrollToWeb3, 100);
     } else {
-      // Handle other sections normally
+      // Clear any Web3 navigation flag if we're going elsewhere
+      sessionStorage.removeItem('navigatingToWeb3');
+      
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
           const rect = element.getBoundingClientRect();
           const absoluteElementTop = rect.top + window.scrollY;
-          const headerOffset = 100;
           
           window.scrollTo({
             top: absoluteElementTop - headerOffset,
@@ -183,7 +169,7 @@ const Navbar = () => {
           >
             <nav className="flex flex-col items-center space-y-8">
               {[
-                { id: "portfolio", label: "videos" }, // Changed from "works" to match section ID
+                { id: "portfolio", label: "videos" },
                 { id: "web3Section", label: "web3" },
                 { id: "about", label: "about" },
                 { id: "contact", label: "contact" }

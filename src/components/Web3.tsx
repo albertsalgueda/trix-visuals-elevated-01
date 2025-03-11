@@ -1,14 +1,32 @@
-
-import React from "react";
+import React, { useEffect } from "react";
 import { ExternalLink, Youtube, Link } from "lucide-react";
 
 const Web3 = () => {
+  useEffect(() => {
+    if (sessionStorage.getItem('navigatingToWeb3')) {
+      const heading = document.getElementById('web3-heading');
+      if (heading) {
+        const headingRect = heading.getBoundingClientRect();
+        const headingTop = window.pageYOffset + headingRect.top;
+        
+        window.scrollTo({
+          top: headingTop - 130,
+          behavior: "smooth"
+        });
+      }
+    }
+  }, []);
+
   return (
     <section id="web3Section" className="py-24 animate-on-scroll bg-black">
       <div className="container mx-auto px-6 md:px-12">
         <div className="mb-12">
           <span className="text-sm uppercase tracking-widest text-white/60 mb-2 inline-block">Web3</span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white" data-section-title="web3">
+          <h2 
+            id="web3-heading"
+            className="font-display text-3xl md:text-4xl font-bold text-white" 
+            data-section-title="web3"
+          >
             EXPANDING THE BOUNDARIES
           </h2>
           <p className="mt-4 text-lg max-w-3xl text-white/80">
@@ -243,7 +261,6 @@ const Web3 = () => {
           </div>
         </div>
 
-        {/* New TRIX Studio x Gaian section */}
         <div className="mt-24">
           <div className="mb-12 overflow-hidden rounded-lg">
             <img 
