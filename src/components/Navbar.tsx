@@ -1,12 +1,17 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import { Menu, X, ExternalLink } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+interface NavbarProps {
+  forceWhiteText?: boolean;
+}
+
+const Navbar = ({ forceWhiteText = false }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleScroll = useCallback(() => {
     if (window.scrollY > 50) {
@@ -32,15 +37,26 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
-  const scrollToSection = (id: string) => {
+  const handleNavigation = (id: string) => {
     setIsOpen(false);
     
+    // If we're not on the home page, navigate to the home page first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Store the section to scroll to after navigation
+      sessionStorage.setItem('scrollToSection', id);
+    } else {
+      // Already on home page, scroll directly
+      scrollToSection(id);
+    }
+  };
+
+  const scrollToSection = (id: string) => {
     // Only handle scrolling if we're on the home page
     if (location.pathname === '/') {
       // Hard-coded offsets based on section
       const headerOffset = 100;
       
-      // For other sections, use the regular approach
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
@@ -56,6 +72,21 @@ const Navbar = () => {
     }
   };
 
+  // Check for stored section to scroll to on page load
+  useEffect(() => {
+    if (location.pathname === '/') {
+      const sectionToScrollTo = sessionStorage.getItem('scrollToSection');
+      if (sectionToScrollTo) {
+        // Clear storage to prevent scrolling on subsequent navigations
+        sessionStorage.removeItem('scrollToSection');
+        // Delay to ensure page is fully loaded
+        setTimeout(() => {
+          scrollToSection(sectionToScrollTo);
+        }, 500);
+      }
+    }
+  }, [location.pathname]);
+
   // Navigation items with their links/actions
   const navItems = [
     { id: "portfolio", label: "videos", isExternal: false, path: "/" },
@@ -63,6 +94,11 @@ const Navbar = () => {
     { id: "about", label: "about", isExternal: false, path: "/" },
     { id: "contact", label: "contact", isExternal: false, path: "/" }
   ];
+
+  const getTextColorClass = () => {
+    if (forceWhiteText) return "text-white";
+    return isScrolled ? "text-black" : "text-white";
+  };
 
   return (
     <header
@@ -97,7 +133,7 @@ const Navbar = () => {
                 key={item.id}
                 to={item.path}
                 className={`text-sm uppercase tracking-wide link-hover flex items-center ${
-                  isScrolled ? "text-black" : "text-white"
+                  forceWhiteText ? "text-white" : (isScrolled ? "text-black" : "text-white")
                 }`}
               >
                 {item.label}
@@ -108,11 +144,11 @@ const Navbar = () => {
                 key={item.id}
                 href={`#${item.id}`}
                 className={`text-sm uppercase tracking-wide link-hover ${
-                  isScrolled ? "text-black" : "text-white"
+                  forceWhiteText ? "text-white" : (isScrolled ? "text-black" : "text-white")
                 }`}
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToSection(item.id);
+                  handleNavigation(item.id);
                 }}
               >
                 {item.label}
@@ -130,7 +166,7 @@ const Navbar = () => {
           {isOpen ? (
             <X size={24} color="black" /> 
           ) : (
-            <Menu size={24} color={isScrolled ? "black" : "white"} />
+            <Menu size={24} color={forceWhiteText ? "white" : (isScrolled ? "black" : "white")} />
           )}
         </button>
 
@@ -166,7 +202,7 @@ const Navbar = () => {
                     className="text-xl uppercase font-medium tracking-wide link-hover"
                     onClick={(e) => {
                       e.preventDefault();
-                      scrollToSection(item.id);
+                      handleNavigation(item.id);
                     }}
                   >
                     {item.label}
