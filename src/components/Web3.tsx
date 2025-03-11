@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ExternalLink, Youtube, Link } from "lucide-react";
 import VideoPreview from "./VideoPreview";
@@ -16,9 +15,7 @@ const Web3 = () => {
           </p>
         </div>
 
-        {/* First Event - Decentraland Theatre */}
         <div className="mb-16">
-          {/* Hero Image */}
           <div className="mb-12 overflow-hidden rounded-lg">
             <img 
               src="/lovable-uploads/098810f4-ddc8-4838-8fd5-f2f5c0ce35f8.png" 
@@ -72,7 +69,6 @@ const Web3 = () => {
             </div>
             
             <div className="lg:col-span-2 grid grid-cols-2 gap-4">
-              {/* Original 4 images */}
               <div className="aspect-video overflow-hidden rounded-md">
                 <img 
                   src="/lovable-uploads/aa11ee61-a6d2-4ded-896a-bb9cb59c068d.png" 
@@ -87,8 +83,6 @@ const Web3 = () => {
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              
-              {/* New images added in the middle row */}
               <div className="aspect-video overflow-hidden rounded-md">
                 <img 
                   src="/lovable-uploads/7839676c-d4cc-4489-be03-beb0416c681f.png" 
@@ -103,8 +97,6 @@ const Web3 = () => {
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              
-              {/* Original last row images */}
               <div className="aspect-video overflow-hidden rounded-md">
                 <img 
                   src="/lovable-uploads/cea08ff6-ed39-45ad-b2f7-f19d11af86cc.png" 
@@ -132,9 +124,7 @@ const Web3 = () => {
           </div>
         </div>
 
-        {/* Second Event - TRIX Studio x LimeWire Metaverse Music Festival */}
         <div className="mt-24">
-          {/* Hero Image */}
           <div className="mb-12 overflow-hidden rounded-lg">
             <img 
               src="/lovable-uploads/f572abfe-364e-48cc-8348-72b6b68b40c0.png" 
@@ -176,9 +166,7 @@ const Web3 = () => {
             </div>
             
             <div className="lg:col-span-2">
-              {/* Image grid with reduced space between rows */}
               <div className="grid grid-cols-2 gap-4">
-                {/* First row */}
                 <div className="aspect-video overflow-hidden rounded-md">
                   <img 
                     src="/lovable-uploads/6be299f3-130a-4c26-bc6a-f06d80193952.png" 
@@ -193,8 +181,6 @@ const Web3 = () => {
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                
-                {/* Second row */}
                 <div className="aspect-video overflow-hidden rounded-md">
                   <img 
                     src="/lovable-uploads/b49ec615-cfe9-43df-a078-0fdeb25f93a2.png" 
@@ -204,14 +190,13 @@ const Web3 = () => {
                 </div>
                 <div className="aspect-video overflow-hidden rounded-md">
                   <img 
-                    src="/lovable-uploads/f572abfe-364e-48cc-8348-72b6b68b40c0.png" 
-                    alt="Soulja Boy performance on the digital stage" 
+                    src="/lovable-uploads/62872d6a-24f2-4c96-a8b6-6aa9975c8306.png" 
+                    alt="Avatar with LimeWire logo jacket at the event" 
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
               
-              {/* Buttons moved below the image grid */}
               <div className="mt-4 space-y-2">
                 <a 
                   href="https://youtu.be/0TD53-FSCH0" 
