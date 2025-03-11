@@ -1,5 +1,7 @@
+
 import React from "react";
 import { ExternalLink, Youtube, Link } from "lucide-react";
+import VideoPreview from "./VideoPreview";
 
 const Web3 = () => {
   return (
@@ -171,8 +173,46 @@ const Web3 = () => {
                   </li>
                 </ul>
               </div>
-
-              <div className="pt-4 space-y-3">
+            </div>
+            
+            <div className="lg:col-span-2">
+              {/* Image grid with reduced space between rows */}
+              <div className="grid grid-cols-2 gap-4">
+                {/* First row */}
+                <div className="aspect-video overflow-hidden rounded-md">
+                  <img 
+                    src="/lovable-uploads/6be299f3-130a-4c26-bc6a-f06d80193952.png" 
+                    alt="Avatar with neon outfit at LimeWire stage" 
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="aspect-video overflow-hidden rounded-md">
+                  <img 
+                    src="/lovable-uploads/ca38a666-6653-4655-a148-6e6e195d3eb3.png" 
+                    alt="Avatars at Soulja Boy performance in Decentraland" 
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                
+                {/* Second row */}
+                <div className="aspect-video overflow-hidden rounded-md">
+                  <img 
+                    src="/lovable-uploads/b49ec615-cfe9-43df-a078-0fdeb25f93a2.png" 
+                    alt="VIP area with avatars at LimeWire stage" 
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="aspect-video overflow-hidden rounded-md">
+                  <img 
+                    src="/lovable-uploads/f572abfe-364e-48cc-8348-72b6b68b40c0.png" 
+                    alt="Soulja Boy performance on the digital stage" 
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+              
+              {/* Buttons moved below the image grid */}
+              <div className="mt-4 space-y-2">
                 <a 
                   href="https://youtu.be/0TD53-FSCH0" 
                   target="_blank" 
@@ -202,40 +242,6 @@ const Web3 = () => {
                   <Link size={16} className="mr-2" />
                   <span>Press Coverage</span>
                 </a>
-              </div>
-            </div>
-            
-            <div className="lg:col-span-2 grid grid-cols-2 gap-4">
-              {/* First row */}
-              <div className="aspect-video overflow-hidden rounded-md">
-                <img 
-                  src="/lovable-uploads/6be299f3-130a-4c26-bc6a-f06d80193952.png" 
-                  alt="Avatar with neon outfit at LimeWire stage" 
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="aspect-video overflow-hidden rounded-md">
-                <img 
-                  src="/lovable-uploads/ca38a666-6653-4655-a148-6e6e195d3eb3.png" 
-                  alt="Avatars at Soulja Boy performance in Decentraland" 
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              
-              {/* Second row */}
-              <div className="aspect-video overflow-hidden rounded-md">
-                <img 
-                  src="/lovable-uploads/b49ec615-cfe9-43df-a078-0fdeb25f93a2.png" 
-                  alt="VIP area with avatars at LimeWire stage" 
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="aspect-video overflow-hidden rounded-md">
-                <img 
-                  src="/lovable-uploads/f572abfe-364e-48cc-8348-72b6b68b40c0.png" 
-                  alt="Soulja Boy performance on the digital stage" 
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                />
               </div>
             </div>
           </div>
