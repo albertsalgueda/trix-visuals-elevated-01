@@ -1,6 +1,5 @@
 import React from "react";
 import { ExternalLink, Youtube, Link } from "lucide-react";
-import VideoPreview from "./VideoPreview";
 
 const Web3 = () => {
   return (
@@ -206,64 +205,37 @@ const Web3 = () => {
               </div>
             </div>
             
-            <div className="lg:col-span-2 space-y-8">
-              {/* First row of images */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="aspect-video overflow-hidden rounded-md">
-                  <img 
-                    src="/lovable-uploads/6be299f3-130a-4c26-bc6a-f06d80193952.png" 
-                    alt="Avatar with neon outfit at LimeWire stage" 
-                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="aspect-video overflow-hidden rounded-md">
-                  <img 
-                    src="/lovable-uploads/ca38a666-6653-4655-a148-6e6e195d3eb3.png" 
-                    alt="Avatars at Soulja Boy performance in Decentraland" 
-                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-
-              {/* Video previews row */}
-              <div className="grid grid-cols-2 gap-4">
-                <VideoPreview
-                  title="Behind the Scenes"
-                  artist="TRIX Studio x LimeWire"
-                  description="Go behind the scenes of the Metaverse Music Festival 2022"
-                  thumbnailUrl="/lovable-uploads/b49ec615-cfe9-43df-a078-0fdeb25f93a2.png"
-                  videoId="0TD53-FSCH0"
-                  watchUrl="https://youtu.be/0TD53-FSCH0"
-                  index={0}
-                />
-                <VideoPreview
-                  title="Full Performance"
-                  artist="Soulja Boy"
-                  description="Watch Soulja Boy's complete performance at MVMF22"
-                  thumbnailUrl="/lovable-uploads/f572abfe-364e-48cc-8348-72b6b68b40c0.png"
-                  videoId="3fn3rYsafxg"
-                  watchUrl="https://youtu.be/3fn3rYsafxg"
-                  pressUrl="https://www.billboard.com/pro/decentraland-metaverse-festival-lineup-2022/"
-                  index={1}
+            <div className="lg:col-span-2 grid grid-cols-2 gap-4">
+              {/* First row */}
+              <div className="aspect-video overflow-hidden rounded-md">
+                <img 
+                  src="/lovable-uploads/6be299f3-130a-4c26-bc6a-f06d80193952.png" 
+                  alt="Avatar with neon outfit at LimeWire stage" 
+                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                 />
               </div>
-
-              {/* Last row of images */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="aspect-video overflow-hidden rounded-md">
-                  <img 
-                    src="/lovable-uploads/b49ec615-cfe9-43df-a078-0fdeb25f93a2.png" 
-                    alt="VIP area with avatars at LimeWire stage" 
-                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="aspect-video overflow-hidden rounded-md">
-                  <img 
-                    src="/lovable-uploads/f572abfe-364e-48cc-8348-72b6b68b40c0.png" 
-                    alt="Soulja Boy performance on the digital stage" 
-                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+              <div className="aspect-video overflow-hidden rounded-md">
+                <img 
+                  src="/lovable-uploads/ca38a666-6653-4655-a148-6e6e195d3eb3.png" 
+                  alt="Avatars at Soulja Boy performance in Decentraland" 
+                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              
+              {/* Second row */}
+              <div className="aspect-video overflow-hidden rounded-md">
+                <img 
+                  src="/lovable-uploads/b49ec615-cfe9-43df-a078-0fdeb25f93a2.png" 
+                  alt="VIP area with avatars at LimeWire stage" 
+                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="aspect-video overflow-hidden rounded-md">
+                <img 
+                  src="/lovable-uploads/f572abfe-364e-48cc-8348-72b6b68b40c0.png" 
+                  alt="Soulja Boy performance on the digital stage" 
+                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                />
               </div>
             </div>
           </div>
