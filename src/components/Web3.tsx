@@ -1,3 +1,4 @@
+
 import React from "react";
 import { ExternalLink, Youtube, Link } from "lucide-react";
 import VideoPreview from "./VideoPreview";
@@ -237,6 +238,118 @@ const Web3 = () => {
             </p>
             <p className="text-lg font-semibold mt-4">
               🚀 Welcome to the Future of Live Music. And We're Just Getting Started.
+            </p>
+          </div>
+        </div>
+
+        {/* New TRIX Studio x Gaian section */}
+        <div className="mt-24">
+          <div className="mb-12 overflow-hidden rounded-lg">
+            <img 
+              src="/lovable-uploads/1e16b05b-ff37-4f47-a796-e00389e7c86c.png" 
+              alt="Gaian storefront at Metaverse Fashion Week 2023" 
+              className="w-full h-auto object-cover rounded-lg"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-1 space-y-6">
+              <h3 className="text-2xl md:text-3xl font-bold text-white">
+                TRIX Studio x Gaian Present
+              </h3>
+              <p className="text-white/80 text-lg">
+                The Future of Fashion at <span className="font-semibold">Metaverse Fashion Week 2023</span>
+              </p>
+              
+              <div className="border border-white/10 bg-white/5 p-6 rounded-md">
+                <h4 className="text-xl font-semibold text-white mb-4">Key Highlights</h4>
+                <ul className="space-y-3 text-white/80">
+                  <li className="flex items-start">
+                    <span className="text-xl mr-2">⚡</span>
+                    <span>Interactive energy-reactive flooring, mirroring Gaian's real-world innovation</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-xl mr-2">🛍️</span>
+                    <span>Exclusive digital merch drops & giveaways, bringing wearable tech into the metaverse</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-xl mr-2">🎶</span>
+                    <span>A stacked afterparty lineup, celebrating the fusion of music, fashion, and technology</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-xl mr-2">🕺</span>
+                    <span>A virtual dancefloor that kept the metaverse moving all night long</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="lg:col-span-2">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="aspect-video overflow-hidden rounded-md">
+                  <img 
+                    src="/lovable-uploads/26e92659-fa80-4a12-b107-4d33d1548d3b.png" 
+                    alt="Avatar with glowing electric sneakers at Gaian store" 
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="aspect-video overflow-hidden rounded-md">
+                  <img 
+                    src="/lovable-uploads/a609af72-6e54-44e7-8c17-e98f250e20fc.png" 
+                    alt="Glowing avatar with energy wings at Gaian event" 
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="aspect-video overflow-hidden rounded-md">
+                  <img 
+                    src="/lovable-uploads/f5253ddd-a224-4781-aaf1-6efa3d5561d2.png" 
+                    alt="Crowd of avatars at Gaian fashion afterparty" 
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="aspect-video overflow-hidden rounded-md">
+                  <img 
+                    src="/lovable-uploads/3868f546-e01e-4f2a-9e3a-5a4f04f4dd15.png" 
+                    alt="Avatars dancing on energy-reactive floor" 
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-4 mt-4">
+                <div className="aspect-video overflow-hidden rounded-md">
+                  <img 
+                    src="/lovable-uploads/7a79e4c8-6ea9-4911-9568-de984c7dd567.png" 
+                    alt="View of the Gaian store from outside" 
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="aspect-video overflow-hidden rounded-md">
+                  <img 
+                    src="/lovable-uploads/0df37cc1-b957-4604-bcd8-333659135eef.png" 
+                    alt="Avatars with glowing wearables at the afterparty" 
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 text-white/80 bg-white/5 p-6 rounded-md border border-white/10">
+            <p className="text-lg">
+              For Metaverse Fashion Week 2023, TRIX Studio partnered with Gaian, the groundbreaking wearable tech company behind the world's first energy-generating sneaker, to design and build an innovative virtual store in Decentraland.
+            </p>
+            <p className="text-lg mt-4">
+              Inspired by Gaian's cutting-edge technology, we created a fully immersive retail experience, where the floors of the store generated energy sparks as visitors walked, bringing the brand's mission to life in the metaverse.
+            </p>
+            <p className="text-lg mt-4">
+              But we didn't stop there. To close out Fashion Week, TRIX Studio produced the official afterparty, curating a high-energy lineup of artists and throwing a digital event that had avatars dancing all night long.
+            </p>
+            <p className="text-lg mt-4">
+              This event proved that fashion isn't just something you wear—it's something you experience. And in the metaverse, the possibilities are limitless.
+            </p>
+            <p className="text-lg font-semibold mt-4">
+              🚀 The Future of Wearable Tech is Here. And It's Electrifying.
             </p>
           </div>
         </div>
