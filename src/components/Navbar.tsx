@@ -33,26 +33,33 @@ const Navbar = () => {
   const scrollToSection = (id: string) => {
     setIsOpen(false);
     
-    // Force a small delay to ensure all lazy-loaded components are ready
+    // Force a larger delay to ensure all components are properly loaded
     setTimeout(() => {
       console.log(`Attempting to scroll to section with ID: ${id}`);
+      
+      // Query for the element directly
       const element = document.getElementById(id);
+      
       if (element) {
         console.log(`Found element with ID ${id}, scrolling to it`);
         
-        // Use scrollIntoView with a specific offset to account for the fixed header
-        const headerOffset = 100;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        // Get the element's position
+        const rect = element.getBoundingClientRect();
+        const absoluteElementTop = rect.top + window.pageYOffset;
         
+        // Account for fixed header with a slightly larger offset for better positioning
+        const headerOffset = 120;
+        const scrollPosition = absoluteElementTop - headerOffset;
+        
+        // Scroll with smooth behavior
         window.scrollTo({
-          top: offsetPosition,
+          top: scrollPosition,
           behavior: "smooth"
         });
       } else {
-        console.log(`Could not find element with ID: ${id}`);
+        console.error(`Could not find element with ID: ${id}`);
       }
-    }, 300); // Increased timeout to ensure lazy-loaded components are fully rendered
+    }, 500); // Use a longer timeout to ensure everything is rendered properly
   };
 
   return (
@@ -82,7 +89,7 @@ const Navbar = () => {
 
         <nav className="hidden md:flex items-center space-x-8">
           {[
-            { id: "works", label: "videos" },
+            { id: "portfolio", label: "videos" }, // Changed from "works" to match section ID
             { id: "web3Section", label: "web3" }, 
             { id: "about", label: "about" }, 
             { id: "contact", label: "contact" }
@@ -131,7 +138,7 @@ const Navbar = () => {
           >
             <nav className="flex flex-col items-center space-y-8">
               {[
-                { id: "works", label: "videos" },
+                { id: "portfolio", label: "videos" }, // Changed from "works" to match section ID
                 { id: "web3Section", label: "web3" },
                 { id: "about", label: "about" },
                 { id: "contact", label: "contact" }

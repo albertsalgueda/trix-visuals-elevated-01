@@ -74,10 +74,12 @@ const Index = () => {
         {/* Hero is always loaded immediately */}
         <Hero />
         
-        {/* Portfolio section with videos */}
-        <Suspense fallback={<SectionLoader />}>
-          <Portfolio />
-        </Suspense>
+        {/* Portfolio section with videos - wrapped with a div with consistent ID */}
+        <div id="portfolio">
+          <Suspense fallback={<SectionLoader />}>
+            <Portfolio />
+          </Suspense>
+        </div>
         
         {/* Web3 section now directly imported (not lazy loaded) */}
         <Web3 />
