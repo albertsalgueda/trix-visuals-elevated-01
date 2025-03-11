@@ -6,11 +6,9 @@ import Footer from "../components/Footer";
 
 const Web3Page = () => {
   return (
-    <div className="min-h-screen bg-white text-black overflow-x-hidden">
-      <div className="bg-black py-6">
-        <Navbar forceWhiteText={true} />
-      </div>
-      <main className="w-full pt-16">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+      <Navbar forceWhiteText={true} />
+      <main className="w-full pt-24">
         <Web3 />
       </main>
       <Footer />
