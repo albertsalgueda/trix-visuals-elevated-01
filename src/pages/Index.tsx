@@ -1,3 +1,4 @@
+
 import React, { useEffect, lazy, Suspense, useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
@@ -78,10 +79,8 @@ const Index = () => {
           <Portfolio />
         </Suspense>
         
-        {/* Web3 section with explicit wrapper div */}
-        <div id="web3NavTarget">
-          <Web3 />
-        </div>
+        {/* Directly embed Web3 section without wrapper for more consistent scrolling */}
+        <Web3 />
         
         <Suspense fallback={<SectionLoader />}>
           <About />

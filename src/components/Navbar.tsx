@@ -33,42 +33,73 @@ const Navbar = () => {
   const scrollToSection = (id: string) => {
     setIsOpen(false);
     
-    // For web3, use the specific target we created
-    const targetId = id === "web3Section" ? "web3NavTarget" : id;
-    
-    console.log(`Attempting to scroll to section with ID: ${targetId}`);
-    
-    // Immediate attempt to scroll for already-loaded elements
-    let element = document.getElementById(targetId);
-    
-    if (!element) {
-      console.log(`Element with ID ${targetId} not found immediately, will retry after delay`);
-    }
-    
-    // Use a longer delay and retry with enhanced scroll logic
-    setTimeout(() => {
-      element = document.getElementById(targetId);
+    // Handle Web3 section differently to ensure proper scrolling
+    if (id === "web3Section") {
+      console.log("Attempting to scroll to Web3 section");
       
-      if (element) {
-        console.log(`Found element with ID ${targetId} after delay, scrolling to it`);
+      setTimeout(() => {
+        // Target the specific div that contains the "EXPANDING THE BOUNDARIES" title
+        const element = document.querySelector("#web3Section .container h2");
         
-        // Get the element's position with more precise calculation
-        const rect = element.getBoundingClientRect();
-        const absoluteElementTop = rect.top + window.scrollY;
+        if (element) {
+          console.log("Found Web3 heading element, scrolling to it");
+          
+          // Get element position
+          const rect = element.getBoundingClientRect();
+          const absoluteElementTop = rect.top + window.scrollY;
+          
+          // Account for header height and add additional offset for better positioning
+          const headerOffset = 130;
+          const scrollPosition = absoluteElementTop - headerOffset;
+          
+          // Scroll with smooth behavior
+          window.scrollTo({
+            top: scrollPosition,
+            behavior: "smooth"
+          });
+        } else {
+          console.error("Could not find Web3 heading element");
+          
+          // Fallback to section ID if heading not found
+          const sectionElement = document.getElementById("web3Section");
+          if (sectionElement) {
+            const rect = sectionElement.getBoundingClientRect();
+            const absoluteElementTop = rect.top + window.scrollY;
+            const headerOffset = 100;
+            const scrollPosition = absoluteElementTop - headerOffset;
+            
+            window.scrollTo({
+              top: scrollPosition,
+              behavior: "smooth"
+            });
+          }
+        }
+      }, 300);
+    } else {
+      // Handle all other sections with the existing logic
+      setTimeout(() => {
+        console.log(`Attempting to scroll to section with ID: ${id}`);
         
-        // Account for fixed header with a slightly larger offset for better positioning
-        const headerOffset = 100;
-        const scrollPosition = absoluteElementTop - headerOffset;
+        const element = document.getElementById(id);
         
-        // Scroll with smooth behavior
-        window.scrollTo({
-          top: scrollPosition,
-          behavior: "smooth"
-        });
-      } else {
-        console.error(`Could not find element with ID: ${targetId} even after delay`);
-      }
-    }, 600); // Use an even longer timeout to ensure everything is rendered properly
+        if (element) {
+          console.log(`Found element with ID ${id}, scrolling to it`);
+          
+          const rect = element.getBoundingClientRect();
+          const absoluteElementTop = rect.top + window.scrollY;
+          
+          const headerOffset = 100;
+          const scrollPosition = absoluteElementTop - headerOffset;
+          
+          window.scrollTo({
+            top: scrollPosition,
+            behavior: "smooth"
+          });
+        } else {
+          console.error(`Could not find element with ID: ${id}`);
+        }
+      }, 300);
+    }
   };
 
   return (
