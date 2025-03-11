@@ -66,7 +66,7 @@ const Hero = () => {
       {/* Hero content */}
       <div className="container mx-auto max-w-6xl animate-fade-in px-6 md:px-12 relative z-10 mt-16 md:mt-24 lg:mt-32">
         <h1 className="font-display text-3xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight mb-4 text-white">
-          CINEMATIC INNOVATION. <br />
+          VISUAL INNOVATION. <br />
           ELEVATED STORYTELLING.
         </h1>
         
