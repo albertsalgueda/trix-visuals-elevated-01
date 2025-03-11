@@ -110,3 +110,4 @@ const Web3 = () => {
 };
 
 export default Web3;
+
