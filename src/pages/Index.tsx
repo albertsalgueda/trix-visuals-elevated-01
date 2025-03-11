@@ -5,6 +5,7 @@ import Hero from "../components/Hero";
 
 // Lazy load non-critical components
 const Portfolio = lazy(() => import("../components/Portfolio"));
+const Web3 = lazy(() => import("../components/Web3"));
 const About = lazy(() => import("../components/About"));
 const Contact = lazy(() => import("../components/Contact"));
 const Footer = lazy(() => import("../components/Footer"));
@@ -59,6 +60,10 @@ const Index = () => {
         {/* Lazy load other sections with suspense fallbacks */}
         <Suspense fallback={<SectionLoader />}>
           <Portfolio />
+        </Suspense>
+        
+        <Suspense fallback={<SectionLoader />}>
+          <Web3 />
         </Suspense>
         
         <Suspense fallback={<SectionLoader />}>
