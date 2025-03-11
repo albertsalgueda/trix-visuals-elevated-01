@@ -33,70 +33,75 @@ const Navbar = () => {
   const scrollToSection = (id: string) => {
     setIsOpen(false);
     
-    // Handle Web3 section differently to ensure proper scrolling
     if (id === "web3Section") {
-      console.log("Attempting to scroll to Web3 section");
+      // Start polling for the Web3 heading
+      let attempts = 0;
+      const maxAttempts = 50; // 5 seconds total (50 * 100ms)
       
-      setTimeout(() => {
-        // Target the specific div that contains the "EXPANDING THE BOUNDARIES" title
-        const element = document.querySelector("#web3Section .container h2");
+      const findAndScrollToWeb3 = () => {
+        const heading = document.querySelector("#web3Section h2");
         
-        if (element) {
-          console.log("Found Web3 heading element, scrolling to it");
-          
-          // Get element position
-          const rect = element.getBoundingClientRect();
-          const absoluteElementTop = rect.top + window.scrollY;
-          
-          // Account for header height and add additional offset for better positioning
+        if (heading) {
+          // Found the heading, calculate position and scroll
+          const rect = heading.getBoundingClientRect();
+          const absoluteTop = rect.top + window.scrollY;
           const headerOffset = 130;
-          const scrollPosition = absoluteElementTop - headerOffset;
           
-          // Scroll with smooth behavior
           window.scrollTo({
-            top: scrollPosition,
+            top: absoluteTop - headerOffset,
             behavior: "smooth"
           });
+          return true;
+        }
+        
+        attempts++;
+        if (attempts < maxAttempts) {
+          // Try again in 100ms
+          setTimeout(findAndScrollToWeb3, 100);
         } else {
-          console.error("Could not find Web3 heading element");
-          
-          // Fallback to section ID if heading not found
-          const sectionElement = document.getElementById("web3Section");
-          if (sectionElement) {
-            const rect = sectionElement.getBoundingClientRect();
-            const absoluteElementTop = rect.top + window.scrollY;
+          // Fallback to section if heading not found after all attempts
+          const section = document.getElementById("web3Section");
+          if (section) {
+            const rect = section.getBoundingClientRect();
+            const absoluteTop = rect.top + window.scrollY;
             const headerOffset = 100;
-            const scrollPosition = absoluteElementTop - headerOffset;
             
             window.scrollTo({
-              top: scrollPosition,
+              top: absoluteTop - headerOffset,
               behavior: "smooth"
             });
           }
         }
-      }, 300);
+      };
+      
+      // Initial scroll to roughly the right area
+      const section = document.getElementById("web3Section");
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        const absoluteTop = rect.top + window.scrollY;
+        const headerOffset = 100;
+        
+        window.scrollTo({
+          top: absoluteTop - headerOffset,
+          behavior: "smooth"
+        });
+      }
+      
+      // Start polling for the heading
+      setTimeout(findAndScrollToWeb3, 100);
     } else {
-      // Handle all other sections with the existing logic
+      // Handle other sections normally
       setTimeout(() => {
-        console.log(`Attempting to scroll to section with ID: ${id}`);
-        
         const element = document.getElementById(id);
-        
         if (element) {
-          console.log(`Found element with ID ${id}, scrolling to it`);
-          
           const rect = element.getBoundingClientRect();
           const absoluteElementTop = rect.top + window.scrollY;
-          
           const headerOffset = 100;
-          const scrollPosition = absoluteElementTop - headerOffset;
           
           window.scrollTo({
-            top: scrollPosition,
+            top: absoluteElementTop - headerOffset,
             behavior: "smooth"
           });
-        } else {
-          console.error(`Could not find element with ID: ${id}`);
         }
       }, 300);
     }

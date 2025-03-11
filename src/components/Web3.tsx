@@ -1,14 +1,16 @@
+
 import React from "react";
 import { ExternalLink, Youtube, Link } from "lucide-react";
-import VideoPreview from "./VideoPreview";
 
 const Web3 = () => {
   return (
     <section id="web3Section" className="py-24 animate-on-scroll bg-black">
-      <div id="web3Content" className="container mx-auto px-6 md:px-12">
+      <div className="container mx-auto px-6 md:px-12">
         <div className="mb-12">
           <span className="text-sm uppercase tracking-widest text-white/60 mb-2 inline-block">Web3</span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white">EXPANDING THE BOUNDARIES</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white" data-section-title="web3">
+            EXPANDING THE BOUNDARIES
+          </h2>
           <p className="mt-4 text-lg max-w-3xl text-white/80">
             TRIX is pioneering the next frontier of entertainment through groundbreaking Web3 integrations, 
             metaverse experiences, and blockchain innovations that bridge the gap between digital and physical realms.
