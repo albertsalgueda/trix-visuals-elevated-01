@@ -66,7 +66,7 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center space-x-8">
           {[
             { id: "works", label: "videos" },
-            { id: "web3", label: "web3" }, 
+            { id: "web3Section", label: "web3" }, 
             { id: "about", label: "about" }, 
             { id: "contact", label: "contact" }
           ].map((item) => (
@@ -115,7 +115,7 @@ const Navbar = () => {
             <nav className="flex flex-col items-center space-y-8">
               {[
                 { id: "works", label: "videos" },
-                { id: "web3", label: "web3" },
+                { id: "web3Section", label: "web3" },
                 { id: "about", label: "about" },
                 { id: "contact", label: "contact" }
               ].map((item) => (
